@@ -38,7 +38,7 @@ export default function Onboarding() {
     setSending(true);
     setError("");
     try {
-      await submitForm(`Onboarding - ${form.business}`, {
+      await submitForm("onboarding", {
         Name: form.name,
         Email: form.email,
         Phone: form.phone,

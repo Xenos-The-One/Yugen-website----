@@ -19,7 +19,7 @@ export function ContactForm() {
     setSending(true);
     setError("");
     try {
-      await submitForm(`Website inquiry - ${form.business || form.name}`, {
+      await submitForm("contact", {
         Name: form.name,
         Email: form.email,
         Phone: form.phone,

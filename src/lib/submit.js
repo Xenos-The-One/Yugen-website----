@@ -1,21 +1,12 @@
-import { site } from '@/content/site'
-
-// Emails the form to site.formRecipient through FormSubmit's AJAX endpoint; throws if it isn't delivered.
-export async function submitForm(subject, fields) {
-  const payload = Object.fromEntries(
-    Object.entries(fields).map(([k, v]) => [k, Array.isArray(v) ? v.join(', ') : v || '-']),
-  )
-  const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(site.formRecipient)}`, {
+// Posts a form to the site's own /api/contact function, which emails it via Resend.
+export async function submitForm(form, fields) {
+  const res = await fetch('/api/contact', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({
-      ...payload,
-      _subject: subject,
-      _template: 'table',
-      _captcha: 'false',
-      _replyto: fields.Email,
-    }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ form, fields }),
   })
-  const data = await res.json().catch(() => ({}))
-  if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || `Form failed (${res.status})`)
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    throw new Error(data.error || `Form failed (${res.status})`)
+  }
 }
