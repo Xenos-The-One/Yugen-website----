@@ -13,8 +13,9 @@ export const site = {
   // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
   // Empty shows an email fallback.
   bookingUrl: '',
-  // Where the contact and onboarding forms post (Formspree-style JSON endpoint). Empty opens an email instead.
-  formEndpoint: '',
+  // Contact and onboarding form submissions are emailed here via FormSubmit (formsubmit.co).
+  // The first submission sends an activation email to this address; click the link once to start receiving.
+  formRecipient: 'hello@yugensystem.com',
   social: { twitter: '#', instagram: '#' },
 }
 

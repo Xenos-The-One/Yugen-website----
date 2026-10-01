@@ -1,4 +1,4 @@
-import { CalendarDays, Mail, Video } from 'lucide-react'
+import { CalendarDays, Send, Video } from 'lucide-react'
 import { site } from '@/content/site'
 
 // Only the full appointment-schedule URL can be iframed; short calendar.app.google links refuse framing.
@@ -30,7 +30,7 @@ export function BookingPanel({ frameClassName = '' }) {
       <p className="text-white/60 text-lg max-w-md">
         {url
           ? "Pick a time that works for you. You'll get a Google Meet link in your calendar invite."
-          : "Email us with a little about your business and we'll send a Google Meet invite within one business day."}
+          : "Send us a quick message with a little about your business and we'll send a Google Meet invite within one business day."}
       </p>
       {url ? (
         <a
@@ -43,10 +43,10 @@ export function BookingPanel({ frameClassName = '' }) {
         </a>
       ) : (
         <a
-          href={`mailto:${site.email}?subject=${encodeURIComponent('Strategy call')}`}
+          href="/contact"
           className="inline-flex items-center gap-2 rounded-full bg-white text-black font-bold px-10 h-16 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all"
         >
-          <Mail className="w-5 h-5" /> Email {site.email}
+          <Send className="w-5 h-5" /> Send Us a Message
         </a>
       )}
     </div>

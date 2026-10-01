@@ -1,18 +1,21 @@
 import { site } from '@/content/site'
 
-// Sends form data to site.formEndpoint (Formspree-style JSON endpoint) or, if none is set, opens an email.
+// Emails the form to site.formRecipient through FormSubmit's AJAX endpoint; throws if it isn't delivered.
 export async function submitForm(subject, fields) {
-  if (site.formEndpoint) {
-    const res = await fetch(site.formEndpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ _subject: subject, ...fields }),
-    })
-    if (!res.ok) throw new Error(`Form endpoint returned ${res.status}`)
-    return
-  }
-  const body = Object.entries(fields)
-    .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v || '-'}`)
-    .join('\n')
-  window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  const payload = Object.fromEntries(
+    Object.entries(fields).map(([k, v]) => [k, Array.isArray(v) ? v.join(', ') : v || '-']),
+  )
+  const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(site.formRecipient)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      ...payload,
+      _subject: subject,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: fields.Email,
+    }),
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || `Form failed (${res.status})`)
 }
