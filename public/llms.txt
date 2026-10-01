@@ -1,0 +1,18 @@
+# Yugen Systems
+
+> Yugen Systems is a growth agency that helps businesses get found on Google and AI search engines, turn visitors into leads, and book those leads automatically. Services are offered individually or as one connected system, month to month.
+
+## Services
+- [AI SEO](https://yugensystems.com/services/ai-seo): Generative engine optimization so ChatGPT, Perplexity, Gemini and Google AI Overviews cite and recommend the business.
+- [SEO](https://yugensystems.com/services/seo): Technical, on-page and local SEO, including Google Business Profile.
+- [Content Creation](https://yugensystems.com/services/content): AI-assisted, human-edited blogs, service pages, social and email content.
+- [Automated Lead Systems](https://yugensystems.com/services/lead-systems): AI website chat, missed-call text back, SMS/email follow-up, review requests and auto-booking.
+- [Website Generation](https://yugensystems.com/services/websites): Fast, conversion-focused websites with SEO and lead capture built in.
+- [Paid Ads](https://yugensystems.com/services/ads): Google, Meta and Local Services Ads tracked to booked appointments.
+- [Marketing Strategy](https://yugensystems.com/services/marketing): Full-funnel planning, email/SMS campaigns, social and unified reporting.
+
+## Company
+- [About](https://yugensystems.com/about)
+- [How It Works](https://yugensystems.com/how-it-works)
+- [Pricing](https://yugensystems.com/pricing)
+- [Contact](https://yugensystems.com/contact)
