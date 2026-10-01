@@ -1,7 +1,8 @@
 import { FadeInEase, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { ArrowRight, CheckCircle2, Quote, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, Quote, Star } from "lucide-react";
+import { byline, testimonials } from "@/content/testimonials";
 
 export default function Testimonials() {
   const e = useMotionValue(0),
@@ -10,63 +11,7 @@ export default function Testimonials() {
     const { left: l, top: c } = o.getBoundingClientRect();
     (e.set(s - l), t.set(i - c));
   }
-  const r = [
-    {
-      name: "Affan Mahmood",
-      role: "HVAC Owner",
-      quote:
-        "Yugen didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
-      rating: 5,
-    },
-    {
-      name: "Kelsey Olso",
-      role: "Plumbing Contractor",
-      quote: "Everything looks professional now. Customers mention the site all the time.",
-      rating: 5,
-    },
-    {
-      name: "Joann Marquez",
-      role: "Roofing Specialist",
-      quote: "Leads get answered fast and nothing slips through the cracks anymore.",
-      rating: 5,
-    },
-    {
-      name: "Ashvin Raveendran",
-      role: "Electrician",
-      quote: "No fluff, no BS. Just clean execution and real results.",
-      rating: 5,
-    },
-    {
-      name: "Philip Almayda",
-      role: "General Contractor",
-      quote: "Worth every dollar. Paid for itself quicker than expected.",
-      rating: 5,
-    },
-    {
-      name: "Nadia Qamar",
-      role: "Cleaning Services",
-      quote: "Built for contractors, not tech people. Easy and effective.",
-      rating: 5,
-    },
-    {
-      name: "Marcus T.",
-      role: "Landscaping Pro",
-      quote: "The missed call text back feature alone paid for the entire system in the first week. Unbelievable.",
-      rating: 5,
-    },
-    {
-      name: "Sarah Jenkins",
-      role: "Remodeling",
-      quote: "We finally have a system that automatically gets us 5-star reviews. It's completely hands-off.",
-      rating: 5,
-    },
-    {
-      name: "David Chen",
-      role: "HVAC Tech",
-      quote: "I was skeptical about AI, but the web chat books appointments while I'm sleeping.",
-      rating: 5,
-    },
-  ];
+  const r = testimonials;
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
       <Seo title="Testimonials" description="Real results from real Yugen Systems clients." path="/testimonials" />
@@ -116,7 +61,7 @@ export default function Testimonials() {
                     <div className="relative z-10 flex-1 flex flex-col">
                       <div className="flex justify-between items-start mb-6">
                         <div className="flex gap-1 text-primary group-hover:scale-110 origin-left transition-transform duration-300">
-                          {[...Array(o.rating)].map((i, l) => (
+                          {[...Array(5)].map((i, l) => (
                             <Star
                               className="w-5 h-5 fill-current drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]"
                               key={l}
@@ -139,7 +84,10 @@ export default function Testimonials() {
                             {o.name}
                             <CheckCircle2 className="w-4 h-4 text-green-400" />
                           </div>
-                          <div className="text-sm text-white/50">{o.role}</div>
+                          <div className="text-sm text-white/50 flex items-center gap-1">
+                            {o.location && <MapPin className="w-3.5 h-3.5 text-primary" />}
+                            {byline(o)}
+                          </div>
                         </div>
                       </div>
                     </div>

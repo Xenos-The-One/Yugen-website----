@@ -1,7 +1,9 @@
 import { Box, Droplet, Hammer, Home as HomeIcon, Layers, LayoutGrid, Leaf, Paintbrush } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { LogoMark } from "@/components/Logo";
-import { Seo, orgJsonLd } from "@/components/Seo";
+import { TestimonialRow } from "@/components/TestimonialMarquee";
+import { testimonials } from "@/content/testimonials";
+import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
 import { Counter, FadeIn, Tilt } from "@/components/motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -24,6 +26,29 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+const homeFaqs = [
+  {
+    q: "When will I start seeing results?",
+    a: "This depends on a few things — how long you've been in business, what other advertising you're running, the quality of your work, and whether you actually commit to using the system. Yugen isn't a magic switch. We build the foundation that helps you convert more of the demand you already have. Results come from consistent execution, not just paying a monthly fee.",
+  },
+  {
+    q: "Why is your pricing so affordable?",
+    a: "Our goal isn't short-term contracts — it's long-term relationships. We price Yugen so growing businesses can afford to stay for years. If we don't overcharge and consistently deliver value, there's no reason for you to leave.",
+  },
+  {
+    q: "What happens if I decide to cancel?",
+    a: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you.",
+  },
+  {
+    q: "Will people actually find my business on Google?",
+    a: "Yes. Every Yugen website is built with proper on-site SEO, speed optimization, SSL security, and Google best practices. Rankings depend on factors like competition, how long your site has been live, and your reviews — but unlike many agencies, we continue optimizing instead of setting it up and disappearing.",
+  },
+  {
+    q: "Why invest in a system if word-of-mouth already works?",
+    a: "Referrals are great, but they're unpredictable. A system gives you consistency. It helps new customers find you, makes it easier for existing clients to refer you, and ensures you don't lose opportunities just because you were busy or missed a call.",
+  },
+];
+
 export default function Home() {
   const e = useNavigate(),
     t = useMotionValue(0),
@@ -38,7 +63,7 @@ export default function Home() {
         title="Yugen Systems | AI SEO, Websites & Automated Lead Systems"
         description="Yugen Systems gets you found on Google and in AI search, captures every lead, follows up instantly, and books them onto your calendar."
         path="/"
-        jsonLd={orgJsonLd}
+        jsonLd={[orgJsonLd, faqJsonLd(homeFaqs.map((f) => ({ q: f.q, a: f.a })))]}
       />
       <section
         onMouseMove={r}
@@ -325,145 +350,8 @@ export default function Home() {
           </FadeIn>
         </div>
         <div className="flex flex-col gap-8 relative z-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
-          <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused] gap-8 w-max">
-            {[
-              {
-                name: "Affan Mahmood",
-                quote:
-                  "Yugen didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
-              },
-              {
-                name: "Kelsey Olso",
-                quote: "Everything looks professional now. Customers mention the site all the time.",
-              },
-              {
-                name: "Joann Marquez",
-                quote: "Leads get answered fast and nothing slips through the cracks anymore.",
-              },
-              {
-                name: "Ashvin Raveendran",
-                quote: "No fluff, no BS. Just clean execution and real results.",
-              },
-              {
-                name: "Philip Almayda",
-                quote: "Worth every dollar. Paid for itself quicker than expected.",
-              },
-              {
-                name: "Nadia Qamar",
-                quote: "Built for contractors, not tech people. Easy and effective.",
-              },
-              {
-                name: "Affan Mahmood",
-                quote:
-                  "Yugen didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
-              },
-              {
-                name: "Kelsey Olso",
-                quote: "Everything looks professional now. Customers mention the site all the time.",
-              },
-              {
-                name: "Joann Marquez",
-                quote: "Leads get answered fast and nothing slips through the cracks anymore.",
-              },
-            ].map((o, s) => (
-              <div
-                className="w-[450px] bg-[#0a0a0c]/80 backdrop-blur-xl p-8 rounded-3xl shrink-0 border border-white/5 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_hsl(var(--primary)/0.2)] group whitespace-normal relative overflow-hidden"
-                key={s}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="flex gap-1 text-primary mb-6 group-hover:scale-110 origin-left transition-transform duration-300">
-                    {[...Array(5)].map((i, l) => (
-                      <Star className="w-5 h-5 fill-current drop-shadow-[0_0_5px_hsl(var(--primary)/0.5)]" key={l} />
-                    ))}
-                  </div>
-                  <p className="text-xl text-white/90 mb-8 font-medium leading-relaxed">
-                    {'"'}
-                    {o.quote}
-                    {'"'}
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl border border-primary/30 shadow-[0_0_15px_hsl(var(--primary)/0.2)]">
-                      {o.name[0]}
-                    </div>
-                    <div>
-                      <div className="font-bold text-white">{o.name}</div>
-                      <div className="text-sm text-primary">Verified Client</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused] gap-8 w-max [animation-direction:reverse] ml-[-50vw]">
-            {[
-              {
-                name: "Ashvin Raveendran",
-                quote: "No fluff, no BS. Just clean execution and real results.",
-              },
-              {
-                name: "Philip Almayda",
-                quote: "Worth every dollar. Paid for itself quicker than expected.",
-              },
-              {
-                name: "Nadia Qamar",
-                quote: "Built for contractors, not tech people. Easy and effective.",
-              },
-              {
-                name: "Affan Mahmood",
-                quote:
-                  "Yugen didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
-              },
-              {
-                name: "Kelsey Olso",
-                quote: "Everything looks professional now. Customers mention the site all the time.",
-              },
-              {
-                name: "Joann Marquez",
-                quote: "Leads get answered fast and nothing slips through the cracks anymore.",
-              },
-              {
-                name: "Ashvin Raveendran",
-                quote: "No fluff, no BS. Just clean execution and real results.",
-              },
-              {
-                name: "Philip Almayda",
-                quote: "Worth every dollar. Paid for itself quicker than expected.",
-              },
-              {
-                name: "Nadia Qamar",
-                quote: "Built for contractors, not tech people. Easy and effective.",
-              },
-            ].map((o, s) => (
-              <div
-                className="w-[450px] bg-[#0a0a0c]/80 backdrop-blur-xl p-8 rounded-3xl shrink-0 border border-white/5 hover:border-[#06b6d4]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(6,182,212,0.2)] group whitespace-normal relative overflow-hidden"
-                key={s}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#06b6d4]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="flex gap-1 text-[#06b6d4] mb-6 group-hover:scale-110 origin-left transition-transform duration-300">
-                    {[...Array(5)].map((i, l) => (
-                      <Star className="w-5 h-5 fill-current drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]" key={l} />
-                    ))}
-                  </div>
-                  <p className="text-xl text-white/90 mb-8 font-medium leading-relaxed">
-                    {'"'}
-                    {o.quote}
-                    {'"'}
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#06b6d4]/20 flex items-center justify-center text-[#06b6d4] font-bold text-xl border border-[#06b6d4]/30 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                      {o.name[0]}
-                    </div>
-                    <div>
-                      <div className="font-bold text-white">{o.name}</div>
-                      <div className="text-sm text-[#06b6d4]">Verified Client</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialRow items={testimonials.slice(0, 5)} />
+          <TestimonialRow items={testimonials.slice(5)} tone="cyan" reverse />
         </div>
       </section>
       <div className="relative bg-[#030303] py-24 sm:py-32 md:py-40 overflow-hidden border-t border-white/5">
@@ -1255,38 +1143,17 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:col-span-7">
-              <Accordion type="single" collapsible={!0} className="w-full space-y-6">
-                {[
-                  {
-                    q: "When will I start seeing results?",
-                    a: "This depends on a few things — how long you've been in business, what other advertising you're running, the quality of your work, and whether you actually commit to using the system. Yugen isn't a magic switch. We build the foundation that helps you convert more of the demand you already have. Results come from consistent execution, not just paying a monthly fee.",
-                  },
-                  {
-                    q: "Why is your pricing so affordable?",
-                    a: "Our goal isn't short-term contracts — it's long-term relationships. We price Yugen so growing businesses can afford to stay for years. If we don't overcharge and consistently deliver value, there's no reason for you to leave.",
-                  },
-                  {
-                    q: "What happens if I decide to cancel?",
-                    a: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you.",
-                  },
-                  {
-                    q: "Will people actually find my business on Google?",
-                    a: "Yes. Every Yugen website is built with proper on-site SEO, speed optimization, SSL security, and Google best practices. Rankings depend on factors like competition, how long your site has been live, and your reviews — but unlike many agencies, we continue optimizing instead of setting it up and disappearing.",
-                  },
-                  {
-                    q: "Why invest in a system if word-of-mouth already works?",
-                    a: "Referrals are great, but they're unpredictable. A system gives you consistency. It helps new customers find you, makes it easier for existing clients to refer you, and ensures you don't lose opportunities just because you were busy or missed a call.",
-                  },
-                ].map((o, s) => (
+              <Accordion type="multiple" defaultValue={["item-0", "item-1"]} className="w-full space-y-6">
+                {homeFaqs.map((o, s) => (
                   <FadeIn delay={s * 0.1} key={s}>
                     <AccordionItem
                       value={`item-${s}`}
                       className="glass-card border border-white/10 rounded-3xl px-8 overflow-hidden data-[state=open]:border-primary/50 data-[state=open]:bg-primary/5 transition-all duration-500 bg-[#0a0a0c]/80"
                     >
-                      <AccordionTrigger className="hover:no-underline text-left font-bold py-8 text-xl group">
+                      <AccordionTrigger className="hover:no-underline text-left font-bold py-8 text-xl group gap-4 [&>svg]:h-6 [&>svg]:w-6 [&>svg]:text-primary">
                         <span className="group-hover:text-primary transition-colors text-white/90">{o.q}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="text-white/60 pb-8 leading-relaxed text-lg">{o.a}</AccordionContent>
+                      <AccordionContent forceMount className="text-white/70 pb-8 leading-relaxed text-lg">{o.a}</AccordionContent>
                     </AccordionItem>
                   </FadeIn>
                 ))}
