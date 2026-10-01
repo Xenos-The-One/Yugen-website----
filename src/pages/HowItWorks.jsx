@@ -202,7 +202,7 @@ export default function HowItWorks() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">system.</span>
             </h2>
             <Button
-              onClick={() => n("/onboarding")}
+              onClick={() => n("/contact")}
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 h-16 rounded-full shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_60px_hsl(var(--primary)/0.6)] transition-all hover:scale-105"
             >

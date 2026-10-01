@@ -1,9 +1,10 @@
 import { FadeInEase } from "@/components/motion";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { MessageSquare, Sparkles } from "lucide-react";
+import { MessageSquare, Sparkles, Video } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { site } from "@/content/site";
-import { BookingPanel } from "@/components/BookingPanel";
+import { ContactForm } from "@/components/ContactForm";
+import { BookingDialog } from "@/components/BookingDialog";
 
 export default function Contact() {
   const e = useMotionValue(0),
@@ -77,6 +78,20 @@ export default function Contact() {
                     </div>
                   </FadeInEase>
                 ))}
+                <FadeInEase delay={0.3}>
+                  <BookingDialog>
+                    <button className="w-full text-left glass-card p-6 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-300 flex items-start gap-6 group bg-[#0a0a0c]/50">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] shrink-0">
+                        <Video className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">Prefer to Talk?</h3>
+                        <p className="text-white/50 text-sm mb-2">Book a free 30-minute strategy call on Google Meet.</p>
+                        <span className="text-white font-medium group-hover:text-primary transition-colors">Book a call →</span>
+                      </div>
+                    </button>
+                  </BookingDialog>
+                </FadeInEase>
               </div>
             </div>
             <div className="lg:col-span-7">
@@ -84,7 +99,7 @@ export default function Contact() {
                 <div className="relative rounded-[2.5rem] overflow-hidden p-1 bg-gradient-to-br from-primary/30 via-[#06b6d4]/30 to-transparent shadow-[0_0_80px_hsl(var(--primary)/0.15)] group">
                   <div className="absolute inset-0 bg-[#0a0a0c]/95 backdrop-blur-3xl" />
                   <div className="relative p-2 md:p-4">
-                    <BookingPanel frameClassName="h-[80vh] sm:h-[85vh] rounded-2xl md:rounded-3xl" />
+                    <ContactForm />
                   </div>
                 </div>
               </FadeInEase>

@@ -13,10 +13,22 @@ export const site = {
   // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
   // Empty shows an email fallback.
   bookingUrl: '',
-  // Where the onboarding form posts (Formspree / webhook). Empty falls back to email.
-  onboardingEndpoint: '',
+  // Where the contact and onboarding forms post (Formspree-style JSON endpoint). Empty opens an email instead.
+  formEndpoint: '',
   social: { twitter: '#', instagram: '#' },
 }
+
+// Options for "what do you need help with" on the contact and onboarding forms.
+export const serviceOptions = [
+  'Website',
+  'SEO & AI Search',
+  'Content Creation',
+  'Paid Ads',
+  'Marketing & Campaigns',
+  'Lead Automation',
+  'Review System',
+  'Not sure yet',
+]
 
 export const products = [
   { label: 'AI SEO', path: '/products/ai-seo' },

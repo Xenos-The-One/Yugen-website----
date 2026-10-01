@@ -373,10 +373,6 @@ export default function Layout() {
                       label: "Contact Us",
                       path: "/contact",
                     },
-                    {
-                      label: "Client Onboarding",
-                      path: "/onboarding",
-                    },
                   ].map((l, c) => (
                     <li key={c}>
                       <a href={l.path} className="hover:text-white transition-colors flex items-center gap-3 group">

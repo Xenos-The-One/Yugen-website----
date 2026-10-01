@@ -2,7 +2,7 @@ import { BookingDialog } from "@/components/BookingDialog";
 import { FadeIn, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, DollarSign } from "lucide-react";
+import { ArrowRight, CheckCircle2, DollarSign, Globe, Megaphone, PenTool, Star, Target, Zap } from "lucide-react";
 
 // From the Yugen "AI SEO + Content Growth Packages" price sheet.
 const plans = [
@@ -55,12 +55,22 @@ const addOns = [
   { name: "Newsletter", price: "$750", billing: "per batch" },
 ];
 
+
+const services = [
+  { icon: Globe, title: "Websites", desc: "Fast, mobile-first websites built to capture leads, with hosting and updates handled.", href: "/products/functional-website" },
+  { icon: Target, title: "Paid Ads", desc: "Google and Meta campaigns tracked all the way to booked calls.", href: "/products/paid-ads" },
+  { icon: Megaphone, title: "Marketing & Campaigns", desc: "Email and SMS campaigns, seasonal offers and database reactivation.", href: "/products/one-click-marketing" },
+  { icon: Zap, title: "Lead Automation", desc: "AI website chat, missed call text back, follow-up sequences and a unified inbox.", href: "/products/missed-call-text-back" },
+  { icon: Star, title: "5 Star Review System", desc: "Automatic review requests after every job, plus review monitoring.", href: "/products/review-system" },
+  { icon: PenTool, title: "Content Creation", desc: "Blogs, newsletters and page updates on their own, without a full SEO package.", href: "/products/content-creation" },
+];
+
 export default function Pricing() {
   return (
     <div className="bg-[#030303] min-h-screen pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40">
       <Seo
         title="Pricing"
-        description="Yugen Systems AI SEO + Content Growth packages: Growth at $2,497/mo and Authority at $3,497/mo, plus optional content add-ons."
+        description="Yugen Systems pricing: AI SEO + Content packages from $2,497/mo, plus websites, paid ads, marketing, lead automation and review systems quoted to fit your business."
         path="/pricing"
       />
       <section className="px-4 relative overflow-hidden">
@@ -73,15 +83,20 @@ export default function Pricing() {
                 {" Transparent Pricing"}
               </div>
               <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
-                {"Two Simple "}
+                {"Simple, Honest "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4] animate-gradient-x">
-                  Packages
+                  Pricing
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-                Increase visibility across Google and AI-powered search while publishing consistent, high-quality
-                content. No hidden fees.
+                Start with a monthly growth package, pick individual services, or combine both. No hidden fees.
               </p>
+            </div>
+          </FadeIn>
+          <FadeIn>
+            <div className="text-center mb-10">
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-3">AI SEO + Content Packages</h3>
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">Get found across Google and AI-powered search while publishing consistent, high-quality content.</p>
             </div>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
@@ -142,6 +157,39 @@ export default function Pricing() {
               </div>
             </div>
           </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="text-center mt-28 mb-12">
+              <h3 className="text-3xl md:text-5xl font-black text-white mb-4">
+                {"Websites, Ads "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">& More</span>
+              </h3>
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                Every one of these is available on its own or alongside a package. Each is quoted to fit your business,
+                so tell us what you need and we'll send a clear price.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {services.map((sv, i) => (
+              <FadeIn delay={0.1 + i * 0.05} key={sv.title} className="h-full">
+                <div className="h-full glass-card rounded-[2rem] p-8 border border-white/10 hover:border-primary/50 transition-all duration-500 bg-[#0a0a0c]/90 flex flex-col group">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                    <sv.icon className="w-7 h-7" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-2">{sv.title}</h4>
+                  <p className="text-white/60 leading-relaxed mb-8 flex-1">{sv.desc}</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white text-black font-bold px-6 h-11 hover:bg-white/90 transition-colors">
+                      Get a Quote
+                    </a>
+                    <a href={sv.href} className="text-sm font-bold text-white/60 hover:text-primary transition-colors inline-flex items-center gap-1">
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
     </div>

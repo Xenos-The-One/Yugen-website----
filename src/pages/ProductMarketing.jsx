@@ -49,7 +49,7 @@ export default function ProductMarketing() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
-                onClick={() => e("/onboarding")}
+                onClick={() => e("/contact")}
                 size="lg"
                 className="bg-yellow-600 hover:bg-yellow-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(202,138,4,0.4)] hover:shadow-[0_0_50px_rgba(202,138,4,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               >
