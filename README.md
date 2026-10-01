@@ -11,10 +11,10 @@ Blog articles live in `src/content/blog.js`; products list in `src/content/site.
 
 ## Form email
 
-`api/contact.js` is a Vercel function that emails contact and onboarding submissions through Resend. Set these in the Vercel project:
+`api/contact.js` is a Vercel function that emails contact and onboarding submissions from your own Google Workspace mailbox over SMTP (no third-party email service). Set these in the Vercel project:
 
-- `RESEND_API_KEY` (required)
-- `RESEND_FROM` — sender on a domain verified in Resend (default `Yugen Systems Website <forms@yugensystem.com>`)
-- `CONTACT_TO` — recipient (default `thailer@yugensystem.com`)
+- `SMTP_USER`: `thailer@yugensystem.com`
+- `SMTP_PASS`: a Google app password for that account (myaccount.google.com/apppasswords; needs 2-Step Verification)
+- `CONTACT_TO` (optional): recipient, defaults to `SMTP_USER`
 
 `npm run dev` does not run `/api`; use `vercel dev` to test forms locally.
