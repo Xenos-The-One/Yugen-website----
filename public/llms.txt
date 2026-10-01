@@ -1,18 +1,24 @@
 # Yugen Systems
 
-> Yugen Systems is a growth agency that helps businesses get found on Google and AI search engines, turn visitors into leads, and book those leads automatically. Services are offered individually or as one connected system, month to month.
+> Yugen Systems builds AI-powered growth systems that get businesses found on Google and in AI search (ChatGPT, Gemini, Perplexity), capture every lead, follow up automatically, and book them onto the calendar.
 
-## Services
-- [AI SEO](https://yugensystems.com/services/ai-seo): Generative engine optimization so ChatGPT, Perplexity, Gemini and Google AI Overviews cite and recommend the business.
-- [SEO](https://yugensystems.com/services/seo): Technical, on-page and local SEO, including Google Business Profile.
-- [Content Creation](https://yugensystems.com/services/content): AI-assisted, human-edited blogs, service pages, social and email content.
-- [Automated Lead Systems](https://yugensystems.com/services/lead-systems): AI website chat, missed-call text back, SMS/email follow-up, review requests and auto-booking.
-- [Website Generation](https://yugensystems.com/services/websites): Fast, conversion-focused websites with SEO and lead capture built in.
-- [Paid Ads](https://yugensystems.com/services/ads): Google, Meta and Local Services Ads tracked to booked appointments.
-- [Marketing Strategy](https://yugensystems.com/services/marketing): Full-funnel planning, email/SMS campaigns, social and unified reporting.
+## Products
+- [AI SEO](https://yugensystem.com/products/ai-seo): AI search optimization, ChatGPT / Gemini / Perplexity visibility, schema and entity optimization.
+- [SEO & Local SEO](https://yugensystem.com/products/local-seo): Google Business Profile optimization, citations, keyword-optimized service pages, map pack rankings.
+- [Content Creation](https://yugensystem.com/products/content-creation): Monthly SEO blogs, newsletters, content strategy and existing page optimization.
+- [Functional Website](https://yugensystem.com/products/functional-website): Fast, mobile-first websites with lead capture, chat and on-page SEO.
+- [Paid Ads](https://yugensystem.com/products/paid-ads): Google and Meta campaigns tracked to booked calls.
+- [All-in-One Inbox](https://yugensystem.com/products/all-in-one-inbox): SMS, email, web chat, Facebook and Instagram in one inbox.
+- [Missed Call Text Back](https://yugensystem.com/products/missed-call-text-back): Automatic text reply to every missed call.
+- [One Click Marketing](https://yugensystem.com/products/one-click-marketing): Email and SMS campaigns to past customers.
+- [5 Star Review System](https://yugensystem.com/products/review-system): Automated Google review requests.
+
+## Pricing
+- [Pricing](https://yugensystem.com/pricing): Growth $2,497/mo and Authority $3,497/mo, each plus $1,000 setup; add-ons for extra blogs, long-form articles and newsletters.
 
 ## Company
-- [About](https://yugensystems.com/about)
-- [How It Works](https://yugensystems.com/how-it-works)
-- [Pricing](https://yugensystems.com/pricing)
-- [Contact](https://yugensystems.com/contact)
+- [About](https://yugensystem.com/about)
+- [How It Works](https://yugensystem.com/how-it-works)
+- [Testimonials](https://yugensystem.com/testimonials)
+- [Blog](https://yugensystem.com/blog)
+- [Contact](https://yugensystem.com/contact)

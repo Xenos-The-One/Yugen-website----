@@ -3,7 +3,7 @@ import { readdirSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const SITE = 'https://yugensystems.com'
+const SITE = 'https://yugensystem.com'
 const dist = fileURLToPath(new URL('../dist', import.meta.url))
 
 const walk = (dir) =>
@@ -15,7 +15,7 @@ const walk = (dir) =>
 const paths = walk(dist)
   .map((f) => '/' + relative(dist, f).split(sep).join('/').replace(/\.html$/, '').replace(/(^|\/)index$/, ''))
   .map((p) => (p.length > 1 ? p.replace(/\/$/, '') : '/'))
-  .filter((p) => p !== '/404')
+  .filter((p) => p !== '/404' && p !== '/onboarding')
   .sort()
 
 const today = new Date().toISOString().slice(0, 10)

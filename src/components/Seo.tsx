@@ -33,7 +33,8 @@ export const orgJsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
-  description: site.tagline,
+  description:
+    'Yugen Systems builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
   knowsAbout: ['AI SEO', 'Search Engine Optimization', 'Content Marketing', 'Lead Generation', 'Web Design', 'Paid Advertising'],
 }
 

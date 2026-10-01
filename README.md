@@ -1,8 +1,10 @@
 # Yugen Systems — marketing site
 
-Vite + React + Tailwind v4, prerendered to static HTML per route with `vite-react-ssg`.
+Rebuilt from the takeoffdigitalsolutions.com codebase (same layout, sections, animations and page set), rebranded for Yugen.
+Vite + React + Tailwind v3 (shadcn theme), prerendered to static HTML per route with `vite-react-ssg`.
 
 - `npm run dev` — dev server on http://localhost:5179
 - `npm run build` — static site in `dist/` (+ `sitemap.xml`)
 
-Copy lives in `src/content/` (site settings, services, home sections). Placeholders to replace before launch are in `src/content/site.ts` (email, phone, booking URL, form endpoint, hero stats, testimonials) and `src/pages/Pricing.tsx` (prices).
+Config to fill in before launch: `src/content/site.js` (booking widget URL, onboarding form endpoint, social links).
+Blog articles live in `src/content/blog.js`; products list in `src/content/site.js`.

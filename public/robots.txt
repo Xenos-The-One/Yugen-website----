@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /onboarding
 
-Sitemap: https://yugensystems.com/sitemap.xml
+Sitemap: https://yugensystem.com/sitemap.xml
