@@ -3,6 +3,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MessageSquare, Sparkles } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { site } from "@/content/site";
+import { BookingPanel } from "@/components/BookingPanel";
 
 export default function Contact() {
   const e = useMotionValue(0),
@@ -83,29 +84,7 @@ export default function Contact() {
                 <div className="relative rounded-[2.5rem] overflow-hidden p-1 bg-gradient-to-br from-primary/30 via-[#06b6d4]/30 to-transparent shadow-[0_0_80px_hsl(var(--primary)/0.15)] group">
                   <div className="absolute inset-0 bg-[#0a0a0c]/95 backdrop-blur-3xl" />
                   <div className="relative p-2 md:p-4">
-                    {site.bookingWidgetUrl ? (
-                      <div className="w-full h-[80vh] sm:h-[85vh] overflow-y-auto overflow-x-hidden relative bg-white rounded-2xl md:rounded-3xl">
-                        <iframe
-                          title="Booking Calendar"
-                          src={site.bookingWidgetUrl}
-                          style={{ width: "100%", height: "100%", minHeight: "1200px", border: "none" }}
-                          scrolling="yes"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full min-h-[420px] rounded-2xl md:rounded-3xl flex flex-col items-center justify-center text-center gap-6 p-10">
-                        <h2 className="text-3xl md:text-4xl font-black text-white">Book a Strategy Call</h2>
-                        <p className="text-white/60 text-lg max-w-md">
-                          Email us with a little about your business and we'll get a time on the calendar within one business day.
-                        </p>
-                        <a
-                          href={`mailto:${site.email}?subject=${encodeURIComponent("Strategy call")}`}
-                          className="inline-flex items-center gap-2 rounded-full bg-white text-black font-bold px-10 h-16 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all"
-                        >
-                          Email {site.email}
-                        </a>
-                      </div>
-                    )}
+                    <BookingPanel frameClassName="h-[80vh] sm:h-[85vh] rounded-2xl md:rounded-3xl" />
                   </div>
                 </div>
               </FadeInEase>

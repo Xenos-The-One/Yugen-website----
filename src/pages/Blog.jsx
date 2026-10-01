@@ -45,7 +45,7 @@ export default function Blog() {
             }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-8 shadow-[0_0_20px_hsl(var(--primary)/0.2)]"
           >
-            Contractor Resources
+            Growth Resources
           </motion.div>
           <motion.h1
             initial={{
@@ -64,7 +64,7 @@ export default function Blog() {
           >
             {"The "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">
-              Contractor's
+              Yugen
             </span>
             {" Blog"}
           </motion.h1>
@@ -83,8 +83,8 @@ export default function Blog() {
             }}
             className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
-            No fluff. No BS. Just practical answers to the 30 most common questions contractors ask about websites, lead
-            generation, and growing their business.
+            No fluff. Practical answers about SEO, AI search, content, websites and lead generation for businesses that
+            want to grow.
           </motion.p>
         </div>
       </section>
@@ -232,7 +232,7 @@ export default function Blog() {
               </span>
             </h2>
             <p className="text-xl text-white/70 mb-8 leading-relaxed">
-              Book a free strategy call and see exactly how our AI systems can capture more leads and book more jobs for
+              Book a free strategy call and see exactly how our AI systems can get you found and win more customers for
               your business.
             </p>
             <Button

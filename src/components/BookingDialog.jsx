@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
-import { Mail } from 'lucide-react'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from './ui/dialog'
-import { site } from '../content/site'
+import { BookingPanel } from './BookingPanel'
 
 export function BookingDialog({ children }) {
   return (
@@ -15,34 +13,12 @@ export function BookingDialog({ children }) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#06b6d4]">Strategy Call</span>
           </DialogTitle>
           <DialogDescription className="text-white/60 text-sm sm:text-lg relative z-10 max-w-xl">
-            Select a time below to see exactly how we can automate your lead follow-up and help you win more business.
+            Select a time below to see exactly how we can get you found, capture more leads and help you win more business.
           </DialogDescription>
         </div>
-        {site.bookingWidgetUrl ? (
-          <div className="w-full h-[80vh] sm:h-[85vh] relative bg-white overflow-y-auto overflow-x-hidden rounded-b-2xl">
-            <iframe
-              title="Booking Calendar"
-              src={site.bookingWidgetUrl}
-              style={{ width: '100%', height: '100%', minHeight: '1200px', border: 'none' }}
-              scrolling="yes"
-            />
-          </div>
-        ) : (
-          <div className="p-8 sm:p-12 flex flex-col items-center text-center gap-5">
-            <p className="text-white/70 text-lg max-w-md">
-              Online booking is coming soon. Email us and we'll get a time on the calendar within one business day.
-            </p>
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-white text-black font-bold px-8 h-14 hover:bg-white/90 transition-colors"
-            >
-              <Mail className="w-5 h-5" /> {site.email}
-            </a>
-            <Link to="/contact" className="text-primary font-bold hover:underline">
-              Or visit our contact page
-            </Link>
-          </div>
-        )}
+        <div className="overflow-y-auto">
+          <BookingPanel frameClassName="h-[70vh] rounded-b-2xl" />
+        </div>
       </DialogContent>
     </Dialog>
   )

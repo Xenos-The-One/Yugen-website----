@@ -136,7 +136,12 @@ export default function BlogPost() {
       <section className="py-16 px-4 bg-[#0a0a0c]">
         <div className="container mx-auto max-w-3xl">
           <article className="prose prose-invert prose-lg max-w-none">
-            {n.content.map((i, l) => (
+            {n.content.map((i, l) =>
+              i.startsWith("## ") ? (
+                <h2 className="text-2xl md:text-3xl font-black text-white mt-12 mb-5 tracking-tight" key={l}>
+                  {i.slice(3)}
+                </h2>
+              ) : (
               <motion.p
                 initial={{
                   opacity: 0,
@@ -159,7 +164,8 @@ export default function BlogPost() {
               >
                 {i}
               </motion.p>
-            ))}
+              ),
+            )}
           </article>
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-wrap gap-2">
@@ -198,7 +204,7 @@ export default function BlogPost() {
                   </span>
                 </h2>
                 <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                  Book a free strategy call and see exactly how we can capture more leads and book more jobs for your
+                  Book a free strategy call and see exactly how we can get you found and win more customers for your
                   business.
                 </p>
                 <Button

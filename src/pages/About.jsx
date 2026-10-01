@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { Logo } from "@/components/Logo";
+import { site } from "@/content/site";
+import { Logo, LogoMark } from "@/components/Logo";
 import { Seo } from "@/components/Seo";
 import { SlideIn } from "@/components/motion";
 import { Button } from "@/components/ui/button";
@@ -16,40 +17,7 @@ export default function About() {
     }),
     r = useTransform(n, [0, 1], ["0%", "30%"]),
     o = useTransform(n, [0, 1], [1, 0]),
-    s = [
-      {
-        name: "Karyll Noel",
-        role: "Co-Founder",
-      },
-      {
-        name: "John Moreno",
-        role: "Co-Founder",
-      },
-      {
-        name: "Myra Moreno",
-        role: "CFO",
-      },
-      {
-        name: "Affan Mahmood",
-        role: "Senior Marketing Director",
-      },
-      {
-        name: "Ethan Blake",
-        role: "Growth Strategist",
-      },
-      {
-        name: "Sofia Ramirez",
-        role: "Client Success",
-      },
-      {
-        name: "Marcus Lee",
-        role: "Systems Engineer",
-      },
-      {
-        name: "Nina Patel",
-        role: "Brand Operations",
-      },
-    ],
+    s = [{ name: site.founder.name, role: "Founder" }],
     i = [
       {
         num: "01",
@@ -93,17 +61,31 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full" />
               <div className="relative glass-card rounded-[2.5rem] p-3 border-t-white/10 border-l-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                <motion.img
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                  }}
-                  src="https://storage.googleapis.com/msgsndr/4THvA6UQDJIYz0LaHUk3/media/6957082ce4125a0d767efcf5.jpg"
-                  alt="Yugen Systems founders working together"
-                  className="rounded-[2rem] w-full object-cover aspect-[4/5] lg:aspect-square relative z-10"
-                />
+                {site.founder.photo ? (
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.7 }}
+                    src={site.founder.photo}
+                    alt={`${site.founder.name}, founder of Yugen Systems`}
+                    className="rounded-[2rem] w-full object-cover aspect-[4/5] lg:aspect-square relative z-10"
+                  />
+                ) : (
+                  <div className="rounded-[2rem] w-full aspect-[4/5] lg:aspect-square relative z-10 overflow-hidden bg-[#0a0a0c] flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808014_1px,transparent_1px),linear-gradient(to_bottom,#80808014_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_60%,transparent_100%)]" />
+                    <div className="absolute w-2/3 h-2/3 bg-primary/25 blur-[80px] rounded-full animate-pulse-glow" />
+                    <motion.div
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative"
+                    >
+                      <LogoMark className="w-52 h-52 md:w-64 md:h-64 drop-shadow-[0_0_40px_rgba(45,212,191,0.45)]" />
+                    </motion.div>
+                    <div className="absolute bottom-8 left-0 right-0 text-center">
+                      <div className="text-xs font-bold uppercase tracking-[0.4em] text-white/40">Yūgen Systems</div>
+                    </div>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2.5rem] z-20" />
               </div>
             </motion.div>
@@ -119,10 +101,10 @@ export default function About() {
               </SlideIn>
               <div className="space-y-6 text-xl text-muted-foreground">
                 <SlideIn delay={0.1} direction="left">
-                  <p className="leading-relaxed">{`Yugen Systems was built because we were tired of seeing contractors get burned by agencies that sell "branding" but don't know how to book a job.`}</p>
+                  <p className="leading-relaxed">{`Yugen Systems was built because too many businesses get burned by agencies that sell "branding" but can't show what it does for revenue.`}</p>
                 </SlideIn>
                 <SlideIn delay={0.2} direction="left">
-                  <p className="leading-relaxed">{`We don't believe in "pretty websites" that sit there doing nothing. We build systems that answer leads instantly, follow up automatically, and turn interest into booked jobs.`}</p>
+                  <p className="leading-relaxed">{`We don't believe in "pretty websites" that sit there doing nothing. We build systems that get you found on Google and in AI search, answer leads instantly, follow up automatically, and turn interest into booked business.`}</p>
                 </SlideIn>
                 <SlideIn delay={0.3} direction="left">
                   <p className="leading-relaxed">
@@ -206,12 +188,12 @@ export default function About() {
             <div className="text-center mb-20">
               <h2 className="text-5xl md:text-6xl font-bold mb-6">
                 {"Meet the "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">Team</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">Founder</span>
               </h2>
-              <p className="text-2xl text-muted-foreground">Leadership and operators driving the Yugen system.</p>
+              <p className="text-2xl text-muted-foreground">Yugen is founder-led. You work directly with the person building your system.</p>
             </div>
           </SlideIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 max-w-sm mx-auto gap-8">
             {s.map((l, c) => (
               <SlideIn delay={c * 0.1} key={c}>
                 <motion.div

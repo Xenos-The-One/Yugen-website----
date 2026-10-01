@@ -4,8 +4,15 @@ export const site = {
   email: 'hello@yugensystem.com',
   // Client portal (AI SEO dashboard). Swap for the custom domain once it's live.
   loginUrl: 'https://ai-seo-main.vercel.app/',
-  // Booking widget embed URL (e.g. a GoHighLevel calendar). Empty shows an email fallback.
-  bookingWidgetUrl: '',
+  founder: {
+    name: 'Thailer Somerville',
+    // Drop a photo in public/ (e.g. /founder.jpg) and set it here; empty shows the brand visual.
+    photo: '',
+  },
+  // Google Calendar appointment schedule (Google Meet). Paste the booking page link
+  // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
+  // Empty shows an email fallback.
+  bookingUrl: '',
   // Where the onboarding form posts (Formspree / webhook). Empty falls back to email.
   onboardingEndpoint: '',
   social: { twitter: '#', instagram: '#' },
