@@ -33,6 +33,10 @@ export const orgJsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
+  ...(site.phone && { telephone: site.phone }),
+  founder: { '@type': 'Person', name: site.founder.name },
+  areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
+  ...(Object.values(site.social).some(Boolean) && { sameAs: Object.values(site.social).filter(Boolean) }),
   description:
     'Yugen Systems builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
   knowsAbout: ['AI SEO', 'Search Engine Optimization', 'Content Marketing', 'Lead Generation', 'Web Design', 'Paid Advertising'],

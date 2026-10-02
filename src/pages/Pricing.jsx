@@ -82,12 +82,12 @@ export default function Pricing() {
                 <DollarSign className="w-4 h-4" />
                 {" Transparent Pricing"}
               </div>
-              <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
+              <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
                 {"Simple, Honest "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4] animate-gradient-x">
                   Pricing
                 </span>
-              </h2>
+              </h1>
               <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Start with a monthly growth package, pick individual services, or combine both. No hidden fees.
               </p>

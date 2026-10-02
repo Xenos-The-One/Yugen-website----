@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Textarea } from "@/components/ui/form";
-import { serviceOptions, site } from "@/content/site";
+import { auditOption, serviceOptions, site } from "@/content/site";
 import { submitForm } from "@/lib/submit";
 
 const field = "bg-white/[0.03] border-white/10 h-12";
@@ -13,6 +13,10 @@ export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("interest") === "audit") setForm((f) => ({ ...f, interest: auditOption }));
+  }, []);
 
   async function submit(e) {
     e.preventDefault();
@@ -80,12 +84,17 @@ export function ContactForm() {
           className="flex h-12 w-full rounded-md border border-white/10 bg-white/[0.03] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <option value="" className="bg-[#0a0a0c]">Select one</option>
-          {serviceOptions.map((o) => (
+          {[auditOption, ...serviceOptions].map((o) => (
             <option key={o} value={o} className="bg-[#0a0a0c]">
               {o}
             </option>
           ))}
         </select>
+        {form.interest === auditOption && (
+          <p className="text-sm text-primary/90">
+            Put your website in the message. Within 2 business days we'll send you a short video showing how you appear on Google and in ChatGPT, Gemini and Perplexity, and what we'd fix first.
+          </p>
+        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="c-message" className="text-white/80">Message *</Label>

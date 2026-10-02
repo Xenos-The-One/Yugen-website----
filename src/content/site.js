@@ -13,8 +13,16 @@ export const site = {
   // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
   // Empty shows an email fallback.
   bookingUrl: '',
-  social: { twitter: '#', instagram: '#' },
+  // Profile URLs; empty hides the icon in the footer.
+  social: { twitter: '', instagram: '' },
+  // Business phone, e.g. '(416) 555-0123'. Empty hides it everywhere.
+  phone: '',
+  // Cities listed as the service area in structured data.
+  areaServed: ['Toronto', 'Vaughan', 'Mississauga', 'Brampton', 'Markham', 'Richmond Hill', 'Oakville', 'Pickering'],
 }
+
+// Free audit offer: /contact?interest=audit preselects it on the contact form.
+export const auditOption = 'Free AI visibility audit'
 
 // Options for "what do you need help with" on the contact and onboarding forms.
 export const serviceOptions = [

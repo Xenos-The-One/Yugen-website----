@@ -36,7 +36,7 @@ export default [
       "## 2. Other sources talk about them",
       "Your own website saying you're great only goes so far. Reviews, local news, partner websites, directories and community pages that mention your business give AI tools independent confirmation that you're real and respected.",
       "## 3. Their content answers questions directly",
-      "Assistants build answers from passages that clearly respond to a question. A page that says 'We offer same-day water heater replacement across Tampa, usually within four hours of your call' is far more quotable than one that says 'We pride ourselves on excellence.'",
+      "Assistants build answers from passages that clearly respond to a question. A page that says 'We offer same-day water heater replacement across Vaughan and Richmond Hill, usually within four hours of your call' is far more quotable than one that says 'We pride ourselves on excellence.'",
       "## 4. Their reviews say specific things",
       "Volume and rating matter, but so does what reviewers write. Reviews that mention specific services, locations and outcomes give AI tools the details they need to match you to a specific request.",
       "## 5. Their website is technically readable",

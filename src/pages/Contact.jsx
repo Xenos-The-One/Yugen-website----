@@ -1,6 +1,6 @@
 import { FadeInEase } from "@/components/motion";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { MessageSquare, Sparkles, Video } from "lucide-react";
+import { MessageSquare, Phone, Sparkles, Video } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { site } from "@/content/site";
 import { ContactForm } from "@/components/ContactForm";
@@ -56,10 +56,18 @@ export default function Contact() {
                   {
                     icon: <MessageSquare className="w-6 h-6" />,
                     title: "Email Us",
-                    desc: "Our friendly team is here to help.",
+                    desc: "We reply within one business day.",
                     info: site.email,
+                    href: `mailto:${site.email}`,
                   },
-                ].map((r, o) => (
+                  site.phone && {
+                    icon: <Phone className="w-6 h-6" />,
+                    title: "Call or Text",
+                    desc: "Talk to the founder directly.",
+                    info: site.phone,
+                    href: `tel:${site.phone.replace(/[^+d]/g, "")}`,
+                  },
+                ].filter(Boolean).map((r, o) => (
                   <FadeInEase delay={0.2 + o * 0.1} key={o}>
                     <div className="glass-card p-6 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-300 flex items-start gap-6 group bg-[#0a0a0c]/50">
                       <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] shrink-0">
@@ -69,7 +77,7 @@ export default function Contact() {
                         <h3 className="text-xl font-bold text-white mb-1">{r.title}</h3>
                         <p className="text-white/50 text-sm mb-2">{r.desc}</p>
                         <a
-                          href={`mailto:${r.info}`}
+                          href={r.href}
                           className="text-white font-medium hover:text-primary transition-colors"
                         >
                           {r.info}

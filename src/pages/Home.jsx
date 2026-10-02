@@ -2,7 +2,7 @@ import { Box, Droplet, Hammer, Home as HomeIcon, Layers, LayoutGrid, Leaf, Paint
 import { Logo } from "@/components/Logo";
 import { LogoMark } from "@/components/Logo";
 import { TestimonialRow } from "@/components/TestimonialMarquee";
-import { testimonials } from "@/content/testimonials";
+import { testimonialSource, testimonials } from "@/content/testimonials";
 import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
 import { Counter, FadeIn, Tilt } from "@/components/motion";
@@ -32,12 +32,12 @@ const homeFaqs = [
     a: "This depends on a few things — how long you've been in business, what other advertising you're running, the quality of your work, and whether you actually commit to using the system. Yugen isn't a magic switch. We build the foundation that helps you convert more of the demand you already have. Results come from consistent execution, not just paying a monthly fee.",
   },
   {
-    q: "Why is your pricing so affordable?",
-    a: "Our goal isn't short-term contracts — it's long-term relationships. We price Yugen so growing businesses can afford to stay for years. If we don't overcharge and consistently deliver value, there's no reason for you to leave.",
+    q: "Why month-to-month instead of a contract?",
+    a: "Because we'd rather earn your business every month than lock you in. If the system is bringing you booked jobs, you'll stay. If it isn't, you shouldn't have to. That keeps us focused on results, not renewals.",
   },
   {
     q: "What happens if I decide to cancel?",
-    a: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you.",
+    a: "You keep what's yours: your domain, your website, your Google Business Profile, your reviews and all the content we wrote for you. The only things that switch off are the automation tools we run for you, like the inbox, missed call text back and AI chat.",
   },
   {
     q: "Will people actually find my business on Google?",
@@ -110,10 +110,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,#000_70%,transparent_100%)]" />
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-center">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -135,9 +132,7 @@ export default function Home() {
           <h1 className="text-center text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-white mb-5 md:mb-8 max-w-4xl">
             <span className="block overflow-hidden pb-1">
               <motion.span
-                initial={{
-                  y: "110%",
-                }}
+                initial={false}
                 animate={{
                   y: 0,
                 }}
@@ -153,9 +148,7 @@ export default function Home() {
             </span>
             <span className="block overflow-hidden pb-1">
               <motion.span
-                initial={{
-                  y: "110%",
-                }}
+                initial={false}
                 animate={{
                   y: 0,
                 }}
@@ -173,9 +166,7 @@ export default function Home() {
             </span>
             <span className="block overflow-hidden pb-1">
               <motion.span
-                initial={{
-                  y: "110%",
-                }}
+                initial={false}
                 animate={{
                   y: 0,
                 }}
@@ -191,10 +182,7 @@ export default function Home() {
             </span>
           </h1>
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -206,10 +194,7 @@ export default function Home() {
             className="text-base sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto text-center mb-8 md:mb-12 leading-relaxed font-light px-4"
           >{`Stop paying for "exposure" and "branding" that doesn't pay the bills. We build AI-powered systems that get you found on Google and in AI search, capture every lead, text them back instantly, and book them onto your calendar. You do the work, we handle the chase.`}</motion.p>
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -233,19 +218,16 @@ export default function Home() {
               </Button>
             </BookingDialog>
             <Button
-              onClick={() => e("/how-it-works")}
+              onClick={() => e("/contact?interest=audit")}
               size="lg"
               variant="outline"
               className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
             >
-              See How It Works
+              Free AI Visibility Audit
             </Button>
           </motion.div>
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -283,9 +265,7 @@ export default function Home() {
           </motion.div>
         </div>
         <motion.div
-          initial={{
-            opacity: 0,
-          }}
+          initial={false}
           animate={{
             opacity: 1,
           }}
@@ -342,10 +322,11 @@ export default function Home() {
               <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white">
                 {"Clients Trust "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4] animate-gradient-x">
-                  Yugen
+                  Our Work
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-white/80 font-light">{`They don't hire us for "marketing." They hire us to plug the leaks in their business.`}</p>
+              <p className="mt-4 text-sm md:text-base text-white/50">{testimonialSource}</p>
             </div>
           </FadeIn>
         </div>
@@ -1086,7 +1067,7 @@ export default function Home() {
                 {
                   icon: <Shield className="w-6 h-6" />,
                   title: "No Long-Term Contracts",
-                  desc: "If the system is working, you'll stay. If it's not, you shouldn't. Simple as that.",
+                  desc: "If the system is working, you'll stay. If it's not, you shouldn't. And if you leave, your website, domain, reviews and content stay with you.",
                 },
               ].map((o, s) => (
                 <FadeIn delay={s * 0.1} key={s}>

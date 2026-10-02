@@ -167,7 +167,7 @@ export default [
       "## Reviews and AI answers",
       "When an AI assistant recommends a business, it often explains why: 'known for fast response times' or 'highly rated for kitchen remodels.' Those descriptions come from what people have written about you.",
       "## Detail beats volume",
-      "A review that says 'Great service!' helps a little. One that says 'They replaced our water heater in Tampa the same afternoon and explained every step' helps a lot. Gently encourage customers to mention what you did and where.",
+      "A review that says 'Great service!' helps a little. One that says 'They replaced our water heater in Mississauga the same afternoon and explained every step' helps a lot. Gently encourage customers to mention what you did and where.",
       "## Make asking automatic",
       "Most happy customers will leave a review if you make it easy and ask at the right moment. An automatic text with a direct review link right after the job is complete works far better than remembering to ask.",
       "## Respond to every review",

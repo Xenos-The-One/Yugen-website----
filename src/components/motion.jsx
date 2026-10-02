@@ -52,22 +52,21 @@ export const Tilt = ({ children, className = '' }) => (
 export const Counter = ({ from, to, duration, prefix = '', suffix = '' }) => {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
+  const format = (v) => `${prefix}${Math.round(v).toLocaleString()}${suffix}`
+  // Prerendered HTML carries the final value for crawlers; the browser rewinds to `from` and counts up.
+  useEffect(() => {
+    if (ref.current) ref.current.textContent = format(from)
+  }, [])
   useEffect(() => {
     if (!inView) return
     const controls = animate(from, to, {
       duration,
       ease: 'easeOut',
       onUpdate(v) {
-        if (ref.current) ref.current.textContent = `${prefix}${Math.round(v).toLocaleString()}${suffix}`
+        if (ref.current) ref.current.textContent = format(v)
       },
     })
     return () => controls.stop()
   }, [from, to, duration, inView, prefix, suffix])
-  return (
-    <span ref={ref}>
-      {prefix}
-      {from.toLocaleString()}
-      {suffix}
-    </span>
-  )
+  return <span ref={ref}>{format(to)}</span>
 }

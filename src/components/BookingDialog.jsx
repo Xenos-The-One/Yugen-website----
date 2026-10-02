@@ -1,5 +1,6 @@
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from './ui/dialog'
 import { BookingPanel } from './BookingPanel'
+import { site } from '@/content/site'
 
 export function BookingDialog({ children }) {
   return (
@@ -13,7 +14,9 @@ export function BookingDialog({ children }) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#06b6d4]">Strategy Call</span>
           </DialogTitle>
           <DialogDescription className="text-white/60 text-sm sm:text-lg relative z-10 max-w-xl">
-            Select a time below to see exactly how we can get you found, capture more leads and help you win more business.
+            {site.bookingUrl
+              ? 'Select a time below to see exactly how we can get you found, capture more leads and help you win more business.'
+              : "Tell us a little about your business and we'll set up a time to show you exactly how we can get you found, capture more leads and win more business."}
           </DialogDescription>
         </div>
         <div className="overflow-y-auto">
