@@ -90,6 +90,12 @@ export default function Layout() {
                     >
                       Industries
                     </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className="cursor-pointer hover:bg-white/10 focus:bg-white/10 rounded-lg transition-colors py-3"
+                      onClick={() => s("/areas")}
+                    >
+                      Service Areas
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <a
@@ -204,6 +210,12 @@ export default function Layout() {
                         className="text-white/80 hover:text-white font-bold text-lg transition-colors"
                       >
                         Industries
+                      </a>
+                      <a
+                        href="/areas"
+                        className="text-white/80 hover:text-white font-bold text-lg transition-colors"
+                      >
+                        Service Areas
                       </a>
                     </div>
                   </div>
