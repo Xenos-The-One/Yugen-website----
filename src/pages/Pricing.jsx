@@ -153,7 +153,7 @@ export default function Pricing() {
     <div className="bg-[#030303] min-h-screen pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40">
       <Seo
         title="Pricing"
-        description="Yugen Systems pricing: Lead & Review System $297/mo, basic websites $300–$500, AI SEO + Content packages from $2,497/mo, plus custom websites, paid ads, marketing and content quoted to fit your business."
+        description="Raindrop Marketing pricing: Lead & Review System $297/mo, basic websites $300–$500, AI SEO + Content packages from $2,497/mo, plus custom websites, paid ads, marketing and content quoted to fit your business."
         path="/pricing"
       />
       <section className="px-4 relative overflow-hidden">

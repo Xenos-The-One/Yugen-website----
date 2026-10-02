@@ -61,7 +61,7 @@ export default function Onboarding() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative">
       <Head>
-        <title>Onboarding | Yugen Systems</title>
+        <title>Onboarding | Raindrop Marketing</title>
         <meta name="robots" content="noindex" />
       </Head>
       <div className="absolute top-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none" />
@@ -171,7 +171,7 @@ export default function Onboarding() {
                       <a href="/legal" className="text-primary underline hover:text-primary/80">
                         terms & conditions
                       </a>
-                      {" and to receive emails and texts from Yugen Systems about my project."}
+                      {" and to receive emails and texts from Raindrop Marketing about my project."}
                     </Label>
                   </div>
                   <Button

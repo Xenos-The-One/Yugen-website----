@@ -14,7 +14,7 @@ export default function Testimonials() {
   const r = testimonials;
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Testimonials" description="Real results from contractors who use the systems Yugen builds, from clients of our sister company Takeoff Digital Solutions." path="/testimonials" />
+      <Seo title="Testimonials" description="Real results from contractors who use the systems Raindrop builds, from clients of our sister company Takeoff Digital Solutions." path="/testimonials" />
       <section
         onMouseMove={n}
         className="pt-40 pb-20 px-4 text-center relative overflow-hidden bg-[#030303] min-h-[60vh] flex items-center justify-center"

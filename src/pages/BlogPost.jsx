@@ -44,7 +44,7 @@ export default function BlogPost() {
       },
       publisher: {
         "@type": "Organization",
-        name: "Yugen Systems",
+        name: "Raindrop Marketing",
       },
       keywords: n.keywords.join(", "),
       articleSection: n.category,

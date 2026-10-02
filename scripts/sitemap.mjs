@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const SITE = 'https://yugensystem.com'
+const SITE = 'https://www.raindropmarketing.ca'
 const dist = fileURLToPath(new URL('../dist', import.meta.url))
 
 const walk = (dir) =>

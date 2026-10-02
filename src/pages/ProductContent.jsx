@@ -15,7 +15,7 @@ export default function ProductContent() {
     <>
       <Seo
         title="Content Creation"
-        description="SEO blogs, newsletters and page optimizations every month. Yugen keeps your site publishing consistently so you rank on Google and in AI search."
+        description="SEO blogs, newsletters and page optimizations every month. Raindrop keeps your site publishing consistently so you rank on Google and in AI search."
         path="/products/content-creation"
       />
       <ProductPage

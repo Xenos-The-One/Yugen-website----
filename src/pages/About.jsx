@@ -47,7 +47,7 @@ export default function About() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="About" description="Yugen Systems is built by operators, not marketing gurus. We build AI-powered systems that get businesses found and booked." path="/about" />
+      <Seo title="About" description="Raindrop Marketing is built by operators, not marketing gurus. We build AI-powered systems that get businesses found and booked." path="/about" />
       <section ref={t} className="pt-40 pb-24 px-4 relative overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-primary/10 blur-[150px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -66,7 +66,7 @@ export default function About() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.7 }}
                     src={site.founder.photo}
-                    alt={`${site.founder.name}, founder of Yugen Systems`}
+                    alt={`${site.founder.name}, founder of Raindrop Marketing`}
                     className="rounded-[2rem] w-full object-cover aspect-[4/5] lg:aspect-square relative z-10"
                   />
                 ) : (
@@ -82,7 +82,7 @@ export default function About() {
                       <LogoMark className="w-52 h-52 md:w-64 md:h-64 drop-shadow-[0_0_40px_rgba(45,212,191,0.45)]" />
                     </motion.div>
                     <div className="absolute bottom-8 left-0 right-0 text-center">
-                      <div className="text-xs font-bold uppercase tracking-[0.4em] text-white/40">Yūgen Systems</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.4em] text-white/40">Raindrop Marketing</div>
                     </div>
                   </div>
                 )}
@@ -101,7 +101,7 @@ export default function About() {
               </SlideIn>
               <div className="space-y-6 text-xl text-muted-foreground">
                 <SlideIn delay={0.1} direction="left">
-                  <p className="leading-relaxed">{`Yugen Systems was built because too many businesses get burned by agencies that sell "branding" but can't show what it does for revenue.`}</p>
+                  <p className="leading-relaxed">{`Raindrop Marketing was built because too many businesses get burned by agencies that sell "branding" but can't show what it does for revenue.`}</p>
                 </SlideIn>
                 <SlideIn delay={0.2} direction="left">
                   <p className="leading-relaxed">{`We don't believe in "pretty websites" that sit there doing nothing. We build systems that get you found on Google and in AI search, answer leads instantly, follow up automatically, and turn interest into booked business.`}</p>
@@ -190,7 +190,7 @@ export default function About() {
                 {"Meet the "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">Founder</span>
               </h2>
-              <p className="text-2xl text-muted-foreground">Yugen is founder-led. You work directly with the person building your system.</p>
+              <p className="text-2xl text-muted-foreground">Raindrop is founder-led. You work directly with the person building your system.</p>
             </div>
           </SlideIn>
           <div className="grid grid-cols-1 max-w-sm mx-auto gap-8">

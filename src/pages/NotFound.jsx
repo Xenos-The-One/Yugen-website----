@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <Head>
-        <title>Page not found | Yugen Systems</title>
+        <title>Page not found | Raindrop Marketing</title>
         <meta name="robots" content="noindex" />
       </Head>
       <div className="text-center">

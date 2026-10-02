@@ -15,7 +15,7 @@ export default function Contact() {
   }
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Contact" description="Talk to Yugen Systems about SEO, AI search, content, websites, ads and automated lead systems for your business." path="/contact" />
+      <Seo title="Contact" description="Talk to Raindrop Marketing about SEO, AI search, content, websites, ads and automated lead systems for your business." path="/contact" />
       <div onMouseMove={n} className="min-h-screen bg-[#030303] relative overflow-hidden pt-32 pb-20">
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-50 transition duration-300 z-0"

@@ -1,7 +1,7 @@
 export const site = {
-  name: 'Yugen Systems',
-  url: 'https://yugensystem.com',
-  email: 'hello@yugensystem.com',
+  name: 'Raindrop Marketing',
+  url: 'https://www.raindropmarketing.ca',
+  email: 'thailer@raindropmarketingcom.com',
   // Client portal (AI SEO dashboard). Swap for the custom domain once it's live.
   loginUrl: 'https://ai-seo-main.vercel.app/',
   founder: {

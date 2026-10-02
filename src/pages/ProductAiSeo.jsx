@@ -10,7 +10,7 @@ export default function ProductAiSeo() {
     <>
       <Seo
         title="AI SEO"
-        description="Get recommended by ChatGPT, Gemini and Perplexity. Yugen optimizes your brand, content and schema so AI search engines understand and cite your business."
+        description="Get recommended by ChatGPT, Gemini and Perplexity. Raindrop optimizes your brand, content and schema so AI search engines understand and cite your business."
         path="/products/ai-seo"
       />
       <ProductPage

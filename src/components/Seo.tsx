@@ -21,6 +21,7 @@ export function Seo({ title, description, path, jsonLd }: Props) {
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
+      <meta property="og:image" content={`${site.url}/og-image.png`} />
       <meta name="twitter:card" content="summary_large_image" />
       {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
     </Head>
@@ -38,7 +39,7 @@ export const orgJsonLd = {
   areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
   ...(Object.values(site.social).some(Boolean) && { sameAs: Object.values(site.social).filter(Boolean) }),
   description:
-    'Yugen Systems builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
+    'Raindrop Marketing builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
   knowsAbout: ['AI SEO', 'Search Engine Optimization', 'Content Marketing', 'Lead Generation', 'Web Design', 'Paid Advertising'],
 }
 

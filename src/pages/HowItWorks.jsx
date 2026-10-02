@@ -18,7 +18,7 @@ export default function HowItWorks() {
       {
         title: "Discovery & Demo",
         duration: "20 mins",
-        desc: "We answer your questions, show real systems, and walk through how Yugen actually works. No high-pressure sales, just finding out if we're a fit.",
+        desc: "We answer your questions, show real systems, and walk through how Raindrop actually works. No high-pressure sales, just finding out if we're a fit.",
         icon: <PhoneCall className="w-8 h-8 text-primary" />,
         align: "left",
       },
@@ -46,7 +46,7 @@ export default function HowItWorks() {
     ];
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden">
-      <Seo title="How It Works" description="From discovery call to launch: the four-step process Yugen Systems uses to build and run your growth system." path="/how-it-works" />
+      <Seo title="How It Works" description="From discovery call to launch: the four-step process Raindrop Marketing uses to build and run your growth system." path="/how-it-works" />
       <section className="pt-40 pb-20 px-4 text-center relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="container mx-auto max-w-4xl relative z-10">

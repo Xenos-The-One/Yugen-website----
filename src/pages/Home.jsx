@@ -29,7 +29,7 @@ import { useNavigate } from "react-router-dom";
 const homeFaqs = [
   {
     q: "When will I start seeing results?",
-    a: "This depends on a few things — how long you've been in business, what other advertising you're running, the quality of your work, and whether you actually commit to using the system. Yugen isn't a magic switch. We build the foundation that helps you convert more of the demand you already have. Results come from consistent execution, not just paying a monthly fee.",
+    a: "This depends on a few things — how long you've been in business, what other advertising you're running, the quality of your work, and whether you actually commit to using the system. Raindrop isn't a magic switch. We build the foundation that helps you convert more of the demand you already have. Results come from consistent execution, not just paying a monthly fee.",
   },
   {
     q: "Why month-to-month instead of a contract?",
@@ -41,7 +41,7 @@ const homeFaqs = [
   },
   {
     q: "Will people actually find my business on Google?",
-    a: "Yes. Every Yugen website is built with proper on-site SEO, speed optimization, SSL security, and Google best practices. Rankings depend on factors like competition, how long your site has been live, and your reviews — but unlike many agencies, we continue optimizing instead of setting it up and disappearing.",
+    a: "Yes. Every Raindrop website is built with proper on-site SEO, speed optimization, SSL security, and Google best practices. Rankings depend on factors like competition, how long your site has been live, and your reviews — but unlike many agencies, we continue optimizing instead of setting it up and disappearing.",
   },
   {
     q: "Why invest in a system if word-of-mouth already works?",
@@ -60,8 +60,8 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
       <Seo
-        title="Yugen Systems | AI SEO, Websites & Automated Lead Systems"
-        description="Yugen Systems gets you found on Google and in AI search, captures every lead, follows up instantly, and books them onto your calendar."
+        title="Raindrop Marketing | AI SEO, Websites & Automated Lead Systems"
+        description="Raindrop Marketing gets you found on Google and in AI search, captures every lead, follows up instantly, and books them onto your calendar."
         path="/"
         jsonLd={[orgJsonLd, faqJsonLd(homeFaqs.map((f) => ({ q: f.q, a: f.a })))]}
       />
@@ -262,6 +262,7 @@ export default function Home() {
                 <div className="text-xs md:text-sm text-white/50 font-medium">Average Rating</div>
               </div>
             </div>
+            <p className="mt-3 text-center text-xs md:text-sm text-white/40">Combined results for Takeoff Digital Solutions clients, our sister company.</p>
           </motion.div>
         </div>
         <motion.div
@@ -439,7 +440,7 @@ export default function Home() {
                       <div className="absolute -left-3 -top-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center border-4 border-[#0a0a0c] shadow-lg">
                         <Sparkles className="w-4 h-4 text-white" />
                       </div>
-                      <div className="text-xs text-primary mb-2 font-medium">Yugen Systems • Instant</div>
+                      <div className="text-xs text-primary mb-2 font-medium">Raindrop Marketing • Instant</div>
                       <div className="text-base text-white leading-relaxed">
                         Yes we do! We have a tech available in your area in 45 mins. Should I book them for you?
                       </div>
@@ -1027,7 +1028,7 @@ export default function Home() {
               <FadeIn>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-8 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
                   <Zap className="w-4 h-4" />
-                  {" The Yugen Advantage"}
+                  {" The Raindrop Advantage"}
                 </div>
                 <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white leading-tight">
                   {"Most Agencies "}

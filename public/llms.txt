@@ -1,24 +1,24 @@
-# Yugen Systems
+# Raindrop Marketing
 
-> Yugen Systems builds AI-powered growth systems that get businesses found on Google and in AI search (ChatGPT, Gemini, Perplexity), capture every lead, follow up automatically, and book them onto the calendar.
+> Raindrop Marketing builds AI-powered growth systems that get businesses found on Google and in AI search (ChatGPT, Gemini, Perplexity), capture every lead, follow up automatically, and book them onto the calendar.
 
 ## Products
-- [AI SEO](https://yugensystem.com/products/ai-seo): AI search optimization, ChatGPT / Gemini / Perplexity visibility, schema and entity optimization.
-- [SEO & Local SEO](https://yugensystem.com/products/local-seo): Google Business Profile optimization, citations, keyword-optimized service pages, map pack rankings.
-- [Content Creation](https://yugensystem.com/products/content-creation): Monthly SEO blogs, newsletters, content strategy and existing page optimization.
-- [Functional Website](https://yugensystem.com/products/functional-website): Fast, mobile-first websites with lead capture, chat and on-page SEO.
-- [Paid Ads](https://yugensystem.com/products/paid-ads): Google and Meta campaigns tracked to booked calls.
-- [All-in-One Inbox](https://yugensystem.com/products/all-in-one-inbox): SMS, email, web chat, Facebook and Instagram in one inbox.
-- [Missed Call Text Back](https://yugensystem.com/products/missed-call-text-back): Automatic text reply to every missed call.
-- [One Click Marketing](https://yugensystem.com/products/one-click-marketing): Email and SMS campaigns to past customers.
-- [5 Star Review System](https://yugensystem.com/products/review-system): Automated Google review requests.
+- [AI SEO](https://www.raindropmarketing.ca/products/ai-seo): AI search optimization, ChatGPT / Gemini / Perplexity visibility, schema and entity optimization.
+- [SEO & Local SEO](https://www.raindropmarketing.ca/products/local-seo): Google Business Profile optimization, citations, keyword-optimized service pages, map pack rankings.
+- [Content Creation](https://www.raindropmarketing.ca/products/content-creation): Monthly SEO blogs, newsletters, content strategy and existing page optimization.
+- [Functional Website](https://www.raindropmarketing.ca/products/functional-website): Fast, mobile-first websites with lead capture, chat and on-page SEO.
+- [Paid Ads](https://www.raindropmarketing.ca/products/paid-ads): Google and Meta campaigns tracked to booked calls.
+- [All-in-One Inbox](https://www.raindropmarketing.ca/products/all-in-one-inbox): SMS, email, web chat, Facebook and Instagram in one inbox.
+- [Missed Call Text Back](https://www.raindropmarketing.ca/products/missed-call-text-back): Automatic text reply to every missed call.
+- [One Click Marketing](https://www.raindropmarketing.ca/products/one-click-marketing): Email and SMS campaigns to past customers.
+- [5 Star Review System](https://www.raindropmarketing.ca/products/review-system): Automated Google review requests.
 
 ## Pricing
-- [Pricing](https://yugensystem.com/pricing): Lead & Review System $297/mo (AI chat, missed call text back, follow-ups, inbox, automated review and referral requests); Basic Website $300-$500 one-time; AI SEO + Content packages (Growth $2,497/mo, Authority $3,497/mo, each plus $1,000 setup); custom websites, paid ads, marketing campaigns and content creation quoted individually.
+- [Pricing](https://www.raindropmarketing.ca/pricing): Lead & Review System $297/mo (AI chat, missed call text back, follow-ups, inbox, automated review and referral requests); Basic Website $300-$500 one-time; AI SEO + Content packages (Growth $2,497/mo, Authority $3,497/mo, each plus $1,000 setup); custom websites, paid ads, marketing campaigns and content creation quoted individually.
 
 ## Company
-- [About](https://yugensystem.com/about)
-- [How It Works](https://yugensystem.com/how-it-works)
-- [Testimonials](https://yugensystem.com/testimonials)
-- [Blog](https://yugensystem.com/blog)
-- [Contact](https://yugensystem.com/contact)
+- [About](https://www.raindropmarketing.ca/about)
+- [How It Works](https://www.raindropmarketing.ca/how-it-works)
+- [Testimonials](https://www.raindropmarketing.ca/testimonials)
+- [Blog](https://www.raindropmarketing.ca/blog)
+- [Contact](https://www.raindropmarketing.ca/contact)

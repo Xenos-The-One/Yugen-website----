@@ -64,7 +64,7 @@ export default function Blog() {
           >
             {"The "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">
-              Yugen
+              Raindrop
             </span>
             {" Blog"}
           </motion.h1>

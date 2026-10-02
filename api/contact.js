@@ -1,6 +1,6 @@
 // Vercel serverless function: emails contact + onboarding form submissions from your own
 // Google Workspace mailbox over SMTP.
-// Env: SMTP_USER (e.g. thailer@yugensystem.com), SMTP_PASS (a Google app password),
+// Env: SMTP_USER (e.g. thailer@raindropmarketingcom.com), SMTP_PASS (a Google app password),
 // optional CONTACT_TO, SMTP_HOST, SMTP_PORT.
 import nodemailer from 'nodemailer'
 
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
 
   try {
     await transport.sendMail({
-      from: `"Yugen Systems Website" <${SMTP_USER}>`,
+      from: `"Raindrop Marketing Website" <${SMTP_USER}>`,
       to: process.env.CONTACT_TO || SMTP_USER,
       replyTo: email,
       subject: `${FORMS[form]} - ${who}`,

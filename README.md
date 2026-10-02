@@ -1,6 +1,6 @@
-# Yugen Systems — marketing site
+# Raindrop Marketing — marketing site
 
-Rebuilt from the takeoffdigitalsolutions.com codebase (same layout, sections, animations and page set), rebranded for Yugen.
+Rebuilt from the takeoffdigitalsolutions.com codebase (same layout, sections, animations and page set), rebranded for Raindrop.
 Vite + React + Tailwind v3 (shadcn theme), prerendered to static HTML per route with `vite-react-ssg`.
 
 - `npm run dev` — dev server on http://localhost:5179
@@ -13,7 +13,7 @@ Blog articles live in `src/content/blog.js`; products list in `src/content/site.
 
 `api/contact.js` is a Vercel function that emails contact and onboarding submissions from your own Google Workspace mailbox over SMTP (no third-party email service). Set these in the Vercel project:
 
-- `SMTP_USER`: `thailer@yugensystem.com`
+- `SMTP_USER`: `thailer@raindropmarketingcom.com`
 - `SMTP_PASS`: a Google app password for that account (myaccount.google.com/apppasswords; needs 2-Step Verification)
 - `CONTACT_TO` (optional): recipient, defaults to `SMTP_USER`
 
@@ -21,4 +21,4 @@ Blog articles live in `src/content/blog.js`; products list in `src/content/site.
 
 ## Deploys
 
-GitHub: https://github.com/Xenos-The-One/Yugen-website---- (private). The Vercel project `yugen-site` is connected to it: every push to `main` deploys to production (https://yugen-site-delta.vercel.app).
+GitHub: https://github.com/Xenos-The-One/Raindrop-website---- (private). The Vercel project `yugen-site` is connected to it: every push to `main` deploys to production (https://yugen-site-delta.vercel.app).

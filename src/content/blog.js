@@ -5,8 +5,8 @@ import { site } from './site'
 
 export const author = {
   name: site.founder.name,
-  role: 'Founder, Yugen Systems',
-  bio: `${site.founder.name} is the founder of Yugen Systems, helping businesses get found on Google and in AI search, and building the websites, content and automated lead systems that turn that visibility into booked customers.`,
+  role: 'Founder, Raindrop Marketing',
+  bio: `${site.founder.name} is the founder of Raindrop Marketing, helping businesses get found on Google and in AI search, and building the websites, content and automated lead systems that turn that visibility into booked customers.`,
 }
 
 export const categories = [
@@ -32,7 +32,7 @@ const readTime = (content) => {
 
 export const posts = [...aiAndSeo, ...contentAndWebsites, ...leadsAndGrowth].map((p) => ({
   ...p,
-  metaTitle: `${p.title} | Yugen Systems`,
+  metaTitle: `${p.title} | Raindrop Marketing`,
   image: `/blog/${p.slug}.svg`,
   date: PUBLISHED,
   readTime: readTime(p.content),

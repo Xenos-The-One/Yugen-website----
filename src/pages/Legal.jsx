@@ -8,7 +8,7 @@ export default function Legal() {
     useNavigate(),
     (
       <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-        <Seo title="Legal" description="Terms of Use and Privacy Policy for Yugen Systems." path="/legal" />
+        <Seo title="Legal" description="Terms of Use and Privacy Policy for Raindrop Marketing." path="/legal" />
         <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
           <div className="container mx-auto max-w-4xl relative z-10">
@@ -39,7 +39,7 @@ export default function Legal() {
               <div>
                 <h2 className="text-2xl font-bold text-white mb-4">Privacy Policy</h2>
                 <p className="leading-relaxed mb-4">
-                  Your privacy is important to us. It is Yugen Systems' policy to respect your privacy regarding any
+                  Your privacy is important to us. It is Raindrop Marketing's policy to respect your privacy regarding any
                   information we may collect from you across our website.
                 </p>
                 <p className="leading-relaxed">

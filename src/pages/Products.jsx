@@ -108,7 +108,7 @@ export default function Products() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="Products" description="AI SEO, SEO, content, websites, ads, unified inbox, missed call text back, one-click marketing and review automation from Yugen Systems." path="/products" />
+      <Seo title="Products" description="AI SEO, SEO, content, websites, ads, unified inbox, missed call text back, one-click marketing and review automation from Raindrop Marketing." path="/products" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -128,7 +128,7 @@ export default function Products() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-8 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              The Yugen Ecosystem
+              The Raindrop Ecosystem
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"Everything you need to "}

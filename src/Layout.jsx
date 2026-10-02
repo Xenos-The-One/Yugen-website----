@@ -461,7 +461,7 @@ export default function Layout() {
               <div>
                 {"© "}
                 {new Date().getFullYear()}
-                {" Yugen Systems. All Rights Reserved."}
+                {" Raindrop Marketing. All Rights Reserved."}
               </div>
               <div className="mt-4 md:mt-0 flex gap-8">
                 <a href="/legal" className="hover:text-white transition-colors">

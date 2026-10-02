@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/work", "destination": "/testimonials", "permanent": true },
+    { "source": "/services", "destination": "/products", "permanent": true },
+    { "source": "/services/websites", "destination": "/products/functional-website", "permanent": true },
+    { "source": "/services/ads", "destination": "/products/paid-ads", "permanent": true },
+    { "source": "/services/social", "destination": "/products/content-creation", "permanent": true },
+    { "source": "/apply", "destination": "/contact", "permanent": true },
+    { "source": "/login", "destination": "https://ai-seo-main.vercel.app/", "permanent": false },
+    { "source": "/blog/what-you-get-with-yugen", "destination": "/blog/what-you-get-with-raindrop", "permanent": true }
+  ]
 }
