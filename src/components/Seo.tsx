@@ -33,7 +33,7 @@ export const orgJsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
-  ...(site.phone && { telephone: site.phone }),
+  ...(site.phoneHref && { telephone: site.phoneHref.replace('tel:', '') }),
   founder: { '@type': 'Person', name: site.founder.name },
   areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
   ...(Object.values(site.social).some(Boolean) && { sameAs: Object.values(site.social).filter(Boolean) }),

@@ -118,7 +118,7 @@ export default function Layout() {
               </div>
               <div className="hidden xl:flex items-center gap-4">
                 {site.phone && (
-                  <a href={`tel:${site.phone.replace(/[^+d]/g, "")}`} className="flex items-center gap-2 text-sm font-bold text-white/80 hover:text-white whitespace-nowrap">
+                  <a href={site.phoneHref} className="hidden 2xl:flex items-center gap-2 text-sm font-bold text-white/80 hover:text-white whitespace-nowrap">
                     <Phone className="w-4 h-4" /> {site.phone}
                   </a>
                 )}
@@ -237,7 +237,7 @@ export default function Layout() {
                   <div className="h-px bg-white/10 my-2" />
                   <div className="flex flex-col gap-4">
                     {site.phone && (
-                      <a href={`tel:${site.phone.replace(/[^+d]/g, "")}`} className="flex items-center justify-center gap-2 text-lg font-bold text-white h-14 rounded-full border border-white/20">
+                      <a href={site.phoneHref} className="flex items-center justify-center gap-2 text-lg font-bold text-white h-14 rounded-full border border-white/20">
                         <Phone className="w-5 h-5" /> Call {site.phone}
                       </a>
                     )}
@@ -290,7 +290,7 @@ export default function Layout() {
                   We build and manage AI-driven growth systems that get you found on Google and AI search, capture every lead, follow up automatically, and turn more inquiries into booked business.
                 </p>
                 {site.phone && (
-                  <a href={`tel:${site.phone.replace(/[^+d]/g, "")}`} className="block text-white text-lg font-bold mb-8 hover:text-primary transition-colors">
+                  <a href={site.phoneHref} className="block text-white text-lg font-bold mb-8 hover:text-primary transition-colors">
                     {site.phone}
                   </a>
                 )}

@@ -65,7 +65,7 @@ export default function Contact() {
                     title: "Call or Text",
                     desc: "Talk to the founder directly.",
                     info: site.phone,
-                    href: `tel:${site.phone.replace(/[^+d]/g, "")}`,
+                    href: site.phoneHref,
                   },
                 ].filter(Boolean).map((r, o) => (
                   <FadeInEase delay={0.2 + o * 0.1} key={o}>

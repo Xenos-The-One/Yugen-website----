@@ -12,11 +12,12 @@ export const site = {
   // Google Calendar appointment schedule (Google Meet). Paste the booking page link
   // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
   // Empty shows an email fallback.
-  bookingUrl: '',
+  bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2206LGAtkS5qikC3lzI5SxKlon6UHh7zeeH3FPrckfZWXxRFu4deDwjzXLygQYjE99H-qaN0Gt',
   // Profile URLs; empty hides the icon in the footer.
   social: { twitter: '', instagram: '' },
   // Business phone, e.g. '(416) 555-0123'. Empty hides it everywhere.
-  phone: '',
+  phone: '(437) 974-3613',
+  phoneHref: 'tel:+14379743613',
   // Cities listed as the service area in structured data.
   areaServed: ['Toronto', 'Vaughan', 'Mississauga', 'Brampton', 'Markham', 'Richmond Hill', 'Oakville', 'Pickering'],
 }
