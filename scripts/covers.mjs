@@ -1,5 +1,5 @@
 // Generates public/blog/<slug>.svg cover images for every blog post.
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import aiAndSeo from '../src/content/posts/ai-and-seo.js'
 import contentAndWebsites from '../src/content/posts/content-and-websites.js'
 import leadsAndGrowth from '../src/content/posts/leads-and-growth.js'
@@ -16,6 +16,9 @@ const colors = {
   Marketing: '#22d3ee',
   'Our Service': '#2dd4bf',
 }
+
+// Embedded because an SVG shown through <img> can't load external images.
+const mark = readFileSync(new URL('./raindrop-mark-64.png', import.meta.url)).toString('base64')
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
@@ -48,7 +51,6 @@ function cover({ title, category }) {
     <radialGradient id="g1" cx="85%" cy="15%" r="65%"><stop offset="0" stop-color="${c}" stop-opacity="0.45"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>
     <radialGradient id="g2" cx="5%" cy="100%" r="55%"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/></pattern>
-    <linearGradient id="enso" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
   </defs>
   <rect width="1200" height="675" fill="#0a0a0c"/>
   <rect width="1200" height="675" fill="url(#grid)"/>
@@ -62,8 +64,7 @@ function cover({ title, category }) {
     .map((l, i) => `<text x="80" y="${startY + i * lineH}" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="${size}" font-weight="800" fill="#ffffff">${esc(l)}</text>`)
     .join('\n  ')}
   <g transform="translate(80 560)">
-    <path d="M32.5 11.2A14 14 0 1 0 36 22.5" fill="none" stroke="url(#enso)" stroke-width="4.5" stroke-linecap="round"/>
-    <circle cx="22" cy="22" r="3.2" fill="#2dd4bf"/>
+    <image href="data:image/png;base64,${mark}" x="0" y="0" width="30" height="44"/>
     <text x="50" y="30" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Raindrop Marketing</text>
   </g>
 </svg>

@@ -26,7 +26,8 @@ export const categories = [
 const PUBLISHED = '2026-10-01T12:00:00'
 
 const readTime = (content) => {
-  const words = content.join(' ').split(/\s+/).length
+  // Image lines don't count toward reading time.
+  const words = content.filter((l) => !l.startsWith('![')).join(' ').split(/\s+/).length
   return `${Math.max(2, Math.round(words / 200))} min read`
 }
 

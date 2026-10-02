@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ArticleBody } from "@/components/ArticleBody";
 import { FadeIn } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
@@ -136,36 +137,7 @@ export default function BlogPost() {
       <section className="py-16 px-4 bg-[#0a0a0c]">
         <div className="container mx-auto max-w-3xl">
           <article className="prose prose-invert prose-lg max-w-none">
-            {n.content.map((i, l) =>
-              i.startsWith("## ") ? (
-                <h2 className="text-2xl md:text-3xl font-black text-white mt-12 mb-5 tracking-tight" key={l}>
-                  {i.slice(3)}
-                </h2>
-              ) : (
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: !0,
-                  margin: "-50px",
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.05,
-                }}
-                className="text-lg md:text-xl text-white/80 leading-relaxed mb-6 font-light"
-                key={l}
-              >
-                {i}
-              </motion.p>
-              ),
-            )}
+            <ArticleBody content={n.content} />
           </article>
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-wrap gap-2">
