@@ -18,3 +18,7 @@ Blog articles live in `src/content/blog.js`; products list in `src/content/site.
 - `CONTACT_TO` (optional): recipient, defaults to `SMTP_USER`
 
 `npm run dev` does not run `/api`; use `vercel dev` to test forms locally.
+
+## Deploys
+
+GitHub: https://github.com/Xenos-The-One/Yugen-website---- (private). The Vercel project `yugen-site` is connected to it: every push to `main` deploys to production (https://yugen-site-delta.vercel.app).
