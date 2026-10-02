@@ -3,6 +3,7 @@ import { Logo } from "@/components/Logo";
 import { LogoMark } from "@/components/Logo";
 import { TestimonialRow } from "@/components/TestimonialMarquee";
 import { testimonialSource, testimonials } from "@/content/testimonials";
+import { industries } from "@/content/industries";
 import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
 import { Counter, FadeIn, Tilt } from "@/components/motion";
@@ -997,6 +998,7 @@ export default function Home() {
                 },
               ].map((o, s) => (
                 <FadeIn delay={s * 0.05} className="h-full" key={s}>
+                  <a href={`/industries/${industries.find((i) => i.name === o.label).slug}`} className="block h-full">
                   <Tilt className="h-full">
                     <div className="group relative h-full rounded-2xl sm:rounded-3xl bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 overflow-hidden hover:border-primary/50 transition-colors duration-500 shadow-xl">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -1013,6 +1015,7 @@ export default function Home() {
                       </p>
                     </div>
                   </Tilt>
+                  </a>
                 </FadeIn>
               ))}
             </div>

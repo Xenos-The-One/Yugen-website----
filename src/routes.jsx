@@ -20,6 +20,11 @@ import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import Onboarding from './pages/Onboarding'
 import NotFound from './pages/NotFound'
+import Industry from './pages/Industry'
+import Area from './pages/Area'
+import { AreasIndex, IndustriesIndex } from './pages/LandingIndex'
+import { industries } from './content/industries'
+import { areas } from './content/areas'
 import { posts } from './content/blog'
 
 export const routes = [
@@ -45,6 +50,10 @@ export const routes = [
       { path: 'pricing', element: <Pricing /> },
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:slug', element: <BlogPost />, getStaticPaths: () => posts.map((p) => `blog/${p.slug}`) },
+      { path: 'industries', element: <IndustriesIndex /> },
+      { path: 'industries/:slug', element: <Industry />, getStaticPaths: () => industries.map((i) => `industries/${i.slug}`) },
+      { path: 'areas', element: <AreasIndex /> },
+      { path: 'areas/:slug', element: <Area />, getStaticPaths: () => areas.map((a) => `areas/${a.slug}`) },
       { path: 'contact', element: <Contact /> },
       { path: 'legal', element: <Legal /> },
       { path: 'onboarding', element: <Onboarding /> },

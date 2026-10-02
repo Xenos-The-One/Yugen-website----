@@ -45,7 +45,7 @@ const plans = [
   {
     name: "Growth",
     blurb: "Rank on Google and show up in AI search with steady, high-quality content.",
-    price: "$2,497",
+    price: "$1,497",
     period: "/ month",
     setup: "+ $1,000 one-time setup & onboarding",
     features: [
@@ -68,7 +68,7 @@ const plans = [
   {
     name: "Authority",
     blurb: "Everything in Growth at full scale, plus your website built or rebuilt.",
-    price: "$3,497",
+    price: "$2,497",
     period: "/ month",
     setup: "+ $1,000 one-time setup & onboarding",
     features: [
@@ -86,12 +86,6 @@ const plans = [
       "Advanced backlink / outreach strategy",
     ],
   },
-];
-
-const addOns = [
-  { name: "Additional SEO Blog", price: "$200", billing: "per batch" },
-  { name: "Premium Long-Form Article", price: "$350", billing: "per batch" },
-  { name: "Newsletter", price: "$750", billing: "per batch" },
 ];
 
 
@@ -153,7 +147,7 @@ export default function Pricing() {
     <div className="bg-[#030303] min-h-screen pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40">
       <Seo
         title="Pricing"
-        description="Raindrop Marketing pricing: Lead & Review System $297/mo, basic websites $300–$500, AI SEO + Content packages from $2,497/mo, plus custom websites, paid ads, marketing and content quoted to fit your business."
+        description="Raindrop Marketing pricing: Lead & Review System $297/mo, basic websites $300–$500, AI SEO + Content packages from $1,497/mo, plus custom websites, paid ads, marketing and content quoted to fit your business."
         path="/pricing"
       />
       <section className="px-4 relative overflow-hidden">
@@ -198,20 +192,6 @@ export default function Pricing() {
               <PlanCard plan={p} delay={0.2 + i * 0.1} key={p.name} />
             ))}
           </div>
-          <FadeIn delay={0.4}>
-            <div className="max-w-5xl mx-auto mt-12 glass-card rounded-[2rem] border border-white/10 bg-[#0a0a0c]/90 p-8 sm:p-10">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Optional Add-Ons</h3>
-              <div className="grid sm:grid-cols-3 gap-4">
-                {addOns.map((a) => (
-                  <div key={a.name} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-center">
-                    <div className="text-white/90 font-semibold mb-2">{a.name}</div>
-                    <div className="text-3xl font-black text-white">{a.price}</div>
-                    <div className="text-white/40 text-sm mt-1">{a.billing}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
           <FadeIn delay={0.2}>
             <div className="text-center mt-28 mb-12">
               <h3 className="text-3xl md:text-5xl font-black text-white mb-4">

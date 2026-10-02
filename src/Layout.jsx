@@ -376,6 +376,14 @@ export default function Layout() {
                       path: "/testimonials",
                     },
                     {
+                      label: "Industries",
+                      path: "/industries",
+                    },
+                    {
+                      label: "Service Areas",
+                      path: "/areas",
+                    },
+                    {
                       label: "Pricing",
                       path: "/pricing",
                     },

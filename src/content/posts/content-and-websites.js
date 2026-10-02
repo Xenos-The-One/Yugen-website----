@@ -81,7 +81,7 @@ export default [
       "Some do directly, especially posts about urgent problems. Many work indirectly: they build trust, support your service pages through internal links, and give AI search tools material to cite when they recommend you.",
       "## The bottom line",
       "Blog as often as you can do it well and consistently, usually two to eight posts a month for a contractor. Write about the questions, problems, costs and projects you deal with every day, make every post specific and easy to read, and always point readers to the next step.",
-      "Our Growth plan includes four SEO blog posts a month, and Authority includes ten or more, written around your services and service area. Extra posts can be added for $200 per batch. See [pricing](/pricing) for details.",
+      "Our Growth plan includes four SEO blog posts a month, and Authority includes ten or more, written around your services and service area. See [pricing](/pricing) for details.",
     ],
   },
   {
