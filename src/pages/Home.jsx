@@ -262,7 +262,6 @@ export default function Home() {
                 <div className="text-xs md:text-sm text-white/50 font-medium">Average Rating</div>
               </div>
             </div>
-            <p className="mt-3 text-center text-xs md:text-sm text-white/40">Combined results for Takeoff Digital Solutions clients, our sister company.</p>
           </motion.div>
         </div>
         <motion.div
