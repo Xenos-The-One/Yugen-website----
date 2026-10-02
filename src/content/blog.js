@@ -34,7 +34,7 @@ const readTime = (content) => {
 export const posts = [...aiAndSeo, ...contentAndWebsites, ...leadsAndGrowth].map((p) => ({
   ...p,
   metaTitle: `${p.title} | Raindrop Marketing`,
-  image: `/blog/${p.slug}.svg`,
+  image: `/blog/img/${p.slug}-cover.webp`,
   date: PUBLISHED,
   readTime: readTime(p.content),
 }))

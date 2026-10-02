@@ -44,7 +44,7 @@ export default function Layout() {
           }}
           className={`fixed top-0 w-full z-50 transition-all duration-500 ${r ? "py-5" : "py-7 bg-transparent"}`}
         >
-          <div className={`mx-auto transition-all duration-500 ${r ? "max-w-6xl px-6" : "container px-6"}`}>
+          <div className={`mx-auto transition-all duration-500 ${r ? "max-w-7xl px-6" : "container px-6"}`}>
             <div
               className={`flex items-center justify-between transition-all duration-500 min-h-[56px] ${r ? "glass-card border border-white/10 bg-[#0a0a0c]/90 backdrop-blur-2xl px-8 py-4 rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.4)]" : ""}`}
             >
@@ -54,7 +54,7 @@ export default function Layout() {
                   <Logo className="h-9 sm:h-10 relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
                 </div>
               </div>
-              <div className="hidden xl:flex items-center gap-8 text-sm font-bold text-white/80 ml-8 xl:ml-12">
+              <div className="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-bold text-white/80 ml-8">
                 <a
                   href="/about"
                   className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
@@ -117,11 +117,6 @@ export default function Layout() {
                 </a>
               </div>
               <div className="hidden xl:flex items-center gap-4">
-                {site.phone && (
-                  <a href={site.phoneHref} className="hidden 2xl:flex items-center gap-2 text-sm font-bold text-white/80 hover:text-white whitespace-nowrap">
-                    <Phone className="w-4 h-4" /> {site.phone}
-                  </a>
-                )}
                 <Button
                   variant="ghost"
                   onClick={() => (window.location.href = site.loginUrl)}

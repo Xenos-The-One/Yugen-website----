@@ -66,6 +66,9 @@ def save(raw, dest):
     img = img.resize((1600, 900), Image.LANCZOS)
     dest.parent.mkdir(parents=True, exist_ok=True)
     img.save(dest, "WEBP", quality=80, method=6)
+    # Busy scenes (foliage, aerials) compress poorly; trade a little quality for page weight.
+    if dest.stat().st_size > 200_000:
+        img.save(dest, "WEBP", quality=62, method=6)
 
 
 def main():
