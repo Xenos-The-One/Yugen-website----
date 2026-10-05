@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/demo-call.js": { "maxDuration": 30 }
+  },
   "redirects": [
     { "source": "/work", "destination": "/testimonials", "permanent": true },
     { "source": "/services", "destination": "/products", "permanent": true },
