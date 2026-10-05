@@ -1,6 +1,8 @@
-// Twilio voice webhook for the missed-call demo line. Every call goes unanswered on purpose:
-// the caller hears busy and immediately gets the text a contractor's customer would receive.
-// Point the demo number's "A call comes in" webhook (HTTP POST) at https://www.raindropmarketing.ca/api/demo-call
+// Twilio voice webhook for the missed-call demo line. The caller hears about three rings that
+// nobody answers, the call ends, and they get the text a contractor's customer would receive.
+// In Twilio, point both of the demo number's voice webhooks (HTTP POST) here:
+//   "A call comes in"     https://www.raindropmarketing.ca/api/demo-call
+//   "Call status changes" https://www.raindropmarketing.ca/api/demo-call
 import { isFromTwilio, sendSms, twiml } from './_lib/notify.js'
 import { site } from '../src/content/site.js'
 
@@ -14,13 +16,18 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end()
   if (!isFromTwilio(req)) return res.status(403).end()
 
-  const caller = req.body?.From
-  if (caller && /^\+\d{8,15}$/.test(caller)) {
-    try {
-      await sendSms(caller, DEMO_TEXT)
-    } catch (err) {
-      console.error('Demo text failed', err)
+  // Status callback: send the text once the call has ended, even if they hung up mid-ring.
+  if (req.body?.CallStatus === 'completed') {
+    const caller = req.body?.From
+    if (caller && /^\+\d{8,15}$/.test(caller)) {
+      try {
+        await sendSms(caller, DEMO_TEXT)
+      } catch (err) {
+        console.error('Demo text failed', err)
+      }
     }
+    return res.status(204).end()
   }
-  return twiml(res, '<Reject reason="busy"/>')
+
+  return twiml(res, `<Play>${site.url}/ringback.wav</Play><Hangup/>`)
 }
