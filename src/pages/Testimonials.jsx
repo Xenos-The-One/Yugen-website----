@@ -2,7 +2,7 @@ import { FadeInEase, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowRight, CheckCircle2, MapPin, Quote, Star } from "lucide-react";
-import { byline, testimonialSource, testimonials } from "@/content/testimonials";
+import { byline, testimonials } from "@/content/testimonials";
 
 export default function Testimonials() {
   const e = useMotionValue(0),
@@ -14,7 +14,7 @@ export default function Testimonials() {
   const r = testimonials;
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Testimonials" description="Real results from contractors who use the systems Raindrop builds, from clients of our sister company Takeoff Digital Solutions." path="/testimonials" />
+      <Seo title="Testimonials" description="Real results from contractors who use the systems Raindrop builds." path="/testimonials" />
       <section
         onMouseMove={n}
         className="pt-40 pb-20 px-4 text-center relative overflow-hidden bg-[#030303] min-h-[60vh] flex items-center justify-center"
@@ -47,7 +47,6 @@ export default function Testimonials() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-light">{`They don't hire us for "marketing." They hire us to plug the leaks in their business and turn missed calls into booked jobs.`}</p>
-              <p className="mt-4 text-sm md:text-base text-white/50">{testimonialSource}</p>
           </div>
         </FadeInEase>
       </section>

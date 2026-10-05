@@ -2,7 +2,7 @@ import { Box, Droplet, Hammer, Home as HomeIcon, Layers, LayoutGrid, Leaf, Paint
 import { Logo } from "@/components/Logo";
 import { LogoMark } from "@/components/Logo";
 import { TestimonialRow } from "@/components/TestimonialMarquee";
-import { testimonialSource, testimonials } from "@/content/testimonials";
+import { testimonials } from "@/content/testimonials";
 import { industries } from "@/content/industries";
 import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
@@ -327,7 +327,6 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-white/80 font-light">{`They don't hire us for "marketing." They hire us to plug the leaks in their business.`}</p>
-              <p className="mt-4 text-sm md:text-base text-white/50">{testimonialSource}</p>
             </div>
           </FadeIn>
         </div>

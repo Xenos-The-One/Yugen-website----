@@ -1,6 +1,6 @@
 # Raindrop Marketing — marketing site
 
-Rebuilt from the takeoffdigitalsolutions.com codebase (same layout, sections, animations and page set), rebranded for Raindrop.
+Marketing site for Raindrop Marketing.
 Vite + React + Tailwind v3 (shadcn theme), prerendered to static HTML per route with `vite-react-ssg`.
 
 - `npm run dev` — dev server on http://localhost:5179

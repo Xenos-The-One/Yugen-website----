@@ -4,7 +4,7 @@ import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, DollarSign, Globe, Megaphone, PenTool, Target } from "lucide-react";
 
-// Lead automation + 5 star review system bundled the way Takeoff's pricing page does it, plus the basic website.
+// Lead automation + 5 star review system bundled together, plus the basic website.
 const starterPlans = [
   {
     name: "Lead & Review System",

@@ -3,7 +3,7 @@ import { CheckCircle2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
-// Same layout as the Takeoff-derived product pages; class strings stay literal so Tailwind keeps them.
+// Shared product page layout; class strings stay literal so Tailwind keeps them.
 export const themes = {
   sky: {
     glow: 'bg-sky-500/20',

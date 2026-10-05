@@ -4,7 +4,7 @@ import { Seo, faqJsonLd } from "@/components/Seo";
 import { CardGrid, Chips, ClosingCta, Faqs, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
 import { industryBySlug } from "@/content/industries";
 import { areas } from "@/content/areas";
-import { byline, testimonialSource, testimonials } from "@/content/testimonials";
+import { byline, testimonials } from "@/content/testimonials";
 import { site } from "@/content/site";
 import NotFound from "./NotFound";
 
@@ -93,7 +93,6 @@ export default function Industry() {
             </figure>
           ))}
         </div>
-        <p className="text-center text-sm text-white/40 mt-6">{testimonialSource}</p>
       </Section>
 
       <Section alt>

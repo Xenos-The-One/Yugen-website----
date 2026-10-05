@@ -1,11 +1,11 @@
 // Client testimonials shown on the home carousel and the Testimonials page.
-// These are clients of Takeoff Digital Solutions (same founder). An empty `location` is hidden.
+// An empty `location` is hidden.
 export const testimonials = [
   {
     name: "Affan Mahmood",
     role: "HVAC Owner",
     location: "Vaughan, ON",
-    quote: "Takeoff didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
+    quote: "They didn't just build us a site — they built a system. Phones started ringing and we stopped chasing leads.",
   },
   {
     name: "Kelsey Olso",
@@ -56,8 +56,5 @@ export const testimonials = [
     quote: "I was skeptical about AI, but the web chat books appointments while I'm sleeping.",
   },
 ];
-
-// Shown wherever testimonials appear so visitors know whose clients these are.
-export const testimonialSource = "From clients of Takeoff Digital Solutions, Raindrop's sister company. Same founder, same systems.";
 
 export const byline = (t) => [t.role, t.location].filter(Boolean).join(" · ");
