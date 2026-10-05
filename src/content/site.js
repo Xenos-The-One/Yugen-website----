@@ -14,10 +14,18 @@ export const site = {
   // Empty shows an email fallback.
   bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2206LGAtkS5qikC3lzI5SxKlon6UHh7zeeH3FPrckfZWXxRFu4deDwjzXLygQYjE99H-qaN0Gt',
   // Profile URLs; empty hides the icon in the footer.
-  social: { twitter: '', instagram: '' },
+  social: { twitter: '', instagram: '', linkedin: '' },
+  // Google Business Profile share link (maps.app.goo.gl/... or g.page/...). Shown in the footer and
+  // contact page, and added to schema sameAs. Empty hides it.
+  googleBusinessProfile: '',
   // Business phone, e.g. '(416) 555-0123'. Empty hides it everywhere.
   phone: '(437) 974-3613',
   phoneHref: 'tel:+14379743613',
+  // Website AI chat (api/chat.js). Needs ANTHROPIC_API_KEY in Vercel; false hides the widget.
+  chatEnabled: true,
+  // Twilio number wired to api/demo-call.js and api/demo-sms.js. Never the business line. Empty hides the demo.
+  demoPhone: '(289) 277-1815',
+  demoPhoneHref: 'tel:+12892771815',
   // Cities listed as the service area in structured data.
   areaServed: ['Toronto', 'Vaughan', 'Mississauga', 'Brampton', 'Markham', 'Richmond Hill', 'Oakville', 'Pickering'],
 }

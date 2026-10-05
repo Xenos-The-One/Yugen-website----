@@ -6,6 +6,9 @@ import { testimonials } from "@/content/testimonials";
 import { industries } from "@/content/industries";
 import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
+import { openChat } from "@/components/ChatWidget";
+import { site } from "@/content/site";
+import { track } from "@vercel/analytics/react";
 import { Counter, FadeIn, Tilt } from "@/components/motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -26,6 +29,12 @@ import {
   Zap,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+// Opens the live chat; if it hasn't loaded yet, send them to the contact form instead.
+function chatOrContact(location) {
+  track("chat_open", { location });
+  if (!openChat()) window.location.href = "/contact";
+}
 
 const homeFaqs = [
   {
@@ -127,7 +136,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="font-medium">AI-Powered SEO, Content & Lead Systems</span>
+              <span className="font-medium">AI-Powered Lead Systems for GTA Contractors</span>
             </div>
           </motion.div>
           <h1 className="text-center text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-white mb-5 md:mb-8 max-w-4xl">
@@ -206,7 +215,7 @@ export default function Home() {
             }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full px-4 sm:px-0 relative z-20"
           >
-            <BookingDialog>
+            <BookingDialog location="home_hero">
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-white text-black hover:bg-white/90 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_80px_rgba(255,255,255,0.6)] transition-all duration-500 hover:scale-105 relative overflow-hidden group"
@@ -375,14 +384,24 @@ export default function Home() {
                   ),
                 )}
               </ul>
-              <BookingDialog>
+              {site.chatEnabled ? (
                 <Button
                   size="lg"
+                  onClick={() => chatOrContact("home_speed_to_lead")}
                   className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105"
                 >
-                  See It In Action
+                  Try Our AI Chat
                 </Button>
-              </BookingDialog>
+              ) : (
+                <BookingDialog location="home_speed_to_lead">
+                  <Button
+                    size="lg"
+                    className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105"
+                  >
+                    Book a Demo Call
+                  </Button>
+                </BookingDialog>
+              )}
             </FadeIn>
             <div className="order-1 lg:order-2 relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
@@ -439,7 +458,7 @@ export default function Home() {
                       <div className="absolute -left-3 -top-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center border-4 border-[#0a0a0c] shadow-lg">
                         <Sparkles className="w-4 h-4 text-white" />
                       </div>
-                      <div className="text-xs text-primary mb-2 font-medium">Raindrop Marketing • Instant</div>
+                      <div className="text-xs text-primary mb-2 font-medium">Your Business • Instant</div>
                       <div className="text-base text-white leading-relaxed">
                         Yes we do! We have a tech available in your area in 45 mins. Should I book them for you?
                       </div>
@@ -549,7 +568,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog>
+              <BookingDialog location="home_missed_call">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(239,68,68,0.3)] hover:shadow-[0_0_50px_rgba(239,68,68,0.5)] transition-all hover:scale-105 border-none"
@@ -557,6 +576,19 @@ export default function Home() {
                   Protect Your Leads
                 </Button>
               </BookingDialog>
+              {site.demoPhone && (
+                <p className="mt-8 text-lg text-white/70">
+                  {"Try it now: call "}
+                  <a
+                    href={site.demoPhoneHref}
+                    onClick={() => track("demo_call_click", { location: "home_missed_call" })}
+                    className="font-bold text-white underline decoration-red-400 underline-offset-4 hover:text-red-300"
+                  >
+                    {site.demoPhone}
+                  </a>
+                  {" and let it ring. You'll get our text back in seconds."}
+                </p>
+              )}
             </FadeIn>
           </section>
           <section className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -579,8 +611,8 @@ export default function Home() {
               <ul className="space-y-5 mb-12">
                 {[
                   "Automated SMS & Email review requests",
-                  "Filter out negative feedback privately",
-                  "Rank higher on Google Maps automatically",
+                  "Private feedback option for every customer",
+                  "More reviews, a stronger Google Maps profile",
                 ].map((o, s) => (
                   <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
                     <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center border border-yellow-500/30">
@@ -590,7 +622,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog>
+              <BookingDialog location="home_reviews">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-yellow-500 to-amber-500 text-black hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(250,204,21,0.3)] hover:shadow-[0_0_50px_rgba(250,204,21,0.5)] transition-all hover:scale-105 border-none"
@@ -659,7 +691,7 @@ export default function Home() {
                           J
                         </div>
                         <div>
-                          <div className="text-base font-bold text-white">John Smith</div>
+                          <div className="text-base font-bold text-white">Josh Moore</div>
                           <div className="text-sm text-muted-foreground">2 mins ago • Google</div>
                         </div>
                       </div>
@@ -821,7 +853,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog>
+              <BookingDialog location="home_reactivation">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-green-500 to-emerald-500 text-black hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(74,222,128,0.3)] hover:shadow-[0_0_50px_rgba(74,222,128,0.5)] transition-all hover:scale-105 border-none"
@@ -1039,12 +1071,12 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="text-xl text-white/80 leading-relaxed mb-8">{`We don't care about "impressions" or "reach". We care about your bank account. Our systems are built to do one thing: turn a stranger into a booked job as fast as humanly possible.`}</p>
-                <BookingDialog>
+                <BookingDialog location="home_advantage">
                   <Button
                     size="lg"
                     className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-8 h-14 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all"
                   >
-                    See The Difference
+                    Book a Strategy Call
                   </Button>
                 </BookingDialog>
               </FadeIn>
@@ -1114,14 +1146,23 @@ export default function Home() {
                   <p className="text-xl text-white/80 mb-8 leading-relaxed">
                     Everything you need to know about how our AI systems transform your business.
                   </p>
-                  <BookingDialog>
+                  {site.chatEnabled ? (
                     <Button
                       size="lg"
+                      onClick={() => chatOrContact("home_faq")}
                       className="bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-8 h-14 backdrop-blur-md transition-all"
                     >
                       Ask Us Anything
                     </Button>
-                  </BookingDialog>
+                  ) : (
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-8 h-14 backdrop-blur-md transition-all"
+                    >
+                      <a href="/contact">Ask Us Anything</a>
+                    </Button>
+                  )}
                 </FadeIn>
               </div>
             </div>
@@ -1176,7 +1217,7 @@ export default function Home() {
                     We'll walk you through what we build, how it helps businesses grow, and give you the space to
                     decide if moving forward makes sense.
                   </p>
-                  <BookingDialog>
+                  <BookingDialog location="home_closing">
                     <Button
                       size="lg"
                       className="bg-white text-black hover:bg-white/90 px-8 sm:px-10 h-14 sm:h-16 text-lg sm:text-xl rounded-full w-full md:w-auto shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] hover:scale-105 transition-all duration-300 font-bold group overflow-hidden relative"

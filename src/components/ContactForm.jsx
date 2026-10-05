@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, Send } from "lucide-react";
+import { Check, CheckCircle2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Textarea } from "@/components/ui/form";
 import { auditOption, serviceOptions, site } from "@/content/site";
 import { submitForm } from "@/lib/submit";
+import { track } from "@vercel/analytics/react";
 
 const field = "bg-white/[0.03] border-white/10 h-12";
 
 export function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", interest: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", website: "", interests: [], message: "", company_url: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const toggle = (o) =>
+    setForm((f) => ({ ...f, interests: f.interests.includes(o) ? f.interests.filter((x) => x !== o) : [...f.interests, o] }));
+  const wantsAudit = form.interests.includes(auditOption);
 
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("interest") === "audit") setForm((f) => ({ ...f, interest: auditOption }));
+    if (new URLSearchParams(window.location.search).get("interest") === "audit") setForm((f) => ({ ...f, interests: [auditOption] }));
   }, []);
 
   async function submit(e) {
@@ -28,9 +32,12 @@ export function ContactForm() {
         Email: form.email,
         Phone: form.phone,
         Business: form.business,
-        "Interested in": form.interest,
+        Website: form.website,
+        "Interested in": form.interests,
         Message: form.message,
+        company_url: form.company_url,
       });
+      track("contact_submit", { interest: form.interests.join(", ") || "none" });
       setSent(true);
     } catch {
       setError(`Something went wrong. Please email us at ${site.email}.`);
@@ -52,7 +59,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="p-6 sm:p-8 space-y-5">
+    <form onSubmit={submit} className="relative p-6 sm:p-8 space-y-5">
       <div>
         <h2 className="text-3xl md:text-4xl font-black text-white mb-2">Send Us a Message</h2>
         <p className="text-white/50">Tell us a little about your business and what you need. We reply within one business day.</p>
@@ -76,29 +83,52 @@ export function ContactForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="c-interest" className="text-white/80">What are you interested in?</Label>
-        <select
-          id="c-interest"
-          value={form.interest}
-          onChange={set("interest")}
-          className="flex h-12 w-full rounded-md border border-white/10 bg-white/[0.03] px-3 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <option value="" className="bg-[#0a0a0c]">Select one</option>
-          {[auditOption, ...serviceOptions].map((o) => (
-            <option key={o} value={o} className="bg-[#0a0a0c]">
-              {o}
-            </option>
-          ))}
-        </select>
-        {form.interest === auditOption && (
+        <Label htmlFor="c-website" className="text-white/80">Website{wantsAudit ? " *" : ""}</Label>
+        <Input
+          id="c-website"
+          inputMode="url"
+          placeholder="yourbusiness.com"
+          required={wantsAudit}
+          value={form.website}
+          onChange={set("website")}
+          className={field}
+        />
+      </div>
+      {/* Honeypot: hidden from people, filled by bots; the API drops submissions that include it. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor="c-company-url">Company URL</label>
+        <input id="c-company-url" tabIndex={-1} autoComplete="off" value={form.company_url} onChange={set("company_url")} />
+      </div>
+      <fieldset className="space-y-3">
+        <legend className="text-sm font-medium text-white/80 mb-3">
+          What are you interested in? <span className="text-white/40 font-normal">Pick as many as you like.</span>
+        </legend>
+        <div className="flex flex-wrap gap-2">
+          {[auditOption, ...serviceOptions].map((o) => {
+            const on = form.interests.includes(o);
+            return (
+              <button
+                type="button"
+                key={o}
+                aria-pressed={on}
+                onClick={() => toggle(o)}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-4 h-10 text-sm transition-colors ${on ? "border-primary bg-primary/15 text-white" : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/30 hover:text-white"}`}
+              >
+                {on && <Check className="w-4 h-4 text-primary" />}
+                {o}
+              </button>
+            );
+          })}
+        </div>
+        {wantsAudit && (
           <p className="text-sm text-primary/90">
-            Put your website in the message. Within 2 business days we'll send you a short video showing how you appear on Google and in ChatGPT, Gemini and Perplexity, and what we'd fix first.
+            Add your website above. Within 2 business days we'll send you a short video showing how you appear on Google and in ChatGPT, Gemini and Perplexity, and what we'd fix first.
           </p>
         )}
-      </div>
+      </fieldset>
       <div className="space-y-2">
-        <Label htmlFor="c-message" className="text-white/80">Message *</Label>
-        <Textarea id="c-message" required value={form.message} onChange={set("message")} className="bg-white/[0.03] border-white/10 min-h-[140px]" />
+        <Label htmlFor="c-message" className="text-white/80">Message</Label>
+        <Textarea id="c-message" value={form.message} onChange={set("message")} className="bg-white/[0.03] border-white/10 min-h-[140px]" />
       </div>
       <Button
         type="submit"

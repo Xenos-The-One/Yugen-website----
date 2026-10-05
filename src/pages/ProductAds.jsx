@@ -18,6 +18,7 @@ export default function ProductAds() {
         path="/products/paid-ads"
       />
       <ProductPage
+        path="/products/paid-ads"
         theme="indigo"
         icon={Target}
         eyebrow="Paid Advertising"

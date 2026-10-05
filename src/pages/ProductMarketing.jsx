@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, Send, Users, Zap } from "lucide-react";
@@ -218,6 +219,7 @@ export default function ProductMarketing() {
           </div>
         </div>
       </section>
+      <ProductExtras path="/products/one-click-marketing" />
     </div>
   );
 }

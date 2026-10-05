@@ -6,11 +6,13 @@ type Props = {
   description: string
   path: string
   jsonLd?: object | object[]
+  // Long titles (blog posts) skip the " | Raindrop Marketing" suffix so search results don't cut them off.
+  brand?: boolean
 }
 
-export function Seo({ title, description, path, jsonLd }: Props) {
+export function Seo({ title, description, path, jsonLd, brand = true }: Props) {
   const url = `${site.url}${path === '/' ? '' : path}`
-  const fullTitle = path === '/' ? title : `${title} | ${site.name}`
+  const fullTitle = path === '/' || !brand ? title : `${title} | ${site.name}`
   return (
     <Head>
       <title>{fullTitle}</title>
@@ -28,6 +30,8 @@ export function Seo({ title, description, path, jsonLd }: Props) {
   )
 }
 
+const sameAs = [site.googleBusinessProfile, ...Object.values(site.social)].filter(Boolean)
+
 export const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -37,7 +41,9 @@ export const orgJsonLd = {
   ...(site.phoneHref && { telephone: site.phoneHref.replace('tel:', '') }),
   founder: { '@type': 'Person', name: site.founder.name },
   areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
-  ...(Object.values(site.social).some(Boolean) && { sameAs: Object.values(site.social).filter(Boolean) }),
+  logo: `${site.url}/raindrop-mark.png`,
+  image: `${site.url}/og-image.png`,
+  ...(sameAs.length && { sameAs }),
   description:
     'Raindrop Marketing builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
   knowsAbout: ['AI SEO', 'Search Engine Optimization', 'Content Marketing', 'Lead Generation', 'Web Design', 'Paid Advertising'],

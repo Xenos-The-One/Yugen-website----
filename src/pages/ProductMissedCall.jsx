@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, PhoneMissed } from "lucide-react";
@@ -228,6 +229,7 @@ export default function ProductMissedCall() {
           </div>
         </div>
       </section>
+      <ProductExtras path="/products/missed-call-text-back" />
     </div>
   );
 }

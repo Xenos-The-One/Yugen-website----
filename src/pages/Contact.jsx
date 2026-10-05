@@ -1,6 +1,7 @@
 import { FadeInEase } from "@/components/motion";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { MessageSquare, Phone, Sparkles, Video } from "lucide-react";
+import { MapPin, MessageSquare, Phone, Sparkles, Video } from "lucide-react";
+import { track } from "@vercel/analytics/react";
 import { Seo } from "@/components/Seo";
 import { site } from "@/content/site";
 import { ContactForm } from "@/components/ContactForm";
@@ -59,6 +60,7 @@ export default function Contact() {
                     desc: "We reply within one business day.",
                     info: site.email,
                     href: `mailto:${site.email}`,
+                    event: "email_click",
                   },
                   site.phone && {
                     icon: <Phone className="w-6 h-6" />,
@@ -66,6 +68,16 @@ export default function Contact() {
                     desc: "Talk to the founder directly.",
                     info: site.phone,
                     href: site.phoneHref,
+                    event: "phone_click",
+                  },
+                  site.googleBusinessProfile && {
+                    icon: <MapPin className="w-6 h-6" />,
+                    title: "Find Us on Google",
+                    desc: "See our Business Profile and reviews.",
+                    info: "View our Google profile",
+                    href: site.googleBusinessProfile,
+                    event: "gbp_click",
+                    external: true,
                   },
                 ].filter(Boolean).map((r, o) => (
                   <FadeInEase delay={0.2 + o * 0.1} key={o}>
@@ -78,6 +90,8 @@ export default function Contact() {
                         <p className="text-white/50 text-sm mb-2">{r.desc}</p>
                         <a
                           href={r.href}
+                          onClick={() => track(r.event, { location: "contact_page" })}
+                          {...(r.external && { target: "_blank", rel: "noreferrer" })}
                           className="text-white font-medium hover:text-primary transition-colors"
                         >
                           {r.info}
@@ -87,7 +101,7 @@ export default function Contact() {
                   </FadeInEase>
                 ))}
                 <FadeInEase delay={0.3}>
-                  <BookingDialog>
+                  <BookingDialog location="contact_page">
                     <button className="w-full text-left glass-card p-6 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-300 flex items-start gap-6 group bg-[#0a0a0c]/50">
                       <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] shrink-0">
                         <Video className="w-6 h-6" />

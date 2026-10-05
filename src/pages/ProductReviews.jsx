@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, Star, ThumbsUp } from "lucide-react";
@@ -9,7 +10,7 @@ export default function ProductReviews() {
     t = [
       "Automated SMS & email review requests",
       "Direct links to your Google Business Profile",
-      "Internal feedback loop to protect against 1-star reviews",
+      "Hear about problems early so you can make them right",
       "Display a live widget of your best reviews",
       "Respond to all reviews directly from the dashboard",
     ];
@@ -259,6 +260,7 @@ export default function ProductReviews() {
           </div>
         </div>
       </section>
+      <ProductExtras path="/products/review-system" />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import { ProductExtras } from '@/components/ProductExtras'
 
 // Shared product page layout; class strings stay literal so Tailwind keeps them.
 export const themes = {
@@ -34,7 +35,7 @@ export const themes = {
   },
 }
 
-export function ProductPage({ theme, icon: Icon, eyebrow, title, accent, intro, cta, sectionTitle, sectionAccent, sectionBody, features, mock }) {
+export function ProductPage({ path, theme, icon: Icon, eyebrow, title, accent, intro, cta, sectionTitle, sectionAccent, sectionBody, features, mock }) {
   const navigate = useNavigate()
   const c = themes[theme]
   return (
@@ -114,6 +115,7 @@ export function ProductPage({ theme, icon: Icon, eyebrow, title, accent, intro, 
           </div>
         </div>
       </section>
+      <ProductExtras path={path} />
     </div>
   )
 }

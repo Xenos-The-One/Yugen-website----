@@ -1,4 +1,5 @@
-import { CalendarDays, Send, Video } from 'lucide-react'
+import { useState } from 'react'
+import { CalendarDays, Loader2, Send, Video } from 'lucide-react'
 import { site } from '@/content/site'
 
 // Only the full appointment-schedule URL can be iframed; short calendar.app.google links refuse framing.
@@ -12,11 +13,24 @@ function embedUrl(url) {
 export function BookingPanel({ frameClassName = '' }) {
   const url = site.bookingUrl
   const embed = url ? embedUrl(url) : null
+  const [loaded, setLoaded] = useState(false)
 
   if (embed) {
     return (
-      <div className={`w-full overflow-hidden bg-white ${frameClassName}`}>
-        <iframe title="Book a Google Meet call" src={embed} style={{ width: '100%', height: '100%', minHeight: '720px', border: 'none' }} />
+      <div className={`relative w-full overflow-hidden bg-white ${frameClassName}`}>
+        {!loaded && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#0a0a0c] text-white/60">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            Loading available times…
+          </div>
+        )}
+        <iframe
+          title="Book a Google Meet call"
+          src={embed}
+          // Google's page fires load before it draws the time slots, so hold the loader a little longer.
+          onLoad={() => setTimeout(() => setLoaded(true), 1500)}
+          style={{ width: '100%', height: '100%', minHeight: '720px', border: 'none' }}
+        />
       </div>
     )
   }

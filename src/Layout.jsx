@@ -8,9 +8,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ArrowRight, ChevronDown, MapPin, Menu, Phone, X } from "lucide-react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Logo } from "@/components/Logo";
+import { Analytics, track } from "@vercel/analytics/react";
+import { ChatWidget } from "@/components/ChatWidget";
 import { products, site } from "@/content/site";
 
 export default function Layout() {
@@ -26,8 +28,10 @@ export default function Layout() {
       return (window.addEventListener("scroll", l), () => window.removeEventListener("scroll", l));
     }, []),
     useEffect(() => {
-      (n(!1), window.scrollTo(0, 0));
-    }, [i.pathname]),
+      n(!1);
+      if (i.hash) document.getElementById(i.hash.slice(1))?.scrollIntoView();
+      else window.scrollTo(0, 0);
+    }, [i.pathname, i.hash]),
     (
       <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
         <motion.nav
@@ -131,13 +135,13 @@ export default function Layout() {
               </div>
               <div className="hidden xl:flex items-center gap-4">
                 <Button
+                  asChild
                   variant="ghost"
-                  onClick={() => (window.location.href = site.loginUrl)}
                   className="text-white hover:text-white hover:bg-white/10 transition-all duration-300 font-bold rounded-full px-6 h-10"
                 >
-                  Log In
+                  <a href={site.loginUrl}>Log In</a>
                 </Button>
-                <BookingDialog>
+                <BookingDialog location="nav_desktop">
                   <Button className="bg-white text-black hover:bg-white/90 font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 rounded-full px-6 h-10 group relative overflow-hidden">
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
                     <span className="relative z-10 flex items-center gap-2">
@@ -257,18 +261,18 @@ export default function Layout() {
                   <div className="h-px bg-white/10 my-2" />
                   <div className="flex flex-col gap-4">
                     {site.phone && (
-                      <a href={site.phoneHref} className="flex items-center justify-center gap-2 text-lg font-bold text-white h-14 rounded-full border border-white/20">
+                      <a href={site.phoneHref} onClick={() => track("phone_click", { location: "nav_mobile_menu" })} className="flex items-center justify-center gap-2 text-lg font-bold text-white h-14 rounded-full border border-white/20">
                         <Phone className="w-5 h-5" /> Call {site.phone}
                       </a>
                     )}
                     <Button
+                      asChild
                       variant="outline"
-                      onClick={() => (window.location.href = site.loginUrl)}
                       className="w-full text-white border-white/20 hover:bg-white/10 text-lg h-14 rounded-full font-bold"
                     >
-                      Log In
+                      <a href={site.loginUrl}>Log In</a>
                     </Button>
-                    <BookingDialog>
+                    <BookingDialog location="nav_mobile_menu">
                       <Button className="w-full bg-white text-black hover:bg-white/90 text-lg h-14 rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                         Book Appointment
                       </Button>
@@ -310,11 +314,32 @@ export default function Layout() {
                   We build and manage AI-driven growth systems that get you found on Google and AI search, capture every lead, follow up automatically, and turn more inquiries into booked business.
                 </p>
                 {site.phone && (
-                  <a href={site.phoneHref} className="block text-white text-lg font-bold mb-8 hover:text-primary transition-colors">
+                  <a href={site.phoneHref} onClick={() => track("phone_click", { location: "footer" })} className="block text-white text-lg font-bold mb-8 hover:text-primary transition-colors">
                     {site.phone}
                   </a>
                 )}
+                {site.googleBusinessProfile && (
+                  <a
+                    href={site.googleBusinessProfile}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => track("gbp_click", { location: "footer" })}
+                    className="flex items-center gap-2 text-white/70 font-medium mb-8 hover:text-primary transition-colors"
+                  >
+                    <MapPin className="w-5 h-5" /> Find us on Google
+                  </a>
+                )}
                 <div className="flex gap-4">
+                  {site.social.linkedin && (
+                  <a
+                    href={site.social.linkedin} aria-label="LinkedIn"
+                    className="w-12 h-12 rounded-full glass-card border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] text-white"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                  </a>
+                  )}
                   {site.social.twitter && (
                   <a
                     href={site.social.twitter} aria-label="Twitter"
@@ -453,11 +478,11 @@ export default function Layout() {
                   {[
                     {
                       label: "Terms of Use",
-                      path: "/legal",
+                      path: "/legal#terms",
                     },
                     {
                       label: "Privacy Policy",
-                      path: "/legal",
+                      path: "/legal#privacy",
                     },
                   ].map((l, c) => (
                     <li key={c}>
@@ -492,16 +517,18 @@ export default function Layout() {
                 {" Raindrop Marketing. All Rights Reserved."}
               </div>
               <div className="mt-4 md:mt-0 flex gap-8">
-                <a href="/legal" className="hover:text-white transition-colors">
+                <a href="/legal#privacy" className="hover:text-white transition-colors">
                   Privacy
                 </a>
-                <a href="/legal" className="hover:text-white transition-colors">
+                <a href="/legal#terms" className="hover:text-white transition-colors">
                   Terms
                 </a>
               </div>
             </motion.div>
           </div>
         </footer>
+        <Analytics />
+        <ChatWidget />
       </div>
     )
   );

@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { author, posts } from "@/content/blog";
+import { site } from "@/content/site";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, ChevronRight, Clock } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -35,8 +36,10 @@ export default function BlogPost() {
       "@type": "BlogPosting",
       headline: n.title,
       description: n.metaDescription,
-      image: n.image,
+      image: `${site.url}${n.image}`,
       datePublished: n.date,
+      dateModified: n.date,
+      mainEntityOfPage: `${site.url}/blog/${n.slug}`,
       author: {
         "@type": "Person",
         name: author.name,
@@ -45,14 +48,16 @@ export default function BlogPost() {
       },
       publisher: {
         "@type": "Organization",
-        name: "Raindrop Marketing",
+        name: site.name,
+        url: site.url,
+        logo: { "@type": "ImageObject", url: `${site.url}/raindrop-mark.png` },
       },
       keywords: n.keywords.join(", "),
       articleSection: n.category,
     };
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <Seo title={n.title} description={n.metaDescription} path={`/blog/${n.slug}`} jsonLd={s} />
+      <Seo title={n.title} description={n.metaDescription} path={`/blog/${n.slug}`} jsonLd={s} brand={false} />
       <div className="pt-28 pb-6 px-4 bg-[#030303]">
         <div className="container mx-auto max-w-4xl">
           <nav className="flex items-center gap-2 text-sm text-white/40">

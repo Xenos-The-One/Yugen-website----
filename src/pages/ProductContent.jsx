@@ -19,6 +19,7 @@ export default function ProductContent() {
         path="/products/content-creation"
       />
       <ProductPage
+        path="/products/content-creation"
         theme="orange"
         icon={PenTool}
         eyebrow="Content That Ranks"

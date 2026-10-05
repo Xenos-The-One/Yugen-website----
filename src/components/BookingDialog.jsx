@@ -1,10 +1,11 @@
+import { track } from '@vercel/analytics/react'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from './ui/dialog'
 import { BookingPanel } from './BookingPanel'
 import { site } from '@/content/site'
 
-export function BookingDialog({ children }) {
+export function BookingDialog({ children, location = 'unknown' }) {
   return (
-    <Dialog>
+    <Dialog onOpenChange={(open) => open && track('book_open', { location })}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[800px] w-[95vw] max-h-[90vh] flex flex-col p-0 border-white/10 bg-[#0a0a0c] overflow-hidden shadow-[0_0_100px_rgba(45,212,191,0.3)] rounded-2xl">
         <div className="p-5 sm:p-8 pb-4 sm:pb-6 bg-gradient-to-b from-primary/15 to-transparent relative border-b border-white/5 shrink-0">

@@ -14,6 +14,7 @@ export default function ProductAiSeo() {
         path="/products/ai-seo"
       />
       <ProductPage
+        path="/products/ai-seo"
         theme="sky"
         icon={Sparkles}
         eyebrow="AI Search Optimization"

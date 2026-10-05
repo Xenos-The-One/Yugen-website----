@@ -21,7 +21,7 @@ export function LandingHero({ eyebrow, icon: Icon = MapPin, title, accent, intro
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8">{intro}</p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <BookingDialog>
+              <BookingDialog location="landing_hero">
                 <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bold h-14 px-8 rounded-full text-base">
                   Book a Call <Calendar className="w-4 h-4 ml-2" />
                 </Button>
@@ -149,7 +149,7 @@ export function ClosingCta({ title, text }) {
       <div className="container mx-auto max-w-3xl text-center relative z-10">
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-5">{title}</h2>
         <p className="text-lg text-white/70 mb-8">{text}</p>
-        <BookingDialog>
+        <BookingDialog location="landing_closing">
           <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bold h-14 px-10 rounded-full text-base">
             Book Your Strategy Call
           </Button>

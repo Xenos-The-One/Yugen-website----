@@ -1,4 +1,4 @@
-// Posts a form to the site's own /api/contact function, which emails it via Resend.
+// Posts a form to the site's own /api/contact function, which emails it over SMTP.
 export async function submitForm(form, fields) {
   const res = await fetch('/api/contact', {
     method: 'POST',

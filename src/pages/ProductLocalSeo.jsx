@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, MapPin, Search, Star } from "lucide-react";
@@ -273,6 +274,7 @@ export default function ProductLocalSeo() {
           </div>
         </div>
       </section>
+      <ProductExtras path="/products/local-seo" />
     </div>
   );
 }

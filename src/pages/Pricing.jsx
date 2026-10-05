@@ -21,7 +21,7 @@ const starterPlans = [
       "Automatic review requests sent on autopilot",
       "Automated referral requests after every job",
       "Revisit customer discounts on autopilot",
-      "Dedicated Account Rep",
+      "Direct line to the founder",
     ],
   },
   {
@@ -130,7 +130,7 @@ function PlanCard({ plan: p, delay }) {
           </div>
           {p.note && <p className="relative z-10 text-white/40 text-sm text-center -mt-4 mb-6">{p.note}</p>}
           <div className="relative z-10">
-            <BookingDialog>
+            <BookingDialog location="pricing">
               <Button className="w-full bg-white text-black hover:bg-white/90 font-bold h-14 text-lg rounded-xl shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all">
                 Get Started
               </Button>
