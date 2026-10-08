@@ -41,6 +41,13 @@ export const orgJsonLd = {
   ...(site.phoneHref && { telephone: site.phoneHref.replace('tel:', '') }),
   founder: { '@type': 'Person', name: site.founder.name },
   areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
+  // Keep in sync with the Google Business Profile hours.
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '20:00',
+  },
   logo: `${site.url}/raindrop-mark.png`,
   image: `${site.url}/og-image.png`,
   ...(sameAs.length && { sameAs }),
