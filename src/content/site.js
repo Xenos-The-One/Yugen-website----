@@ -17,7 +17,7 @@ export const site = {
   social: { twitter: '', instagram: '', linkedin: '' },
   // Google Business Profile share link (maps.app.goo.gl/... or g.page/...). Shown in the footer and
   // contact page, and added to schema sameAs. Empty hides it.
-  googleBusinessProfile: '',
+  googleBusinessProfile: 'https://share.google/dhr0sr9kM8GDRSWOa',
   // Business phone, e.g. '(416) 555-0123'. Empty hides it everywhere.
   phone: '(437) 974-3613',
   phoneHref: 'tel:+14379743613',
