@@ -4,9 +4,9 @@ export const areas = [
     slug: "toronto",
     name: "Toronto",
     region: "City of Toronto",
-    title: "Contractor Marketing in Toronto",
+    title: "Contractor Marketing & SEO in Toronto",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Toronto, from Etobicoke to Scarborough. Win jobs in older homes, stand out in a crowded market and get recommended by AI search.",
+      "Contractor marketing and local SEO in Toronto, from Etobicoke to Scarborough. Win jobs in older homes, stand out in a crowded market and get found in AI search.",
     intro:
       "Toronto is the most competitive market in the GTA for home services. Homeowners have dozens of options for every trade, so the contractors who win are the ones who answer first, look most trustworthy and show up when people search by neighbourhood.",
     market: [
@@ -31,9 +31,9 @@ export const areas = [
     slug: "vaughan",
     name: "Vaughan",
     region: "York Region",
-    title: "Contractor Marketing in Vaughan",
+    title: "Contractor Marketing & SEO in Vaughan",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Vaughan, Woodbridge, Maple, Kleinburg and Concord. Win more renovation, HVAC and landscaping work from Vaughan homeowners.",
+      "Contractor marketing and local SEO in Vaughan, Woodbridge, Maple, Kleinburg and Concord. Win more renovation, HVAC and landscaping work from local homeowners.",
     intro:
       "Vaughan homeowners invest heavily in their homes, and they expect contractors to be professional, responsive and well reviewed. We help you show up in Woodbridge, Maple, Kleinburg and across the city, and turn more of those inquiries into booked jobs.",
     market: [
@@ -60,7 +60,7 @@ export const areas = [
     region: "Peel Region",
     title: "Contractor Marketing in Mississauga",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Mississauga, from Port Credit to Meadowvale. Reach homeowners across one of the GTA's largest cities and win more jobs.",
+      "Contractor marketing and local SEO in Mississauga, from Port Credit to Meadowvale. Reach homeowners across one of the GTA's largest cities and win more jobs.",
     intro:
       "Mississauga is one of the largest cities in the GTA, with everything from lakefront homes in Port Credit to subdivisions in Meadowvale and condos around the City Centre. We help contractors reach the right homeowners in the right neighbourhoods and capture every lead.",
     market: [
@@ -85,9 +85,9 @@ export const areas = [
     slug: "brampton",
     name: "Brampton",
     region: "Peel Region",
-    title: "Contractor Marketing in Brampton",
+    title: "Contractor Marketing & SEO in Brampton",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Brampton. Win basement, HVAC, roofing and landscaping work in one of the GTA's fastest-growing cities.",
+      "Contractor marketing and local SEO in Brampton. Win basement, HVAC, roofing and landscaping work in one of the GTA's fastest-growing cities.",
     intro:
       "Brampton has grown fast, and its homeowners keep contractors busy with basements, roofs, HVAC and outdoor projects. We help you answer every inquiry quickly, stand out on Google and turn happy customers into referrals across tight-knit communities.",
     market: [
@@ -112,9 +112,9 @@ export const areas = [
     slug: "markham",
     name: "Markham",
     region: "York Region",
-    title: "Contractor Marketing in Markham",
+    title: "Contractor Marketing & SEO in Markham",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Markham, Unionville and Cornell. Reach research-minded homeowners and win more renovation, HVAC and electrical work.",
+      "Contractor marketing and local SEO in Markham, Unionville and Cornell. Reach research-minded homeowners and win more renovation, HVAC and electrical work.",
     intro:
       "Markham homeowners tend to research carefully, read reviews closely and expect clear, professional communication. We help contractors earn that trust online, answer every inquiry fast and win more work across Unionville, Cornell and the rest of the city.",
     market: [
@@ -141,7 +141,7 @@ export const areas = [
     region: "York Region",
     title: "Contractor Marketing in Richmond Hill",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Richmond Hill, from Oak Ridges to Bayview Hill. Win high-value renovation, HVAC and roofing work from local homeowners.",
+      "Contractor marketing and local SEO in Richmond Hill, from Oak Ridges to Bayview Hill. Win high-value renovation, HVAC and roofing work from local homeowners.",
     intro:
       "Richmond Hill's large homes and established neighbourhoods create steady demand for high-value renovations, HVAC systems, roofing and landscaping. We help contractors look like the obvious choice and capture every inquiry from Oak Ridges to Bayview Hill.",
     market: [
@@ -166,9 +166,9 @@ export const areas = [
     slug: "oakville",
     name: "Oakville",
     region: "Halton Region",
-    title: "Contractor Marketing in Oakville",
+    title: "Contractor Marketing & SEO in Oakville",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Oakville, from Old Oakville to Glen Abbey. Reach discerning homeowners and win premium renovation and exterior projects.",
+      "Contractor marketing and local SEO in Oakville, from Old Oakville to Glen Abbey. Reach discerning homeowners and win premium renovation and exterior projects.",
     intro:
       "Oakville homeowners expect quality and are prepared to pay for it, but they choose carefully. We help contractors present premium work, respond like a professional firm and earn the reviews that win discerning clients.",
     market: [
@@ -193,9 +193,9 @@ export const areas = [
     slug: "pickering",
     name: "Pickering",
     region: "Durham Region",
-    title: "Contractor Marketing in Pickering",
+    title: "Contractor Marketing & SEO in Pickering",
     metaDescription:
-      "Lead systems, websites and local SEO for contractors serving Pickering and the west end of Durham Region. Capture leads from new communities like Seaton and established neighbourhoods alike.",
+      "Contractor marketing and local SEO in Pickering and west Durham. Capture leads from new communities like Seaton and established neighbourhoods alike.",
     intro:
       "Pickering combines established neighbourhoods with fast-growing new communities like Seaton. We help contractors reach both, from first-time owners finishing a basement to long-time residents replacing a roof or furnace.",
     market: [

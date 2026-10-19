@@ -1,0 +1,17 @@
+type,target,contact_or_url,angle,status,date_sent,follow_up_date,result_url,notes
+vendor,Twilio,https://customers.twilio.com,Customer story: missed call text back for contractors,todo,,,,
+vendor,Vercel,https://vercel.com/customers,Customer story: fast prerendered contractor sites,todo,,,,
+vendor,Google Workspace,,Testimonial,todo,,,,
+partner,Jobber partner/marketplace,https://getjobber.com,Agency partner listing,todo,,,,Check for a free agency program
+partner,Housecall Pro partners,https://www.housecallpro.com,Agency partner listing,todo,,,,Check for a free agency program
+association,HRAI (Heating Refrigeration and Air Conditioning Institute of Canada),https://www.hrai.ca,Member session or newsletter article on AI search,todo,,,,
+association,Ontario trade associations (plumbing/electrical/roofing),,Member session or newsletter article,todo,,,,Research specific associations
+media,YorkRegion.com / Metroland,,Pitch AI visibility study once published,blocked-on-study,,,,
+media,BetaKit,https://betakit.com,Pitch AI visibility study (AI angle),blocked-on-study,,,,
+media,Canadian Contractor,,Pitch AI visibility study,blocked-on-study,,,,
+podcast,Contractor/small business podcasts,,Guest: how AI assistants pick contractors,todo,,,,Build a list of 10
+pr-platform,Qwoted,https://www.qwoted.com,Expert answers,todo,,,,
+pr-platform,Featured.com,https://featured.com,Expert answers,todo,,,,
+pr-platform,Help a B2B Writer,https://helpab2bwriter.com,Expert answers,todo,,,,
+pr-platform,SourceBottle,https://www.sourcebottle.com,Expert answers,todo,,,,
+client-credit,Every client website,,Footer credit link,todo,,,,Add to contract template

@@ -30,7 +30,9 @@ AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 export const AccordionContent = React.forwardRef(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    // .accordion-content (src/index.css) hides closed content: with forceMount (answers kept in the HTML for search engines) Radix never
+    // unmounts closed content, so it would spring back open after the closing animation.
+    className="accordion-content"
     {...props}
   >
     <div className={cn('pb-4 pt-0', className)}>{children}</div>

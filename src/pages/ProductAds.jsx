@@ -13,15 +13,15 @@ export default function ProductAds() {
   return (
     <>
       <Seo
-        title="Paid Ads"
-        description="Google and Meta ad campaigns built around booked calls, with landing pages and conversion tracking so you know what every dollar returns."
+        title="Google Ads for Contractors in the GTA"
+        description="Google Ads, Local Services Ads and Meta campaigns for GTA contractors, tracked past clicks to calls, booked jobs and revenue so every dollar is accountable."
         path="/products/paid-ads"
       />
       <ProductPage
         path="/products/paid-ads"
         theme="indigo"
         icon={Target}
-        eyebrow="Paid Advertising"
+        eyebrow="Google Ads Management for Contractors"
         title="Ads That Pay"
         accent="for Themselves"
         intro="We run Google and Meta campaigns built around one goal: booked calls. Every ad is tracked so you know exactly what you are getting back."

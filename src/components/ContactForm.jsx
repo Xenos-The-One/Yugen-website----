@@ -8,8 +8,8 @@ import { track } from "@vercel/analytics/react";
 
 const field = "bg-white/[0.03] border-white/10 h-12";
 
-export function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", website: "", interests: [], message: "", company_url: "" });
+export function ContactForm({ audit = false }) {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", website: "", interests: audit ? [auditOption] : [], message: "", company_url: "" });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
@@ -112,7 +112,7 @@ export function ContactForm() {
                 key={o}
                 aria-pressed={on}
                 onClick={() => toggle(o)}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-4 h-10 text-sm transition-colors ${on ? "border-primary bg-primary/15 text-white" : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/30 hover:text-white"}`}
+                className={`chip ${on ? "chip-on" : ""}`}
               >
                 {on && <Check className="w-4 h-4 text-primary" />}
                 {o}

@@ -5,6 +5,12 @@
     "api/demo-call.js": { "maxDuration": 30 }
   },
   "redirects": [
+    {
+      "source": "/:path((?!api/).*)",
+      "has": [{ "type": "host", "value": "yugen-site-delta.vercel.app" }],
+      "destination": "https://www.raindropmarketing.ca/:path",
+      "permanent": true
+    },
     { "source": "/work", "destination": "/testimonials", "permanent": true },
     { "source": "/services", "destination": "/products", "permanent": true },
     { "source": "/services/websites", "destination": "/products/functional-website", "permanent": true },

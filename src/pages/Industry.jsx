@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { Briefcase } from "lucide-react";
-import { Seo, faqJsonLd } from "@/components/Seo";
+import { Seo, breadcrumbJsonLd, faqJsonLd, providerRef } from "@/components/Seo";
 import { CardGrid, Chips, ClosingCta, Faqs, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
 import { industryBySlug } from "@/content/industries";
+import { industrySeo } from "@/content/industrySeo";
 import { areas } from "@/content/areas";
 import { byline, testimonials } from "@/content/testimonials";
 import { site } from "@/content/site";
@@ -12,6 +13,7 @@ export default function Industry() {
   const { slug } = useParams();
   const t = industryBySlug[slug];
   if (!t) return <NotFound />;
+  const seo = industrySeo[t.slug];
 
   const matched = testimonials.filter((x) => t.roles.includes(x.role));
   const quotes = (matched.length ? matched : testimonials).slice(0, 3);
@@ -23,20 +25,12 @@ export default function Industry() {
       name: t.title,
       serviceType: `Marketing for ${t.business}`,
       description: t.metaDescription,
-      provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
+      provider: providerRef,
       areaServed: site.areaServed.map((name) => ({ "@type": "City", name })),
       url: `${site.url}${path}`,
     },
     faqJsonLd(t.faqs),
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-        { "@type": "ListItem", position: 2, name: "Industries", item: `${site.url}/industries` },
-        { "@type": "ListItem", position: 3, name: t.name, item: `${site.url}${path}` },
-      ],
-    },
+    breadcrumbJsonLd([["Industries", "/industries"], [t.name, path]]),
   ];
 
   return (
@@ -45,8 +39,8 @@ export default function Industry() {
       <LandingHero
         eyebrow={`For ${t.business}`}
         icon={Briefcase}
-        title="Marketing for"
-        accent={t.business.replace(/^\w/, (c) => c.toUpperCase())}
+        title={t.keyword}
+        accent={t.title.slice(t.keyword.length).trim()}
         intro={t.intro}
         image={`/landing/img/industry-${t.slug}.webp`}
         imageAlt={`${t.name} work underway at a Greater Toronto Area home`}
@@ -75,12 +69,35 @@ export default function Industry() {
         <Chips items={t.searches} />
       </Section>
 
-      <Section alt>
+      {seo && (
+        <Section alt>
+          <SectionHeading title={`SEO for ${t.business}:`} accent="what we set up" sub={seo.lead} />
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="rounded-[2rem] border border-white/10 bg-[#0a0a0c]/90 p-7">
+              <h3 className="text-xl font-bold text-white mb-2">Google Business Profile categories to consider</h3>
+              <p className="text-white/60 mb-5">The primary category matters most for map rankings. We choose based on the work you actually want.</p>
+              <Chips items={seo.categories} />
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-[#0a0a0c]/90 p-7">
+              <h3 className="text-xl font-bold text-white mb-2">Service pages that should each rank</h3>
+              <p className="text-white/60 mb-5">One strong page per service, written the way homeowners search, beats one page that lists everything.</p>
+              <Chips items={seo.pages} />
+            </div>
+          </div>
+          <p className="text-center mt-10">
+            <a href="/products/local-seo" className="text-primary font-bold hover:underline">How our local SEO works</a>
+            <span className="mx-3 text-white/20">·</span>
+            <a href="/products/ai-seo" className="text-primary font-bold hover:underline">AI SEO for {t.business}</a>
+          </p>
+        </Section>
+      )}
+
+      <Section>
         <SectionHeading title="Your year," accent="planned" sub="Marketing that follows your trade's seasons instead of fighting them." />
         <CardGrid items={t.seasons.map((s) => ({ title: s.season, text: s.text }))} columns="sm:grid-cols-2 lg:grid-cols-4" />
       </Section>
 
-      <Section>
+      <Section alt>
         <SectionHeading title="What contractors" accent="say" />
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {quotes.map((q) => (
@@ -95,12 +112,12 @@ export default function Industry() {
         </div>
       </Section>
 
-      <Section alt>
+      <Section>
         <SectionHeading title="Common" accent="questions" />
         <Faqs faqs={t.faqs} />
       </Section>
 
-      <Section>
+      <Section alt>
         <SectionHeading title={`Serving ${t.business}`} accent="across the GTA" />
         <Chips items={areas.map((a) => a.name)} hrefs={areas.map((a) => `/areas/${a.slug}`)} />
       </Section>

@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { ArrowRight, Globe, MapPin, MessageSquare, PenTool, PhoneMissed, Sparkles, Star, Target, Zap } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 export default function Products() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       {
         title: "AI SEO",
         desc: "Get recommended by ChatGPT, Gemini and Perplexity when customers ask who to hire.",
@@ -108,15 +107,12 @@ export default function Products() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="Products" description="AI SEO, SEO, content, websites, ads, unified inbox, missed call text back, one-click marketing and review automation from Raindrop Marketing." path="/products" />
+      <Seo title="Contractor Marketing Services" description="AI SEO, local SEO, content, websites, Google Ads, missed call text back and review automation: every marketing service GTA contractors need to grow." path="/products" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -125,6 +121,7 @@ export default function Products() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-8 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -144,21 +141,10 @@ export default function Products() {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left auto-rows-fr">
             {t.map((n, r) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: r * 0.1,
-                }}
-                onClick={() => e(n.href)}
-                className={`group cursor-pointer glass-card p-8 rounded-3xl border border-white/5 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between overflow-hidden relative ${n.colSpan} ${n.border} ${n.glow}`}
+              <a
+                href={n.href}
+                style={{ animationDelay: `${r * 100}ms` }}
+                className={`animate-rise group cursor-pointer glass-card p-8 rounded-3xl border border-white/5 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between overflow-hidden relative ${n.colSpan} ${n.border} ${n.glow}`}
                 key={r}
               >
                 <div
@@ -179,11 +165,12 @@ export default function Products() {
                   Explore Feature
                   <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </div>
-              </motion.div>
+              </a>
             ))}
           </div>
         </div>
       </section>
+      <PageExtras path="/products" />
     </div>
   );
 }

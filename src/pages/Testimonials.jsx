@@ -1,7 +1,9 @@
 import { FadeInEase, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowRight, CheckCircle2, MapPin, Quote, Star } from "lucide-react";
+import { Stars } from "@/components/Stars";
 import { byline, testimonials } from "@/content/testimonials";
 
 export default function Testimonials() {
@@ -14,7 +16,7 @@ export default function Testimonials() {
   const r = testimonials;
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Testimonials" description="Real results from contractors who use the systems Raindrop builds." path="/testimonials" />
+      <Seo title="Client Reviews & Results" description="What GTA contractors say about working with Raindrop Marketing: websites, lead follow-up, reviews and SEO that turned into more booked jobs." path="/testimonials" />
       <section
         onMouseMove={n}
         className="pt-40 pb-20 px-4 text-center relative overflow-hidden bg-[#030303] min-h-[60vh] flex items-center justify-center"
@@ -56,17 +58,12 @@ export default function Testimonials() {
             {r.map((o, s) => (
               <FadeInEase delay={s * 0.05} className="break-inside-avoid" key={s}>
                 <Tilt>
-                  <div className="glass-card bg-[#0a0a0c]/80 backdrop-blur-xl p-8 rounded-[2rem] border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(6,182,212,0.15)] group relative overflow-hidden h-full flex flex-col">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="testimonial-card group">
+                    <div className="testimonial-wash" />
                     <div className="relative z-10 flex-1 flex flex-col">
                       <div className="flex justify-between items-start mb-6">
-                        <div className="flex gap-1 text-primary group-hover:scale-110 origin-left transition-transform duration-300">
-                          {[...Array(5)].map((i, l) => (
-                            <Star
-                              className="w-5 h-5 fill-current drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]"
-                              key={l}
-                            />
-                          ))}
+                        <div className="text-primary group-hover:scale-110 origin-left transition-transform duration-300">
+                          <Stars className="drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" />
                         </div>
                         <Quote className="w-8 h-8 text-white/10 group-hover:text-primary/20 transition-colors" />
                       </div>
@@ -75,8 +72,8 @@ export default function Testimonials() {
                         {o.quote}
                         {'"'}
                       </p>
-                      <div className="flex items-center gap-4 pt-6 border-t border-white/10 group-hover:border-primary/20 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl border border-primary/30 shadow-[0_0_15px_hsl(var(--primary)/0.2)]">
+                      <div className="testimonial-byline">
+                        <div className="testimonial-avatar">
                           {o.name[0]}
                         </div>
                         <div>
@@ -98,6 +95,7 @@ export default function Testimonials() {
           </div>
         </div>
       </section>
+      <PageExtras path="/testimonials" />
       <section className="py-32 px-4 relative border-t border-white/5 overflow-hidden bg-[#0a0a0c]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/20 via-[#06b6d4]/20 to-primary/20 blur-[100px] rounded-full pointer-events-none" />
         <div className="container mx-auto max-w-4xl relative z-10 text-center">

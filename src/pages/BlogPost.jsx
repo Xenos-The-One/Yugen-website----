@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArticleBody } from "@/components/ArticleBody";
 import { FadeIn } from "@/components/motion";
-import { Seo } from "@/components/Seo";
+import { Seo, breadcrumbJsonLd, founderJsonLd, providerRef } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { author, posts } from "@/content/blog";
 import { site } from "@/content/site";
@@ -40,24 +40,22 @@ export default function BlogPost() {
       datePublished: n.date,
       dateModified: n.date,
       mainEntityOfPage: `${site.url}/blog/${n.slug}`,
-      author: {
-        "@type": "Person",
-        name: author.name,
-        jobTitle: author.role,
-        description: author.bio,
-      },
-      publisher: {
-        "@type": "Organization",
-        name: site.name,
-        url: site.url,
-        logo: { "@type": "ImageObject", url: `${site.url}/raindrop-mark.png` },
-      },
+      author: { ...founderJsonLd, jobTitle: author.role, description: author.bio },
+      publisher: { ...providerRef, logo: { "@type": "ImageObject", url: `${site.url}/raindrop-mark.png` } },
       keywords: n.keywords.join(", "),
       articleSection: n.category,
     };
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <Seo title={n.title} description={n.metaDescription} path={`/blog/${n.slug}`} jsonLd={s} brand={false} />
+      <Seo
+        title={n.seoTitle || n.title}
+        description={n.metaDescription}
+        path={`/blog/${n.slug}`}
+        jsonLd={[s, breadcrumbJsonLd([["Blog", "/blog"], [n.title, `/blog/${n.slug}`]])]}
+        brand={false}
+        image={n.image}
+        type="article"
+      />
       <div className="pt-28 pb-6 px-4 bg-[#030303]">
         <div className="container mx-auto max-w-4xl">
           <nav className="flex items-center gap-2 text-sm text-white/40">
@@ -76,10 +74,7 @@ export default function BlogPost() {
       <section className="pb-12 px-4 bg-[#030303]">
         <div className="container mx-auto max-w-4xl">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -87,6 +82,7 @@ export default function BlogPost() {
             transition={{
               duration: 0.8,
             }}
+            className="animate-rise"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-8 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
               {n.category}
@@ -120,10 +116,7 @@ export default function BlogPost() {
       <section className="px-4 bg-[#030303] pb-12">
         <div className="container mx-auto max-w-5xl">
           <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.98,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               scale: 1,
@@ -132,7 +125,7 @@ export default function BlogPost() {
               duration: 0.8,
               delay: 0.2,
             }}
-            className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+            className="animate-rise [animation-delay:200ms] relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
           >
             <img src={n.image} alt={n.title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/60 via-transparent to-transparent" />
@@ -214,11 +207,11 @@ export default function BlogPost() {
             <div className="grid md:grid-cols-3 gap-8">
               {o.map((i, l) => (
                 <FadeIn delay={l * 0.1} key={i.slug}>
-                  <motion.div
+                  <motion.a
                     whileHover={{
                       y: -8,
                     }}
-                    onClick={() => t(`/blog/${i.slug}`)}
+                    href={`/blog/${i.slug}`}
                     className="group cursor-pointer h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
@@ -241,7 +234,7 @@ export default function BlogPost() {
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
-                  </motion.div>
+                  </motion.a>
                 </FadeIn>
               ))}
             </div>

@@ -9,15 +9,15 @@ export default function ProductAiSeo() {
   return (
     <>
       <Seo
-        title="AI SEO"
-        description="Get recommended by ChatGPT, Gemini and Perplexity. Raindrop optimizes your brand, content and schema so AI search engines understand and cite your business."
+        title="AI SEO Agency in Toronto"
+        description="Get your business recommended by ChatGPT, Gemini, Perplexity and Google AI Overviews. Raindrop is a Toronto AI SEO agency for contractors and local firms."
         path="/products/ai-seo"
       />
       <ProductPage
         path="/products/ai-seo"
         theme="sky"
         icon={Sparkles}
-        eyebrow="AI Search Optimization"
+        eyebrow="AI SEO Agency in Toronto"
         title="Get Recommended When Customers"
         accent="Ask AI"
         intro="Your customers are asking ChatGPT, Gemini and Perplexity who to hire. We optimize your brand, content and schema so AI search engines understand your business and recommend it."

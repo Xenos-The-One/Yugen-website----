@@ -5,9 +5,10 @@ export const industries = [
     slug: 'hvac',
     name: 'HVAC',
     business: 'HVAC companies',
-    title: 'Marketing for HVAC Companies in the GTA',
+    keyword: 'HVAC Marketing',
+    title: 'HVAC Marketing & SEO in the GTA',
     metaDescription:
-      'Lead systems, websites and AI search for GTA heating and cooling companies. Answer every no-heat call, fill the shoulder seasons and get recommended on Google and ChatGPT.',
+      'HVAC marketing and SEO for GTA heating and cooling companies: answer every no-heat call, fill the shoulder seasons and get recommended on Google and ChatGPT.',
     intro:
       "Your phone rings off the hook on the first cold night and goes quiet in May. We build systems that catch every no-heat call when it's busy, and keep your techs booked with tune-ups and replacements when it isn't.",
     roles: ['HVAC Owner', 'HVAC Tech'],
@@ -40,9 +41,10 @@ export const industries = [
     slug: 'plumbing',
     name: 'Plumbing',
     business: 'plumbing companies',
-    title: 'Marketing for Plumbers in the GTA',
+    keyword: 'Plumber Marketing',
+    title: 'Plumber Marketing & SEO in the GTA',
     metaDescription:
-      'Lead capture, websites and local SEO for GTA plumbing companies. Never lose an emergency call to voicemail, win more water heater and drain jobs, and grow your Google reviews.',
+      'Plumber marketing and local SEO for GTA plumbing companies: never lose an emergency call to voicemail, win more drain and water heater jobs, grow reviews.',
     intro:
       "When a basement is flooding, the homeowner calls three plumbers and hires whoever answers. We make sure that's you, even when you're under a sink, and turn every finished job into the reviews that win the next call.",
     roles: ['Plumbing Contractor'],
@@ -75,9 +77,10 @@ export const industries = [
     slug: 'electricians',
     name: 'Electrician',
     business: 'electrical contractors',
-    title: 'Marketing for Electricians in the GTA',
+    keyword: 'Electrician Marketing',
+    title: 'Electrician Marketing & SEO in the GTA',
     metaDescription:
-      'Websites, lead systems and SEO for GTA electrical contractors. Win more panel upgrades, EV charger installs and rewiring jobs, and show homeowners the credentials they look for.',
+      'Electrician marketing and SEO for GTA electrical contractors: win more panel upgrades, EV charger installs and rewiring jobs with trust-first websites.',
     intro:
       'Homeowners hire electricians on trust. We build websites and systems that show your licence and reviews up front, answer every inquiry fast, and help you win the panel upgrades, EV chargers and rewiring jobs worth the most.',
     roles: ['Electrician'],
@@ -110,9 +113,10 @@ export const industries = [
     slug: 'roofing',
     name: 'Roofing',
     business: 'roofing companies',
-    title: 'Marketing for Roofers in the GTA',
+    keyword: 'Roofing Marketing',
+    title: 'Roofing Marketing & SEO in the GTA',
     metaDescription:
-      'Lead systems, websites and local SEO for GTA roofing contractors. Handle storm-season call spikes, follow up on every replacement quote and build the reviews homeowners check first.',
+      'Roofing marketing and local SEO for GTA roofers: handle storm-season call spikes, follow up on every replacement quote and build the reviews homeowners check.',
     intro:
       "After a windstorm, every roofer's phone explodes at once. We make sure every caller gets an instant reply while your crews are on roofs, and that every replacement quote gets followed up until it's signed.",
     roles: ['Roofing Specialist'],
@@ -145,9 +149,10 @@ export const industries = [
     slug: 'general-contractors',
     name: 'General Contractor',
     business: 'general contractors',
-    title: 'Marketing for General Contractors in the GTA',
+    keyword: 'General Contractor Marketing',
+    title: 'General Contractor Marketing in the GTA',
     metaDescription:
-      'Websites, lead qualification and SEO for GTA general contractors. Attract bigger projects, filter out tire-kickers and stay in touch through long decision cycles.',
+      'Marketing and SEO for GTA general contractors: attract bigger projects, filter out tire-kickers and stay in touch through long decision cycles.',
     intro:
       "Big projects take months to decide and come with plenty of tire-kickers. We build websites that attract the right clients, qualify leads before you drive out, and keep you in touch until they're ready to sign.",
     roles: ['General Contractor'],
@@ -180,9 +185,10 @@ export const industries = [
     slug: 'landscaping',
     name: 'Landscaping',
     business: 'landscaping companies',
-    title: 'Marketing for Landscapers in the GTA',
+    keyword: 'Landscaping Marketing',
+    title: 'Landscaping Marketing & SEO in the GTA',
     metaDescription:
-      'Lead systems, websites and local SEO for GTA landscaping and hardscaping companies. Handle the spring rush, sell maintenance contracts and keep clients through the off-season.',
+      'Landscaping marketing and local SEO for GTA landscapers and hardscapers: handle the spring rush, sell maintenance contracts and stay busy off-season.',
     intro:
       'Every spring, quote requests pile up faster than you can visit properties. We help you answer every request, book estimates efficiently, sell maintenance plans and stay in touch with clients through the winter.',
     roles: ['Landscaping Pro'],
@@ -215,9 +221,10 @@ export const industries = [
     slug: 'pool-services',
     name: 'Pool Services',
     business: 'pool service companies',
-    title: 'Marketing for Pool Service Companies in the GTA',
+    keyword: 'Pool Service Marketing',
+    title: 'Pool Service Marketing & SEO in the GTA',
     metaDescription:
-      'Lead systems, websites and local SEO for GTA pool companies. Fill opening and closing schedules early, capture every service call and sell maintenance packages.',
+      'Pool service marketing and local SEO for GTA pool companies: fill opening and closing schedules early, capture every call and sell maintenance plans.',
     intro:
       "Ontario's pool season is short, so the openings and closings calendar fills fast. We help you book it early, answer every service call in peak season, and turn one-time customers into weekly maintenance clients.",
     roles: [],
@@ -250,9 +257,10 @@ export const industries = [
     slug: 'pest-control',
     name: 'Pest Control',
     business: 'pest control companies',
-    title: 'Marketing for Pest Control Companies in the GTA',
+    keyword: 'Pest Control Marketing',
+    title: 'Pest Control Marketing & SEO in the GTA',
     metaDescription:
-      'Lead systems, websites and local SEO for GTA pest control companies. Answer urgent calls instantly, handle sensitive inquiries discreetly and sell prevention plans.',
+      'Pest control marketing and local SEO for GTA exterminators: answer urgent calls instantly, handle sensitive inquiries discreetly and sell prevention plans.',
     intro:
       "People with a pest problem want help today, and they don't want to explain it twice. We make sure every call and message gets an instant, discreet reply, and turn one-time treatments into prevention plans.",
     roles: [],
@@ -285,9 +293,10 @@ export const industries = [
     slug: 'concrete-paving',
     name: 'Concrete & Paving',
     business: 'concrete and paving companies',
-    title: 'Marketing for Concrete and Paving Contractors in the GTA',
+    keyword: 'Concrete & Paving Marketing',
+    title: 'Concrete & Paving Marketing in the GTA',
     metaDescription:
-      'Websites, lead systems and local SEO for GTA concrete, asphalt and interlock contractors. Book the season early, win more driveway jobs and follow up on every quote.',
+      'Marketing and local SEO for GTA concrete, asphalt and interlock contractors: book the season early, win more driveway jobs and follow up on every quote.',
     intro:
       "Driveways, walkways and foundations are big, visible jobs with a limited season. We help you book the calendar early, show off finished work, and follow up on every quote until it's signed.",
     roles: [],
@@ -320,9 +329,10 @@ export const industries = [
     slug: 'windows-doors',
     name: 'Windows & Doors',
     business: 'window and door companies',
-    title: 'Marketing for Window and Door Companies in the GTA',
+    keyword: 'Window & Door Marketing',
+    title: 'Window & Door Marketing in the GTA',
     metaDescription:
-      'Websites, lead systems and SEO for GTA window and door installers. Win more replacement quotes, nurture long decision cycles and build trust with reviews and real installs.',
+      'Marketing and SEO for GTA window and door installers: win more replacement quotes, nurture long decisions and build trust with reviews and real installs.',
     intro:
       'Window and door replacements are big, considered purchases, and homeowners collect several quotes. We help you stand out with real installs and reviews, follow up on every estimate, and stay in touch until they choose you.',
     roles: [],
@@ -355,9 +365,10 @@ export const industries = [
     slug: 'painting',
     name: 'Painting',
     business: 'painting companies',
-    title: 'Marketing for Painters in the GTA',
+    keyword: 'Painter Marketing',
+    title: 'Painter Marketing & SEO in the GTA',
     metaDescription:
-      'Websites, lead systems and local SEO for GTA residential and commercial painters. Fill the exterior season, keep interior work steady and win more quotes with reviews and photos.',
+      'Painter marketing and local SEO for GTA painting companies: fill the exterior season, keep interior work steady and win quotes with reviews and photos.',
     intro:
       'Painting is one of the most competitive trades in the GTA, and homeowners choose on trust, reviews and photos. We help you answer every quote request quickly, show your best work and keep the schedule full year-round.',
     roles: [],
@@ -390,9 +401,10 @@ export const industries = [
     slug: 'remodeling',
     name: 'Remodeling',
     business: 'renovation companies',
-    title: 'Marketing for Renovation and Remodeling Companies in the GTA',
+    keyword: 'Renovation Marketing',
+    title: 'Renovation Marketing & SEO in the GTA',
     metaDescription:
-      'Websites, lead systems and SEO for GTA kitchen, bathroom and basement renovators. Attract better projects, qualify leads and stay top of mind through long planning cycles.',
+      'Renovation marketing and SEO for GTA kitchen, bathroom and basement renovators: attract better projects, qualify leads and win long planning cycles.',
     intro:
       'Kitchens, bathrooms and basements are emotional, expensive decisions. We build portfolio websites that attract the right clients, qualify leads before the consultation, and keep you in touch through months of planning.',
     roles: ['Remodeling'],

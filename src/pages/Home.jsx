@@ -4,7 +4,7 @@ import { LogoMark } from "@/components/Logo";
 import { TestimonialRow } from "@/components/TestimonialMarquee";
 import { testimonials } from "@/content/testimonials";
 import { industries } from "@/content/industries";
-import { Seo, faqJsonLd, orgJsonLd } from "@/components/Seo";
+import { Seo, orgJsonLd, websiteJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
 import { openChat } from "@/components/ChatWidget";
 import { site } from "@/content/site";
@@ -70,10 +70,10 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
       <Seo
-        title="Raindrop Marketing | AI SEO, Websites & Automated Lead Systems"
-        description="Raindrop Marketing gets you found on Google and in AI search, captures every lead, follows up instantly, and books them onto your calendar."
+        title="Contractor Marketing Agency in the GTA | Raindrop Marketing"
+        description="Raindrop Marketing helps GTA contractors get found on Google and in AI search, answer every lead instantly and turn more calls into booked jobs."
         path="/"
-        jsonLd={[orgJsonLd, faqJsonLd(homeFaqs.map((f) => ({ q: f.q, a: f.a })))]}
+        jsonLd={[orgJsonLd, websiteJsonLd]}
       />
       <section
         onMouseMove={r}
@@ -136,10 +136,10 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="font-medium">AI-Powered Lead Systems for GTA Contractors</span>
+              <h1 className="font-sans font-medium">Contractor Marketing Agency in Toronto &amp; the GTA</h1>
             </div>
           </motion.div>
-          <h1 className="text-center text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-white mb-5 md:mb-8 max-w-4xl">
+          <p className="font-display text-center text-[2.75rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-white mb-5 md:mb-8 max-w-4xl">
             <span className="block overflow-hidden pb-1">
               <motion.span
                 initial={false}
@@ -190,7 +190,7 @@ export default function Home() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">Get Booked.</span>
               </motion.span>
             </span>
-          </h1>
+          </p>
           <motion.p
             initial={false}
             animate={{
@@ -202,7 +202,7 @@ export default function Home() {
               delay: 0.6,
             }}
             className="text-base sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto text-center mb-8 md:mb-12 leading-relaxed font-light px-4"
-          >{`Stop paying for "exposure" and "branding" that doesn't pay the bills. We build AI-powered systems that get you found on Google and in AI search, capture every lead, text them back instantly, and book them onto your calendar. You do the work, we handle the chase.`}</motion.p>
+          >{`Stop paying for "exposure" and "branding" that doesn't pay the bills. We build AI-powered marketing systems that get GTA contractors found on Google and in AI search, capture every lead, text them back instantly, and book them onto your calendar. You do the work, we handle the chase.`}</motion.p>
           <motion.div
             initial={false}
             animate={{
@@ -228,7 +228,7 @@ export default function Home() {
               </Button>
             </BookingDialog>
             <Button
-              onClick={() => e("/contact?interest=audit")}
+              onClick={() => e("/free-seo-audit")}
               size="lg"
               variant="outline"
               className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
@@ -314,7 +314,7 @@ export default function Home() {
                 "AI Website Chat",
                 "Review Generation Systems",
               ].map((i, l) => (
-                <div className="flex items-center gap-3 text-lg font-medium text-white/80" key={l}>
+                <div className="marquee-item" key={l}>
                   <LogoMark className="w-5 h-5" />
                   {i}
                 </div>
@@ -375,7 +375,7 @@ export default function Home() {
               <ul className="space-y-5 mb-12">
                 {["Instant AI web chat response", "Automated SMS follow-ups", "Direct-to-calendar booking"].map(
                   (o, s) => (
-                    <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
+                    <li className="check-item" key={s}>
                       <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
                         <CheckCircle2 className="w-5 h-5 text-primary drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                       </div>
@@ -560,7 +560,7 @@ export default function Home() {
                   "Stop leads from calling competitors",
                   "Automatically schedule callbacks",
                 ].map((o, s) => (
-                  <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
+                  <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/30">
                       <CheckCircle2 className="w-5 h-5 text-red-400 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
                     </div>
@@ -614,7 +614,7 @@ export default function Home() {
                   "Private feedback option for every customer",
                   "More reviews, a stronger Google Maps profile",
                 ].map((o, s) => (
-                  <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
+                  <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center border border-yellow-500/30">
                       <CheckCircle2 className="w-5 h-5 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
                     </div>
@@ -845,7 +845,7 @@ export default function Home() {
                   "Automated referral requests after jobs",
                   "Turn old leads into new bookings automatically",
                 ].map((o, s) => (
-                  <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
+                  <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                       <CheckCircle2 className="w-5 h-5 text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
                     </div>
@@ -884,7 +884,7 @@ export default function Home() {
                   "Schema & entity optimization",
                   "SEO blogs published every month",
                 ].map((o, s) => (
-                  <li className="flex items-center gap-4 text-lg font-medium text-white/90" key={s}>
+                  <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center border border-sky-500/30">
                       <CheckCircle2 className="w-5 h-5 text-sky-400 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
                     </div>
@@ -1031,17 +1031,17 @@ export default function Home() {
                 <FadeIn delay={s * 0.05} className="h-full" key={s}>
                   <a href={`/industries/${industries.find((i) => i.name === o.label).slug}`} className="block h-full">
                   <Tilt className="h-full">
-                    <div className="group relative h-full rounded-2xl sm:rounded-3xl bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 overflow-hidden hover:border-primary/50 transition-colors duration-500 shadow-xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 relative z-10">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 group-hover:text-primary group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-110 shadow-lg shrink-0">
+                    <div className="group system-card">
+                      <div className="system-card-wash" />
+                      <div className="system-card-head">
+                        <div className="system-card-icon">
                           {o.icon}
                         </div>
-                        <h3 className="text-sm sm:text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">
+                        <h3 className="system-card-title">
                           {o.label}
                         </h3>
                       </div>
-                      <p className="text-[11px] sm:text-sm text-white/60 relative z-10 leading-snug sm:leading-relaxed">
+                      <p className="system-card-text">
                         {o.desc}
                       </p>
                     </div>
@@ -1172,7 +1172,7 @@ export default function Home() {
                   <FadeIn delay={s * 0.1} key={s}>
                     <AccordionItem
                       value={`item-${s}`}
-                      className="glass-card border border-white/10 rounded-3xl px-8 overflow-hidden data-[state=open]:border-primary/50 data-[state=open]:bg-primary/5 transition-all duration-500 bg-[#0a0a0c]/80"
+                      className="faq-item"
                     >
                       <AccordionTrigger className="hover:no-underline text-left font-bold py-8 text-xl group gap-4 [&>svg]:h-6 [&>svg]:w-6 [&>svg]:text-primary">
                         <span className="group-hover:text-primary transition-colors text-white/90">{o.q}</span>

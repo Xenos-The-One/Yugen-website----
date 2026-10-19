@@ -26,16 +26,13 @@ export default function Blog() {
     i = posts[0];
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <Seo title="Blog" description="Practical answers about websites, SEO, AI search, lead capture and growing your business." path="/blog" />
+      <Seo title="Contractor Marketing & SEO Blog" description="Practical guides on SEO, AI search, websites, lead follow-up and Google reviews for contractors and home service businesses in Toronto and the GTA." path="/blog" />
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-[#030303] border-b border-white/5">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
         <div className="container mx-auto max-w-5xl relative z-10 text-center">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -43,15 +40,12 @@ export default function Blog() {
             transition={{
               duration: 0.8,
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-8 shadow-[0_0_20px_hsl(var(--primary)/0.2)]"
+            className="animate-rise inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold mb-8 shadow-[0_0_20px_hsl(var(--primary)/0.2)]"
           >
             Growth Resources
           </motion.div>
           <motion.h1
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -60,7 +54,7 @@ export default function Blog() {
               duration: 1,
               delay: 0.1,
             }}
-            className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6"
+            className="animate-rise [animation-delay:100ms] text-5xl md:text-7xl font-black tracking-tighter text-white mb-6"
           >
             {"The "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">
@@ -69,10 +63,7 @@ export default function Blog() {
             {" Blog"}
           </motion.h1>
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -81,7 +72,7 @@ export default function Blog() {
               duration: 1,
               delay: 0.2,
             }}
-            className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
+            className="animate-rise [animation-delay:200ms] text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
             No fluff. Practical answers about SEO, AI search, content, websites and lead generation for businesses that
             want to grow.
@@ -91,8 +82,8 @@ export default function Blog() {
       <section className="py-16 px-4 bg-[#030303]">
         <div className="container mx-auto max-w-7xl">
           <FadeIn>
-            <div
-              onClick={() => e(`/blog/${i.slug}`)}
+            <a
+              href={`/blog/${i.slug}`}
               className="group cursor-pointer grid md:grid-cols-2 gap-8 lg:gap-12 items-center bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-2xl"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
@@ -133,7 +124,7 @@ export default function Blog() {
                   <div className="text-xs text-white/40">{author.role}</div>
                 </div>
               </div>
-            </div>
+            </a>
           </FadeIn>
         </div>
       </section>
@@ -169,11 +160,11 @@ export default function Blog() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {s.map((l, c) => (
               <FadeIn delay={c * 0.05} key={l.slug}>
-                <motion.div
+                <motion.a
                   whileHover={{
                     y: -8,
                   }}
-                  onClick={() => e(`/blog/${l.slug}`)}
+                  href={`/blog/${l.slug}`}
                   className="group cursor-pointer h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
@@ -211,7 +202,7 @@ export default function Blog() {
                       <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               </FadeIn>
             ))}
           </div>

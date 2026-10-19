@@ -14,15 +14,15 @@ export default function ProductContent() {
   return (
     <>
       <Seo
-        title="Content Creation"
-        description="SEO blogs, newsletters and page optimizations every month. Raindrop keeps your site publishing consistently so you rank on Google and in AI search."
+        title="SEO Content Writing for Contractors"
+        description="Monthly SEO blog posts, service page content and newsletters for contractors, planned around what GTA homeowners actually search for on Google and AI."
         path="/products/content-creation"
       />
       <ProductPage
         path="/products/content-creation"
         theme="orange"
         icon={PenTool}
-        eyebrow="Content That Ranks"
+        eyebrow="SEO Content Writing for Contractors"
         title="Publish Consistently"
         accent="Without Lifting a Finger"
         intro="Search engines and AI reward businesses that publish helpful content on a steady schedule. We plan, write and publish it for you every month."

@@ -99,7 +99,7 @@ function Block({ id, title, items }) {
 export default function Legal() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Terms & Privacy" description={`Terms of Use and Privacy Policy for ${site.name}.`} path="/legal" />
+      <Seo title="Terms & Privacy" description={`Terms of Use and Privacy Policy for ${site.name}: how we collect, use and protect information submitted through this website, and the terms for using it.`} path="/legal" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="container mx-auto max-w-4xl relative z-10">

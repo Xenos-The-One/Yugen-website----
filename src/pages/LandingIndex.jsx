@@ -1,5 +1,6 @@
 import { Briefcase, MapPin } from "lucide-react";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { ClosingCta, LandingHero, Section } from "@/components/LandingParts";
 import { FadeIn } from "@/components/motion";
 import { industries } from "@/content/industries";
@@ -27,8 +28,8 @@ export function IndustriesIndex() {
   return (
     <div className="bg-background text-foreground min-h-screen">
       <Seo
-        title="Industries We Serve"
-        description="Marketing, lead systems and AI search for GTA trades: HVAC, plumbing, electrical, roofing, renovation, landscaping and more."
+        title="Marketing for Trades & Home Services"
+        description="Marketing, SEO, lead systems and AI search for GTA trades: HVAC, plumbing, electrical, roofing, renovation, landscaping, painting and more."
         path="/industries"
       />
       <LandingHero
@@ -44,12 +45,13 @@ export function IndustriesIndex() {
         <Grid
           items={industries.map((t) => ({
             href: `/industries/${t.slug}`,
-            title: `Marketing for ${t.business}`,
+            title: t.title,
             text: t.intro.split(". ")[0] + ".",
             image: `/landing/img/industry-${t.slug}.webp`,
           }))}
         />
       </Section>
+      <PageExtras path="/industries" />
       <ClosingCta title="Don't see your trade?" text="We work with most home service businesses. Book a call and tell us about yours." />
     </div>
   );
@@ -59,7 +61,7 @@ export function AreasIndex() {
   return (
     <div className="bg-background text-foreground min-h-screen">
       <Seo
-        title="Service Areas"
+        title="Contractor Marketing Across the GTA"
         description="Contractor marketing across the Greater Toronto Area: Toronto, Vaughan, Mississauga, Brampton, Markham, Richmond Hill, Oakville and Pickering."
         path="/areas"
       />

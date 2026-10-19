@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Code, LineChart, PhoneCall, Rocket } from "lucide-react";
@@ -46,15 +47,12 @@ export default function HowItWorks() {
     ];
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-hidden">
-      <Seo title="How It Works" description="From discovery call to launch: the four-step process Raindrop Marketing uses to build and run your growth system." path="/how-it-works" />
+      <Seo title="How It Works: Our Marketing Process" description="From discovery call to launch: the four-step process Raindrop Marketing uses to build, run and improve a contractor's marketing and lead system." path="/how-it-works" />
       <section className="pt-40 pb-20 px-4 text-center relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="container mx-auto max-w-4xl relative z-10">
           <motion.h1
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -62,7 +60,7 @@ export default function HowItWorks() {
             transition={{
               duration: 0.6,
             }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
+            className="animate-rise text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
           >
             {"No Fluff. Just a "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">
@@ -70,10 +68,7 @@ export default function HowItWorks() {
             </span>
           </motion.h1>
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -82,7 +77,7 @@ export default function HowItWorks() {
               duration: 0.6,
               delay: 0.1,
             }}
-            className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="animate-rise [animation-delay:100ms] text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             We don't hide behind complex jargon. Here is exactly how we take your business from manual chaos to an
             automated lead-generating machine.
@@ -211,6 +206,7 @@ export default function HowItWorks() {
           </motion.div>
         </div>
       </section>
+      <PageExtras path="/how-it-works" />
     </div>
   );
 }

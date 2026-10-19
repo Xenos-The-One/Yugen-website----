@@ -16,15 +16,12 @@ export default function ProductReviews() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="5 Star Review System" description="Automate Google review requests after every job and build a 5-star reputation on autopilot." path="/products/review-system" />
+      <Seo title="Google Review Software for Contractors" description="Automatically ask every happy customer for a Google review after the job. Build a 5-star reputation that wins Maps rankings and AI recommendations." path="/products/review-system" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -33,17 +30,18 @@ export default function ProductReviews() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-8 backdrop-blur-md">
+            <h1 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-8 backdrop-blur-md">
               <Star className="w-4 h-4 fill-current" />
-              Automate Reputation
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+              Google Review Software for Contractors
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"A 5-Star Reputation on "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4] animate-gradient-x">
                 Autopilot
               </span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               Reviews are the #1 factor customers use to choose a business. Stop begging for them. We automate the
               entire process so you get 5-star reviews while you sleep.

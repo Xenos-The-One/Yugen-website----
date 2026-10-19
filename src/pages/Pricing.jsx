@@ -1,6 +1,7 @@
 import { BookingDialog } from "@/components/BookingDialog";
 import { FadeIn, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, DollarSign, Globe, Megaphone, PenTool, Target } from "lucide-react";
 
@@ -146,8 +147,8 @@ export default function Pricing() {
   return (
     <div className="bg-[#030303] min-h-screen pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-40">
       <Seo
-        title="Pricing"
-        description="Raindrop Marketing pricing: Lead & Review System $297/mo, basic websites $300–$500, AI SEO + Content packages from $1,497/mo, plus custom websites, paid ads, marketing and content quoted to fit your business."
+        title="Contractor Marketing Pricing"
+        description="Raindrop pricing: Lead & Review System $297/mo, websites from $300, AI SEO + Content from $1,497/mo, plus custom websites and ads quoted to fit."
         path="/pricing"
       />
       <section className="px-4 relative overflow-hidden">
@@ -227,6 +228,7 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+      <PageExtras path="/pricing" />
     </div>
   );
 }

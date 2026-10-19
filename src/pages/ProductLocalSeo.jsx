@@ -16,15 +16,12 @@ export default function ProductLocalSeo() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="SEO & Local SEO" description="Rank higher on Google Maps and search with Google Business Profile optimization, citations and keyword-optimized pages." path="/products/local-seo" />
+      <Seo title="Contractor Local SEO in Toronto & GTA" description="Rank in the Google Maps 3-pack across Toronto and the GTA with Google Business Profile optimization, citations, service pages and a steady flow of reviews." path="/products/local-seo" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -33,17 +30,18 @@ export default function ProductLocalSeo() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-sm font-semibold mb-8 backdrop-blur-md">
+            <h1 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-sm font-semibold mb-8 backdrop-blur-md">
               <MapPin className="w-4 h-4" />
-              Dominate Local Search
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+              Local SEO for Contractors in Toronto &amp; the GTA
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"Be the First Business "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-300 animate-gradient-x">
                 They See
               </span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               When a customer searches for your services, you need to be at the top of Google Maps. We optimize your
               profile to make sure you get the call, not your competitor.

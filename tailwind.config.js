@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Sora Variable', 'Sora', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -39,6 +39,10 @@ export default {
         marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
         shine: { '0%': { left: '-100%' }, '100%': { left: '100%' } },
         'pulse-glow': { '0%, 100%': { opacity: '1', transform: 'scale(1)' }, '50%': { opacity: '.8', transform: 'scale(1.05)' } },
+        // Entrance animations for above-the-fold content: CSS runs before hydration, so text paints immediately.
+        rise: { from: { opacity: '0', transform: 'translateY(24px)' }, to: { opacity: '1', transform: 'none' } },
+        'spin-in': { from: { opacity: '0', transform: 'rotate(-90deg)' }, to: { opacity: '1', transform: 'none' } },
+        'nav-in': { from: { transform: 'translateY(-100%)' }, to: { transform: 'none' } },
         'gradient-x': {
           '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
           '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
@@ -50,6 +54,9 @@ export default {
         marquee: 'marquee 30s linear infinite',
         shine: 'shine 2s infinite linear',
         'gradient-x': 'gradient-x 15s ease infinite',
+        rise: 'rise 0.8s cubic-bezier(.16,1,.3,1) both',
+        'spin-in': 'spin-in 1.4s cubic-bezier(.16,1,.3,1) both',
+        'nav-in': 'nav-in 0.6s cubic-bezier(.16,1,.3,1) both',
         'pulse-glow': 'pulse-glow 3s cubic-bezier(.4,0,.6,1) infinite',
       },
     },

@@ -27,7 +27,7 @@ export function LandingHero({ eyebrow, icon: Icon = MapPin, title, accent, intro
                 </Button>
               </BookingDialog>
               <a
-                href="/contact?interest=audit"
+                href="/free-seo-audit"
                 className="inline-flex items-center justify-center h-14 px-8 rounded-full border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 transition-colors"
               >
                 Free AI Visibility Audit
@@ -125,10 +125,12 @@ export function Faqs({ faqs }) {
   return (
     <div className="max-w-3xl mx-auto space-y-4">
       {faqs.map((f) => (
-        <div key={f.q} className="rounded-2xl border border-white/10 bg-[#0a0a0c]/90 p-6">
-          <h3 className="text-lg md:text-xl font-bold text-white mb-2">{f.q}</h3>
-          <p className="text-white/70 leading-relaxed">{f.a}</p>
-        </div>
+        <details key={f.q} className="faq">
+          <summary>
+            <h3>{f.q}</h3>
+          </summary>
+          <p>{f.a}</p>
+        </details>
       ))}
     </div>
   );

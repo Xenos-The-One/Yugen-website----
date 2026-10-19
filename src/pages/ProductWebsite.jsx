@@ -16,15 +16,12 @@ export default function ProductWebsite() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="Functional Website" description="Fast, mobile-first websites built to capture leads, with chat, forms and on-page SEO built in." path="/products/functional-website" />
+      <Seo title="Contractor Website Design Toronto" description="Fast, mobile-first contractor websites built in Toronto to rank on Google and turn visitors into calls, with chat, booking and on-page SEO built in." path="/products/functional-website" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -33,17 +30,18 @@ export default function ProductWebsite() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-semibold mb-8 backdrop-blur-md">
+            <h1 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-semibold mb-8 backdrop-blur-md">
               <MonitorSmartphone className="w-4 h-4" />
-              Not Just A Digital Brochure
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+              Contractor Website Design in Toronto
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"A Website Built to "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-300 animate-gradient-x">
                 Capture Leads
               </span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               Stop losing customers to slow, outdated websites. We build lightning-fast, mobile-optimized sites designed
               specifically to turn visitors into booked jobs.

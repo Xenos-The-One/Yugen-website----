@@ -1,0 +1,29 @@
+priority,directory,url,cost,type,status,date_submitted,listing_url,notes
+1,Google Business Profile,https://business.google.com,free,core,live,,https://share.google/dhr0sr9kM8GDRSWOa,Finish checklist in google-business-profile.md
+1,Bing Places,https://www.bingplaces.com,free,core (feeds ChatGPT/Copilot),todo,,,Import directly from Google Business Profile
+1,Apple Business Connect,https://businessconnect.apple.com,free,core (Apple Maps/Siri),todo,,,
+1,LinkedIn Company Page,https://www.linkedin.com/company/setup/new,free,social/entity,todo,,,Add URL to site.social.linkedin in src/content/site.js
+1,Facebook Page,https://www.facebook.com/pages/create,free,social/entity,todo,,,Add to site.social when the site supports facebook
+1,Clutch,https://clutch.co/get-listed,free,agency directory (high authority),todo,,,Ask 2-3 clients for Clutch reviews; also syndicates to The Manifest
+1,Yelp for Business (Canada),https://biz.yelp.ca,free,general,todo,,,
+1,YellowPages.ca,https://www.yellowpages.ca,free,Canadian general (also Canada411),todo,,,Free basic listing; decline paid upsells
+2,GoodFirms,https://www.goodfirms.co/get-listed,free,agency directory,todo,,,
+2,DesignRush,https://www.designrush.com/agency/register,free tier,agency directory,todo,,,
+2,UpCity,https://upcity.com,free tier,agency directory,todo,,,
+2,Sortlist,https://www.sortlist.com,free tier,agency directory,todo,,,
+2,Agency Spotter,https://www.agencyspotter.com,free tier,agency directory,todo,,,
+2,Trustpilot,https://business.trustpilot.com,free,reviews,todo,,,
+2,BBB (free listing),https://www.bbb.org/en/ca,free (accreditation paid),trust,todo,,,Basic listing only
+2,Crunchbase,https://www.crunchbase.com,free,entity (used by AI tools),todo,,,
+2,Instagram,https://www.instagram.com,free,social/entity,todo,,,Add to site.social.instagram
+2,YouTube channel,https://www.youtube.com,free,social/entity,todo,,,Short explainer videos repurposed from blog posts
+2,X (Twitter),https://x.com,free,social/entity,todo,,,Add to site.social.twitter
+3,Foursquare / Swarm,https://foursquare.com/business,free,data aggregator,todo,,,Feeds many apps and maps
+3,Cylex Canada,https://www.cylex-canada.ca,free,general,todo,,,
+3,Hotfrog Canada,https://www.hotfrog.ca,free,general,todo,,,
+3,n49,https://www.n49.com,free,Canadian general,todo,,,
+3,Brownbook,https://www.brownbook.net,free,general,todo,,,
+3,Nextdoor Business,https://business.nextdoor.com,free,local,todo,,,
+3,Opendi Canada,https://www.opendi.ca,free,general,todo,,,
+3,iGlobal,https://ca.iglobal.co,free,general,todo,,,
+3,Vaughan Chamber of Commerce,https://www.vaughanchamber.ca,paid membership,local authority,skip-for-now,,,Revisit when budget allows: strong local link + networking

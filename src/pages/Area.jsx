@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { MapPin } from "lucide-react";
-import { Seo, faqJsonLd } from "@/components/Seo";
+import { Seo, breadcrumbJsonLd, faqJsonLd, providerRef } from "@/components/Seo";
 import { CardGrid, CheckList, Chips, ClosingCta, Faqs, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
 import { areaBySlug } from "@/content/areas";
 import { industries } from "@/content/industries";
@@ -28,20 +28,12 @@ export default function Area() {
       name: a.title,
       serviceType: "Contractor marketing",
       description: a.metaDescription,
-      provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
+      provider: providerRef,
       areaServed: { "@type": "City", name: a.name, containedInPlace: { "@type": "AdministrativeArea", name: a.region } },
       url: `${site.url}${path}`,
     },
     faqJsonLd(a.faqs),
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-        { "@type": "ListItem", position: 2, name: "Service Areas", item: `${site.url}/areas` },
-        { "@type": "ListItem", position: 3, name: a.name, item: `${site.url}${path}` },
-      ],
-    },
+    breadcrumbJsonLd([["Service Areas", "/areas"], [a.name, path]]),
   ];
 
   return (
@@ -50,7 +42,7 @@ export default function Area() {
       <LandingHero
         eyebrow={`${a.name}, ${a.region}`}
         icon={MapPin}
-        title="Contractor Marketing in"
+        title={a.title.slice(0, -a.name.length).trim()}
         accent={a.name}
         intro={a.intro}
         image={`/landing/img/area-${a.slug}.webp`}

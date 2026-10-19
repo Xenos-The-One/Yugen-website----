@@ -45,15 +45,15 @@ export function ProductPage({ path, theme, icon: Icon, eyebrow, title, accent, i
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${c.glow} blur-[120px] rounded-full pointer-events-none animate-pulse-glow`}
         />
         <div className="container mx-auto max-w-5xl relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold mb-8 backdrop-blur-md ${c.pill}`}>
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }} className="animate-rise">
+            <h1 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold mb-8 backdrop-blur-md ${c.pill}`}>
               <Icon className="w-4 h-4" />
               {eyebrow}
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {title}{' '}
               <span className={`text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${c.gradient}`}>{accent}</span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">{intro}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button

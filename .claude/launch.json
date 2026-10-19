@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "yugen-site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 5179 }
+    { "name": "yugen-site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 5179 },
+    { "name": "yugen-dist", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve@14.2.4", "-l", "4610", "dist"], "port": 4610 }
   ]
 }

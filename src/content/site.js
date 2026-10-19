@@ -8,6 +8,8 @@ export const site = {
     name: 'Thailer Somerville',
     // Drop a photo in public/ (e.g. /founder.jpg) and set it here; empty shows the brand visual.
     photo: '',
+    // Founder's own profiles (LinkedIn first); feeds Person sameAs in schema.
+    sameAs: [],
   },
   // Google Calendar appointment schedule (Google Meet). Paste the booking page link
   // (calendar.app.google/... or calendar.google.com/calendar/appointments/schedules/...).
@@ -26,6 +28,9 @@ export const site = {
   // Twilio number wired to api/demo-call.js and api/demo-sms.js. Never the business line. Empty hides the demo.
   demoPhone: '(289) 277-1815',
   demoPhoneHref: 'tel:+12892771815',
+  // Schema address for a service-area business: region only, no street. Add addressLocality if the
+  // Google Business Profile shows a city, and keep the two matching.
+  address: { addressRegion: 'ON', addressCountry: 'CA' },
   // Cities listed as the service area in structured data.
   areaServed: ['Toronto', 'Vaughan', 'Mississauga', 'Brampton', 'Markham', 'Richmond Hill', 'Oakville', 'Pickering'],
 }

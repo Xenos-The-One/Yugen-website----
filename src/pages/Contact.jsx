@@ -3,6 +3,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MapPin, MessageSquare, Phone, Sparkles, Video } from "lucide-react";
 import { track } from "@vercel/analytics/react";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { site } from "@/content/site";
 import { ContactForm } from "@/components/ContactForm";
 import { BookingDialog } from "@/components/BookingDialog";
@@ -16,7 +17,7 @@ export default function Contact() {
   }
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Contact" description="Talk to Raindrop Marketing about SEO, AI search, content, websites, ads and automated lead systems for your business." path="/contact" />
+      <Seo title="Contact Us | Free AI Visibility Audit" description={`Book a free strategy call or AI visibility audit with Raindrop Marketing, or call ${site.phone} about SEO, websites and lead systems for your business.`} path="/contact" />
       <div onMouseMove={n} className="min-h-screen bg-[#030303] relative overflow-hidden pt-32 pb-20">
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-50 transition duration-300 z-0"
@@ -81,8 +82,8 @@ export default function Contact() {
                   },
                 ].filter(Boolean).map((r, o) => (
                   <FadeInEase delay={0.2 + o * 0.1} key={o}>
-                    <div className="glass-card p-6 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-300 flex items-start gap-6 group bg-[#0a0a0c]/50">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] shrink-0">
+                    <div className="group contact-card">
+                      <div className="contact-card-icon">
                         {r.icon}
                       </div>
                       <div>
@@ -102,8 +103,8 @@ export default function Contact() {
                 ))}
                 <FadeInEase delay={0.3}>
                   <BookingDialog location="contact_page">
-                    <button className="w-full text-left glass-card p-6 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-300 flex items-start gap-6 group bg-[#0a0a0c]/50">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] shrink-0">
+                    <button className="group contact-card w-full text-left">
+                      <div className="contact-card-icon">
                         <Video className="w-6 h-6" />
                       </div>
                       <div>
@@ -129,6 +130,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <PageExtras path="/contact" />
     </div>
   );
 }

@@ -26,7 +26,7 @@ const pages = walk(dist)
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages
-  .map(({ path, date }) => `  <url><loc>${SITE}${path === '/' ? '' : path}</loc>${date ? `<lastmod>${date}</lastmod>` : ''}</url>`)
+  .map(({ path, date }) => `  <url><loc>${SITE}${path}</loc>${date ? `<lastmod>${date}</lastmod>` : ''}</url>`)
   .join('\n')}
 </urlset>
 `

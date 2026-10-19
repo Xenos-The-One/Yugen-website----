@@ -9,16 +9,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ChevronDown, MapPin, Menu, Phone, X } from "lucide-react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { Analytics, track } from "@vercel/analytics/react";
 import { ChatWidget } from "@/components/ChatWidget";
+import { StarSymbol } from "@/components/Stars";
 import { products, site } from "@/content/site";
+import { areaLinks, industryLinks } from "@/content/landingLinks";
 
 export default function Layout() {
   const [t, n] = useState(!1),
     [r, o] = useState(!1),
-    s = useNavigate(),
     i = useLocation();
   return (
     useEffect(() => {
@@ -35,9 +36,7 @@ export default function Layout() {
     (
       <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
         <motion.nav
-          initial={{
-            y: -100,
-          }}
+          initial={false}
           animate={{
             y: 0,
           }}
@@ -46,22 +45,22 @@ export default function Layout() {
             stiffness: 100,
             damping: 20,
           }}
-          className={`fixed top-0 w-full z-50 transition-all duration-500 ${r ? "py-5" : "py-7 bg-transparent"}`}
+          className={`animate-nav-in fixed top-0 w-full z-50 transition-all duration-500 ${r ? "py-5" : "py-7 bg-transparent"}`}
         >
           <div className={`mx-auto transition-all duration-500 ${r ? "max-w-7xl px-6" : "container px-6"}`}>
             <div
               className={`flex items-center justify-between transition-all duration-500 min-h-[56px] ${r ? "glass-card border border-white/10 bg-[#0a0a0c]/90 backdrop-blur-2xl px-8 py-4 rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.4)]" : ""}`}
             >
-              <div className="flex items-center gap-2 cursor-pointer group shrink-0" onClick={() => s("/")}>
+              <a href="/" aria-label="Raindrop Marketing home" className="flex items-center gap-2 cursor-pointer group shrink-0">
                 <div className="relative">
                   <div className="absolute -inset-2 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Logo className="h-9 sm:h-10 relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
                 </div>
-              </div>
+              </a>
               <div className="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-bold text-white/80 ml-8">
                 <a
                   href="/about"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   About
                 </a>
@@ -72,63 +71,63 @@ export default function Layout() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-[#0a0a0c]/95 backdrop-blur-xl border-white/10 text-white mt-4 p-2 min-w-[240px] shadow-[0_20px_40px_rgba(0,0,0,0.6)] rounded-xl">
                     <DropdownMenuItem
+                      asChild
                       className="cursor-pointer hover:bg-white/10 focus:bg-white/10 rounded-lg transition-colors py-3"
-                      onClick={() => s("/products")}
                     >
-                      All Products
+                      <a href="/products">All Products</a>
                     </DropdownMenuItem>
                     <div className="h-px bg-white/10 my-1" />
                     {products.map((l, c) => (
                       <DropdownMenuItem
+                        asChild
                         className="cursor-pointer hover:bg-white/10 focus:bg-white/10 rounded-lg transition-colors py-2 text-white/80 hover:text-white"
-                        onClick={() => s(l.path)}
                         key={c}
                       >
-                        {l.label}
+                        <a href={l.path}>{l.label}</a>
                       </DropdownMenuItem>
                     ))}
                     <div className="h-px bg-white/10 my-1" />
                     <DropdownMenuItem
+                      asChild
                       className="cursor-pointer hover:bg-white/10 focus:bg-white/10 rounded-lg transition-colors py-3"
-                      onClick={() => s("/industries")}
                     >
-                      Industries
+                      <a href="/industries">Industries</a>
                     </DropdownMenuItem>
                     <DropdownMenuItem
+                      asChild
                       className="cursor-pointer hover:bg-white/10 focus:bg-white/10 rounded-lg transition-colors py-3"
-                      onClick={() => s("/areas")}
                     >
-                      Service Areas
+                      <a href="/areas">Service Areas</a>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <a
                   href="/how-it-works"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   How It Works
                 </a>
                 <a
                   href="/testimonials"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   Testimonials
                 </a>
                 <a
                   href="/pricing"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   Pricing
                 </a>
                 <a
                   href="/blog"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   Blog
                 </a>
                 <a
                   href="/contact"
-                  className="hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 whitespace-nowrap"
+                  className="nav-link"
                 >
                   Contact
                 </a>
@@ -380,13 +379,14 @@ export default function Layout() {
                 }}
                 className="lg:col-span-3 lg:col-start-6"
               >
-                <h3 className="font-black text-white mb-8 tracking-widest text-sm uppercase">Products</h3>
+                <h3 className="font-black text-white mb-8 tracking-widest text-sm uppercase">
+                  <a href="/products" className="hover:text-primary transition-colors">Products</a>
+                </h3>
                 <ul className="space-y-4 text-base text-white/70 font-medium">
                   {products.map((l, c) => (
                     <li key={c}>
-                      <a href={l.path} className="hover:text-white transition-colors flex items-center gap-3 group">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:scale-150 group-hover:bg-primary transition-all duration-300" />
-                        <span className="group-hover:translate-x-2 transition-transform duration-300">{l.label}</span>
+                      <a href={l.path} className="footer-link">
+                        <span>{l.label}</span>
                       </a>
                     </li>
                   ))}
@@ -438,6 +438,10 @@ export default function Layout() {
                       path: "/pricing",
                     },
                     {
+                      label: "Free SEO Audit",
+                      path: "/free-seo-audit",
+                    },
+                    {
                       label: "Blog",
                       path: "/blog",
                     },
@@ -447,9 +451,8 @@ export default function Layout() {
                     },
                   ].map((l, c) => (
                     <li key={c}>
-                      <a href={l.path} className="hover:text-white transition-colors flex items-center gap-3 group">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:scale-150 group-hover:bg-primary transition-all duration-300" />
-                        <span className="group-hover:translate-x-2 transition-transform duration-300">{l.label}</span>
+                      <a href={l.path} className="footer-link">
+                        <span>{l.label}</span>
                       </a>
                     </li>
                   ))}
@@ -486,14 +489,30 @@ export default function Layout() {
                     },
                   ].map((l, c) => (
                     <li key={c}>
-                      <a href={l.path} className="hover:text-white transition-colors flex items-center gap-3 group">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:scale-150 group-hover:bg-primary transition-all duration-300" />
-                        <span className="group-hover:translate-x-2 transition-transform duration-300">{l.label}</span>
+                      <a href={l.path} className="footer-link">
+                        <span>{l.label}</span>
                       </a>
                     </li>
                   ))}
                 </ul>
               </motion.div>
+            </div>
+            <div className="space-y-4 mb-12 text-sm text-white/50">
+              {[
+                { heading: "Industries", base: "/industries", items: industryLinks },
+                { heading: "Service areas", base: "/areas", items: areaLinks },
+              ].map((g) => (
+                <p key={g.base} className="leading-relaxed">
+                  <a href={g.base} className="font-bold text-white/70 hover:text-white transition-colors mr-3">
+                    {g.heading}:
+                  </a>
+                  {g.items.map((it) => (
+                    <a key={it.slug} href={`${g.base}/${it.slug}`} className="dot-link">
+                      {it.name}
+                    </a>
+                  ))}
+                </p>
+              ))}
             </div>
             <motion.div
               initial={{
@@ -527,6 +546,7 @@ export default function Layout() {
             </motion.div>
           </div>
         </footer>
+        <StarSymbol />
         <Analytics />
         <ChatWidget />
       </div>

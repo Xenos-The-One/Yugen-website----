@@ -5,6 +5,10 @@ Vite + React + Tailwind v3 (shadcn theme), prerendered to static HTML per route 
 
 - `npm run dev` — dev server on http://localhost:5179
 - `npm run build` — static site in `dist/` (+ `sitemap.xml`)
+- `npm run seo:check` — on-page SEO checks over `dist/` (run after build; fails on problems)
+- `npm run indexnow` — after a production deploy, pings Bing/IndexNow with every sitemap URL
+
+The SEO program (keyword map, Google Business Profile, citations, outreach, content calendar) lives in `seo/`.
 
 Config to fill in before launch: `src/content/site.js` (booking widget URL, onboarding form endpoint, social links).
 Blog articles live in `src/content/blog.js`; products list in `src/content/site.js`.

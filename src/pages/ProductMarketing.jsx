@@ -16,15 +16,12 @@ export default function ProductMarketing() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="One Click Marketing" description="Launch email and SMS campaigns to past customers in one click and fill slow seasons with repeat business." path="/products/one-click-marketing" />
+      <Seo title="Email & SMS Marketing for Contractors" description="Send email and SMS campaigns to past customers in one click: seasonal reminders, promotions and referral asks that fill slow months with repeat jobs." path="/products/one-click-marketing" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-yellow-500/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -33,17 +30,18 @@ export default function ProductMarketing() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-sm font-semibold mb-8 backdrop-blur-md">
+            <h1 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-sm font-semibold mb-8 backdrop-blur-md">
               <Zap className="w-4 h-4" />
-              Instant Campaigns
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+              Email &amp; SMS Marketing for Contractors
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"Re-engage Customers with "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-300 animate-gradient-x">
                 One Click
               </span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               Your biggest asset is your past customer list. Launch targeted email and SMS campaigns instantly to
               generate immediate bookings during slow seasons.

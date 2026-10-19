@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { site } from "@/content/site";
 import { Logo, LogoMark } from "@/components/Logo";
 import { Seo } from "@/components/Seo";
+import { PageExtras } from "@/components/PageExtras";
 import { SlideIn } from "@/components/motion";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -47,7 +48,7 @@ export default function About() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="About" description="Raindrop Marketing is built by operators, not marketing gurus. We build AI-powered systems that get businesses found and booked." path="/about" />
+      <Seo title="About Raindrop Marketing | Founder Thailer Somerville" description="Raindrop Marketing is a GTA marketing agency for contractors founded by Thailer Somerville. Meet the team behind our SEO, AI search and lead systems." path="/about" brand={false} />
       <section ref={t} className="pt-40 pb-24 px-4 relative overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-primary/10 blur-[150px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -74,10 +75,10 @@ export default function About() {
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808014_1px,transparent_1px),linear-gradient(to_bottom,#80808014_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_60%,transparent_100%)]" />
                     <div className="absolute w-2/3 h-2/3 bg-primary/25 blur-[80px] rounded-full animate-pulse-glow" />
                     <motion.div
-                      initial={{ rotate: -90, opacity: 0 }}
+                      initial={false}
                       animate={{ rotate: 0, opacity: 1 }}
                       transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="relative"
+                      className="animate-spin-in relative"
                     >
                       <LogoMark className="w-52 h-52 md:w-64 md:h-64 drop-shadow-[0_0_40px_rgba(45,212,191,0.45)]" />
                     </motion.div>
@@ -219,6 +220,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <PageExtras path="/about" />
       <section className="py-32 px-4 border-t border-white/5 relative">
         <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
         <div className="container mx-auto max-w-5xl relative z-10">

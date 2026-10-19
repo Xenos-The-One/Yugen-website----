@@ -16,15 +16,12 @@ export default function ProductMissedCall() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="Missed Call Text Back" description="Automatically text back every missed call so leads stay with you instead of calling a competitor." path="/products/missed-call-text-back" />
+      <Seo title="Missed Call Text Back for Contractors" description="Automatically text back every missed call within seconds, so the homeowner books with you instead of the next contractor they find on Google." path="/products/missed-call-text-back" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-500/20 blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
+            initial={false}
             animate={{
               opacity: 1,
               y: 0,
@@ -33,17 +30,18 @@ export default function ProductMissedCall() {
               duration: 0.8,
               ease: "easeOut",
             }}
+            className="animate-rise"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-semibold mb-8 backdrop-blur-md">
+            <h1 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-semibold mb-8 backdrop-blur-md">
               <PhoneMissed className="w-4 h-4" />
-              Automated Rescue
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+              Missed Call Text Back for Contractors
+            </h1>
+            <p className="font-display text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
               {"Turn Missed Calls Into "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-300 animate-gradient-x">
                 Booked Jobs
               </span>
-            </h1>
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               If you don't answer, they call the next guy on Google. Our system instantly texts them back to start a
               conversation and save the lead.
