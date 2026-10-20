@@ -212,20 +212,20 @@ export default function BlogPost() {
                       y: -8,
                     }}
                     href={`/blog/${i.slug}`}
-                    className="group cursor-pointer h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col"
+                    className="group post-card"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <img
                         src={i.image}
                         alt={i.title}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="post-card-img"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent" />
+                      <div className="post-card-fade" />
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="text-xs text-primary font-bold mb-2">{i.category}</div>
-                      <h3 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="post-card-title">
                         {i.title}
                       </h3>
                       <p className="text-sm text-white/50 leading-relaxed flex-1 line-clamp-2">{i.excerpt}</p>

@@ -1,3 +1,13 @@
+/* Sora, latin subset only (from @fontsource-variable/sora). */
+@font-face {
+  font-family: 'Sora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url(../node_modules/@fontsource-variable/sora/files/sora-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -73,11 +83,18 @@
   .footer-link:hover::before {
     @apply scale-150 bg-primary;
   }
-  .footer-link > span {
-    @apply transition-transform duration-300;
+  /* Widening the dot's margin slides the label right on hover, as the old translate did. */
+  .footer-link::before {
+    @apply mr-0 transition-all;
   }
-  .footer-link:hover > span {
-    @apply translate-x-2;
+  .footer-link:hover::before {
+    @apply mr-2;
+  }
+  .footer-list {
+    @apply space-y-4 text-base text-white/70 font-medium;
+  }
+  .footer-heading {
+    @apply font-black text-white mb-8 tracking-widest text-sm uppercase;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0;
@@ -175,6 +192,104 @@
   }
   .check-item {
     @apply flex items-center gap-4 text-lg font-medium text-white/90;
+  }
+  .footer-grid {
+    @apply absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,#000_70%,transparent_100%)];
+  }
+  .footer-glow {
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[120px] rounded-full pointer-events-none;
+  }
+  .footer-line {
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent;
+  }
+  .post-card {
+    @apply cursor-pointer h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col;
+  }
+  .post-card-tag {
+    @apply absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md text-primary text-xs font-bold border border-primary/20;
+  }
+  .post-card-arrow {
+    @apply w-4 h-4 text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all;
+  }
+  .post-card-title {
+    @apply text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight;
+  }
+  .post-card-img {
+    @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-700;
+  }
+  .post-card-fade {
+    @apply absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent;
+  }
+  .post-card-meta {
+    @apply flex items-center justify-between pt-4 border-t border-white/5;
+  }
+  .mock-frame {
+    @apply relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c];
+  }
+  .step-card {
+    @apply glass-card p-8 rounded-3xl flex flex-col gap-6 h-full border border-white/5 hover:border-primary/40 bg-[#111113]/80 relative overflow-hidden;
+  }
+  .step-card-icon {
+    @apply w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] relative z-10;
+  }
+  .marquee-avatar {
+    @apply w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl border;
+  }
+  .marquee-wash {
+    @apply absolute inset-0 bg-gradient-to-br to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+  }
+  .marquee-stars {
+    @apply mb-6 group-hover:scale-110 origin-left transition-transform duration-300;
+  }
+  .marquee-quote {
+    @apply text-xl text-white/90 mb-8 font-medium leading-relaxed;
+  }
+  .marquee-meta {
+    @apply text-sm flex items-center gap-1;
+  }
+  .tone-primary .marquee-card {
+    @apply hover:border-primary/50 hover:shadow-[0_10px_40px_hsl(var(--primary)/0.2)];
+  }
+  .tone-primary .marquee-wash {
+    @apply from-primary/10;
+  }
+  .tone-primary .marquee-stars,
+  .tone-primary .marquee-meta {
+    @apply text-primary;
+  }
+  .tone-primary .marquee-stars svg {
+    @apply drop-shadow-[0_0_5px_hsl(var(--primary)/0.5)];
+  }
+  .tone-primary .marquee-avatar {
+    @apply bg-primary/20 text-primary border-primary/30 shadow-[0_0_15px_hsl(var(--primary)/0.2)];
+  }
+  .tone-cyan .marquee-card {
+    @apply hover:border-[#06b6d4]/50 hover:shadow-[0_10px_40px_rgba(6,182,212,0.2)];
+  }
+  .tone-cyan .marquee-wash {
+    @apply from-[#06b6d4]/10;
+  }
+  .tone-cyan .marquee-stars,
+  .tone-cyan .marquee-meta {
+    @apply text-[#06b6d4];
+  }
+  .tone-cyan .marquee-stars svg {
+    @apply drop-shadow-[0_0_5px_rgba(6,182,212,0.5)];
+  }
+  .tone-cyan .marquee-avatar {
+    @apply bg-[#06b6d4]/20 text-[#06b6d4] border-[#06b6d4]/30 shadow-[0_0_15px_rgba(6,182,212,0.2)];
+  }
+  .accordion-trigger {
+    @apply flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180;
+  }
+  .field-dark {
+    @apply bg-white/[0.03] border-white/10 h-12;
+  }
+  .contact-link {
+    @apply text-white font-medium hover:text-primary transition-colors;
+  }
+  .contact-card-title {
+    @apply text-xl font-bold text-white mb-1;
   }
   .glass-card {
     background: linear-gradient(145deg, #ffffff08, #ffffff03);

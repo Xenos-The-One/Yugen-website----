@@ -6,7 +6,7 @@ import { auditOption, serviceOptions, site } from "@/content/site";
 import { submitForm } from "@/lib/submit";
 import { track } from "@vercel/analytics/react";
 
-const field = "bg-white/[0.03] border-white/10 h-12";
+const field = "field-dark";
 
 export function ContactForm({ audit = false }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", website: "", interests: audit ? [auditOption] : [], message: "", company_url: "" });

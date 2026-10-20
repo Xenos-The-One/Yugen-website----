@@ -40,6 +40,13 @@ export default defineConfig({
   plugins: [react(), devApi()],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
   server: { port: 5179, strictPort: true },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => (id.includes('node_modules/lucide-react') ? 'icons' : undefined),
+      },
+    },
+  },
   ssgOptions: {
     entry: 'src/main.tsx',
     dirStyle: 'flat',

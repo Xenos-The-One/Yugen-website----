@@ -22,13 +22,7 @@ export default function Contact() {
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-50 transition duration-300 z-0"
           style={{
-            background: useMotionTemplate`
-              radial-gradient(
-                800px circle at ${e}px ${t}px,
-                rgba(6,182,212, 0.15),
-                transparent 80%
-              )
-            `,
+            background: useMotionTemplate`radial-gradient(800px circle at ${e}px ${t}px, rgba(6,182,212,0.15), transparent 80%)`,
           }}
         />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
@@ -87,13 +81,13 @@ export default function Contact() {
                         {r.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-1">{r.title}</h3>
+                        <h3 className="contact-card-title">{r.title}</h3>
                         <p className="text-white/50 text-sm mb-2">{r.desc}</p>
                         <a
                           href={r.href}
                           onClick={() => track(r.event, { location: "contact_page" })}
                           {...(r.external && { target: "_blank", rel: "noreferrer" })}
-                          className="text-white font-medium hover:text-primary transition-colors"
+                          className="contact-link"
                         >
                           {r.info}
                         </a>
@@ -108,7 +102,7 @@ export default function Contact() {
                         <Video className="w-6 h-6" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-1">Prefer to Talk?</h3>
+                        <h3 className="contact-card-title">Prefer to Talk?</h3>
                         <p className="text-white/50 text-sm mb-2">Book a free 30-minute strategy call on Google Meet.</p>
                         <span className="text-white font-medium group-hover:text-primary transition-colors">Book a call →</span>
                       </div>

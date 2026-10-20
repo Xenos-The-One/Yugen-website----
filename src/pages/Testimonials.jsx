@@ -2,8 +2,8 @@ import { FadeInEase, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { PageExtras } from "@/components/PageExtras";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { ArrowRight, CheckCircle2, MapPin, Quote, Star } from "lucide-react";
-import { Stars } from "@/components/Stars";
+import { ArrowRight, Quote, Star } from "lucide-react";
+import { IconSprite, SpriteIcon, Stars } from "@/components/Stars";
 import { byline, testimonials } from "@/content/testimonials";
 
 export default function Testimonials() {
@@ -79,10 +79,10 @@ export default function Testimonials() {
                         <div>
                           <div className="font-bold text-white flex items-center gap-2">
                             {o.name}
-                            <CheckCircle2 className="w-4 h-4 text-green-400" />
+                            <SpriteIcon id="check" className="w-4 h-4 text-green-400" />
                           </div>
                           <div className="text-sm text-white/50 flex items-center gap-1">
-                            {o.location && <MapPin className="w-3.5 h-3.5 text-primary" />}
+                            {o.location && <SpriteIcon id="pin" className="w-3.5 h-3.5 text-primary" />}
                             {byline(o)}
                           </div>
                         </div>
@@ -95,6 +95,7 @@ export default function Testimonials() {
           </div>
         </div>
       </section>
+      <IconSprite />
       <PageExtras path="/testimonials" />
       <section className="py-32 px-4 relative border-t border-white/5 overflow-hidden bg-[#0a0a0c]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/20 via-[#06b6d4]/20 to-primary/20 blur-[100px] rounded-full pointer-events-none" />

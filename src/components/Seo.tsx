@@ -30,9 +30,6 @@ export function Seo({ title, description, path, jsonLd, brand = true, image = '/
       <meta property="og:url" content={url} />
       <meta property="og:image" content={`${site.url}${image}`} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${site.url}${image}`} />
       {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
     </Head>
   )

@@ -53,10 +53,14 @@ for (const file of walk(dist)) {
   // Rules Semrush's Site Audit flags: H1 identical to the title, under 10% visible text, thin pages.
   const h1 = decode(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, '').trim() ?? '')
   if (h1 && h1 === title) fail('H1 duplicates the title tag')
-  const text = decode(html.replace(/<(script|style)[\s\S]*?<\/\1>/g, '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
+  // Semrush joins text nodes without adding spaces and fails pages under 10%; keep a margin above that.
+  const visible = html.replace(/<(script|style)[\s\S]*?<\/\1>/g, '')
+  // Tags can contain ">" inside quoted attributes (Tailwind's [&>svg] variants), so skip quoted values.
+  const TAG = /<(?:[^>"']|"[^"]*"|'[^']*')*>/g
+  const text = decode(visible.replace(TAG, '')).replace(/\s+/g, ' ').trim()
   const ratio = text.length / html.length
-  if (ratio < 0.1) fail(`text-to-HTML ratio ${(ratio * 100).toFixed(1)}% (want 10%+)`)
-  const words = text.split(' ').length
+  if (ratio < 0.105) fail(`text-to-HTML ratio ${(ratio * 100).toFixed(1)}% (want 10.5%+)`)
+  const words = decode(visible.replace(TAG, ' ')).trim().split(/\s+/).length
   if (words < 200) fail(`${words} words (want 200+)`)
 
   for (const [, json] of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {

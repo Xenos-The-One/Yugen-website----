@@ -91,7 +91,7 @@ export default function Blog() {
                   src={i.image}
                   alt={i.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="post-card-img"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0a0c]/80 md:to-[#0a0a0c]" />
                 <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-primary text-white text-xs font-bold shadow-lg">
@@ -165,17 +165,17 @@ export default function Blog() {
                     y: -8,
                   }}
                   href={`/blog/${l.slug}`}
-                  className="group cursor-pointer h-full bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-xl flex flex-col"
+                  className="group post-card"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <img
                       src={l.image}
                       alt={l.title}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="post-card-img"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md text-primary text-xs font-bold border border-primary/20">
+                    <div className="post-card-fade" />
+                    <div className="post-card-tag">
                       {l.category}
                     </div>
                   </div>
@@ -193,13 +193,13 @@ export default function Blog() {
                         <Clock className="w-3 h-3" /> {l.readTime}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="post-card-title">
                       {l.title}
                     </h3>
                     <p className="text-sm text-white/60 leading-relaxed mb-6 flex-1">{l.excerpt}</p>
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                    <div className="post-card-meta">
                       <span className="text-xs font-bold text-white/70">{author.name}</span>
-                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="post-card-arrow" />
                     </div>
                   </div>
                 </motion.a>

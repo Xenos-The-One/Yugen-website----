@@ -13,7 +13,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { Analytics, track } from "@vercel/analytics/react";
 import { ChatWidget } from "@/components/ChatWidget";
-import { StarSymbol } from "@/components/Stars";
 import { products, site } from "@/content/site";
 import { areaLinks, industryLinks } from "@/content/landingLinks";
 
@@ -286,28 +285,12 @@ export default function Layout() {
           <Outlet />
         </main>
         <footer className="relative bg-[#030303] text-foreground py-32 px-4 border-t border-white/5 mt-auto overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,#000_70%,transparent_100%)]" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+          <div className="footer-grid" />
+          <div className="footer-glow" />
+          <div className="footer-line" />
           <div className="container mx-auto max-w-7xl relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: !0,
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-                className="lg:col-span-4"
-              >
+              <div className="lg:col-span-4">
                 <Logo className="h-12 mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-300 origin-left" />
                 <p className="text-white/60 text-lg leading-relaxed mb-8">
                   We build and manage AI-driven growth systems that get you found on Google and AI search, capture every lead, follow up automatically, and turn more inquiries into booked business.
@@ -360,58 +343,24 @@ export default function Layout() {
                   </a>
                   )}
                 </div>
-              </motion.div>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: !0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.1,
-                }}
-                className="lg:col-span-3 lg:col-start-6"
-              >
-                <h3 className="font-black text-white mb-8 tracking-widest text-sm uppercase">
+              </div>
+              <div className="lg:col-span-3 lg:col-start-6">
+                <h3 className="footer-heading">
                   <a href="/products" className="hover:text-primary transition-colors">Products</a>
                 </h3>
-                <ul className="space-y-4 text-base text-white/70 font-medium">
+                <ul className="footer-list">
                   {products.map((l, c) => (
                     <li key={c}>
                       <a href={l.path} className="footer-link">
-                        <span>{l.label}</span>
+                        {l.label}
                       </a>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: !0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.2,
-                }}
-                className="lg:col-span-2"
-              >
-                <h3 className="font-black text-white mb-8 tracking-widest text-sm uppercase">Company</h3>
-                <ul className="space-y-4 text-base text-white/70 font-medium">
+              </div>
+              <div className="lg:col-span-2">
+                <h3 className="footer-heading">Company</h3>
+                <ul className="footer-list">
                   {[
                     {
                       label: "About Us",
@@ -452,32 +401,15 @@ export default function Layout() {
                   ].map((l, c) => (
                     <li key={c}>
                       <a href={l.path} className="footer-link">
-                        <span>{l.label}</span>
+                        {l.label}
                       </a>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: !0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.3,
-                }}
-                className="lg:col-span-2"
-              >
-                <h3 className="font-black text-white mb-8 tracking-widest text-sm uppercase">Legal</h3>
-                <ul className="space-y-4 text-base text-white/70 font-medium">
+              </div>
+              <div className="lg:col-span-2">
+                <h3 className="footer-heading">Legal</h3>
+                <ul className="footer-list">
                   {[
                     {
                       label: "Terms of Use",
@@ -490,12 +422,12 @@ export default function Layout() {
                   ].map((l, c) => (
                     <li key={c}>
                       <a href={l.path} className="footer-link">
-                        <span>{l.label}</span>
+                        {l.label}
                       </a>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             </div>
             <div className="space-y-4 mb-12 text-sm text-white/50">
               {[
@@ -514,22 +446,7 @@ export default function Layout() {
                 </p>
               ))}
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-              }}
-              whileInView={{
-                opacity: 1,
-              }}
-              viewport={{
-                once: !0,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-              }}
-              className="flex flex-col md:flex-row justify-between items-center text-sm font-medium text-white/40 pt-8 border-t border-white/10"
-            >
+            <div className="flex flex-col md:flex-row justify-between items-center text-sm font-medium text-white/40 pt-8 border-t border-white/10">
               <div>
                 {"© "}
                 {new Date().getFullYear()}
@@ -543,10 +460,9 @@ export default function Layout() {
                   Terms
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </footer>
-        <StarSymbol />
         <Analytics />
         <ChatWidget />
       </div>

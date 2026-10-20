@@ -2,6 +2,7 @@ import { Box, Droplet, Hammer, Home as HomeIcon, Layers, LayoutGrid, Leaf, Paint
 import { Logo } from "@/components/Logo";
 import { LogoMark } from "@/components/Logo";
 import { TestimonialRow } from "@/components/TestimonialMarquee";
+import { IconSprite, SpriteIcon } from "@/components/Stars";
 import { testimonials } from "@/content/testimonials";
 import { industries } from "@/content/industries";
 import { Seo, orgJsonLd, websiteJsonLd } from "@/components/Seo";
@@ -15,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import {
   Calendar,
-  CheckCircle2,
   ChevronDown,
   MessageSquare,
   Phone,
@@ -340,6 +340,7 @@ export default function Home() {
           </FadeIn>
         </div>
         <div className="flex flex-col gap-8 relative z-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
+          <IconSprite />
           <TestimonialRow items={testimonials.slice(0, 5)} />
           <TestimonialRow items={testimonials.slice(5)} tone="cyan" reverse />
         </div>
@@ -377,7 +378,7 @@ export default function Home() {
                   (o, s) => (
                     <li className="check-item" key={s}>
                       <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-                        <CheckCircle2 className="w-5 h-5 text-primary drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                        <SpriteIcon id="check" className="w-5 h-5 text-primary drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
                       </div>
                       {o}
                     </li>
@@ -406,7 +407,7 @@ export default function Home() {
             <div className="order-1 lg:order-2 relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-[#06b6d4]/30 rounded-full blur-[100px] animate-pulse-glow" />
-                <div className="relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c]">
+                <div className="mock-frame">
                   <div className="h-16 border-b border-white/5 bg-[#111113] flex items-center px-6 gap-4">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -472,7 +473,7 @@ export default function Home() {
             <div className="relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-orange-500/20 rounded-full blur-[100px] animate-pulse-glow" />
-                <div className="relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c]">
+                <div className="mock-frame">
                   <div className="h-16 border-b border-white/5 bg-[#111113] flex items-center px-6">
                     <div className="text-sm font-bold text-white flex items-center gap-2">
                       <Phone className="w-4 h-4 text-red-400" />
@@ -562,7 +563,7 @@ export default function Home() {
                 ].map((o, s) => (
                   <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/30">
-                      <CheckCircle2 className="w-5 h-5 text-red-400 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                      <SpriteIcon id="check" className="w-5 h-5 text-red-400 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
                     </div>
                     {o}
                   </li>
@@ -616,7 +617,7 @@ export default function Home() {
                 ].map((o, s) => (
                   <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center border border-yellow-500/30">
-                      <CheckCircle2 className="w-5 h-5 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+                      <SpriteIcon id="check" className="w-5 h-5 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
                     </div>
                     {o}
                   </li>
@@ -634,7 +635,7 @@ export default function Home() {
             <div className="order-1 lg:order-2 relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 to-amber-500/20 rounded-full blur-[100px] animate-pulse-glow" />
-                <div className="relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c]">
+                <div className="mock-frame">
                   <div className="flex-1 p-10 flex flex-col items-center justify-center gap-10 bg-[#0a0a0c] relative overflow-hidden">
                     <div className="text-center relative z-10">
                       <div className="text-7xl font-black text-white mb-4 tracking-tighter">4.9</div>
@@ -661,7 +662,7 @@ export default function Home() {
                             }}
                             key={s}
                           >
-                            <Star className="w-10 h-10 fill-current drop-shadow-[0_0_20px_rgba(250,204,21,0.6)]" />
+                            <SpriteIcon id="star" className="w-10 h-10 fill-current drop-shadow-[0_0_20px_rgba(250,204,21,0.6)]" />
                           </motion.div>
                         ))}
                       </div>
@@ -710,7 +711,7 @@ export default function Home() {
             <div className="relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-green-500/20 to-emerald-500/20 rounded-full blur-[100px] animate-pulse-glow" />
-                <div className="relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c]">
+                <div className="mock-frame">
                   <div className="h-16 border-b border-white/5 bg-[#111113] flex items-center px-6 justify-between">
                     <div className="text-sm font-bold text-white flex items-center gap-2">
                       <Target className="w-4 h-4 text-green-400" />
@@ -847,7 +848,7 @@ export default function Home() {
                 ].map((o, s) => (
                   <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
-                      <CheckCircle2 className="w-5 h-5 text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
+                      <SpriteIcon id="check" className="w-5 h-5 text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
                     </div>
                     {o}
                   </li>
@@ -886,7 +887,7 @@ export default function Home() {
                 ].map((o, s) => (
                   <li className="check-item" key={s}>
                     <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center border border-sky-500/30">
-                      <CheckCircle2 className="w-5 h-5 text-sky-400 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
+                      <SpriteIcon id="check" className="w-5 h-5 text-sky-400 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
                     </div>
                     {o}
                   </li>
@@ -903,7 +904,7 @@ export default function Home() {
             <div className="order-1 lg:order-2 relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/30 to-[#06b6d4]/30 rounded-full blur-[100px] animate-pulse-glow" />
-                <div className="relative h-full w-full glass-card rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col bg-[#0a0a0c]">
+                <div className="mock-frame">
                   <div className="h-16 border-b border-white/5 bg-[#111113] flex items-center px-6 gap-4">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -1106,9 +1107,9 @@ export default function Home() {
               ].map((o, s) => (
                 <FadeIn delay={s * 0.1} key={s}>
                   <Tilt className="h-full">
-                    <div className="glass-card p-8 rounded-3xl flex flex-col gap-6 h-full border border-white/5 hover:border-primary/40 bg-[#111113]/80 group relative overflow-hidden">
+                    <div className="group step-card">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] relative z-10">
+                      <div className="step-card-icon">
                         {o.icon}
                       </div>
                       <div className="relative z-10">
