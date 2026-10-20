@@ -1,13 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, PhoneMissed } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
 
 export default function ProductMissedCall() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Instantly text back any missed call",
       "Customizable response messages",
       "Works 24/7, even on weekends",
@@ -46,15 +44,7 @@ export default function ProductMissedCall() {
               If you don't answer, they call the next guy on Google. Our system instantly texts them back to start a
               conversation and save the lead.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-red-600 hover:bg-red-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Stop Losing Leads
-              </Button>
-            </div>
+            <CtaPair location="product_missed_call" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

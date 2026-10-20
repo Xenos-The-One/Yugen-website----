@@ -1,13 +1,46 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, MonitorSmartphone } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
+import { CardGrid, Section, SectionHeading } from "@/components/LandingParts";
+
+// Why the Basic Website is $300–$500: efficient, not cheap.
+const savings = [
+  {
+    title: "A proven contractor template",
+    text: "Every site starts from a layout we've already built and tested for trades: click-to-call, quote forms, service pages and reviews where customers look for them. You're not paying for design rounds to reinvent that.",
+  },
+  {
+    title: "An AI-assisted build",
+    text: "AI tools speed up the first draft of your copy, page structure and on-page SEO. We review and edit every page, but the drafting hours a traditional agency bills for are gone.",
+  },
+  {
+    title: "A lean team with no overhead",
+    text: "No account managers, sales team or downtown office priced into your site. You deal directly with the people building it.",
+  },
+  {
+    title: "We earn on the ongoing work",
+    text: "A website is how most clients start with us. We make our margin on the SEO, lead and review systems some clients add later, so we don't need to make it all on the build. Adding them is never required.",
+  },
+];
+
+const agencyCosts = [
+  "Custom design rounds and revisions",
+  "Project and account management hours",
+  "Copywriting billed by the hour",
+  "Sales, office and overhead costs",
+];
+
+const youGet = [
+  "A fast, mobile-first site built for your trade",
+  "Click-to-call, quote forms and booking buttons",
+  "On-page SEO fundamentals so Google can rank it",
+  "Live in 7 to 10 days, and you own it",
+];
 
 export default function ProductWebsite() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Mobile-first design built for speed",
       "Conversion-optimized lead capture forms",
       "Integrated live web chat widget",
@@ -46,15 +79,7 @@ export default function ProductWebsite() {
               Stop losing customers to slow, outdated websites. We build lightning-fast, mobile-optimized sites designed
               specifically to turn visitors into booked jobs.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_50px_rgba(37,99,235,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Get Your Website
-              </Button>
-            </div>
+            <CtaPair location="product_website" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>
@@ -257,6 +282,42 @@ export default function ProductWebsite() {
           </div>
         </div>
       </section>
+      <div id="why-affordable" className="scroll-mt-24">
+        <Section alt>
+          <SectionHeading
+            title="Why it's $300–$500"
+            accent="(and not $5,000)"
+            sub="Inexpensive because the process is efficient, not because corners are cut. Here's where the savings come from."
+          />
+          <CardGrid items={savings} />
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-6">
+            <div className="rounded-[2rem] border border-white/10 bg-[#0a0a0c]/90 p-7">
+              <h3 className="text-xl font-bold text-white mb-4">Where a typical $3,000–$10,000 agency site goes</h3>
+              <ul className="space-y-3">
+                {agencyCosts.map((c) => (
+                  <li key={c} className="text-white/60 leading-relaxed">{c}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-[2rem] border border-blue-500/30 bg-blue-500/[0.06] p-7">
+              <h3 className="text-xl font-bold text-white mb-4">What your $300–$500 pays for</h3>
+              <ul className="space-y-3">
+                {youGet.map((c) => (
+                  <li key={c} className="flex gap-3 text-white/85 leading-relaxed">
+                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-white/50 max-w-3xl mx-auto mt-8">
+            Bigger builds, like many service pages, custom features or a full overhaul, are{" "}
+            <a href="/pricing" className="text-primary font-medium underline">quoted separately</a>, so you only pay for
+            what you need.
+          </p>
+        </Section>
+      </div>
       <ProductExtras path="/products/functional-website" />
     </div>
   );

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
+import { CtaPair } from '@/components/AuditCta'
 import { ProductExtras } from '@/components/ProductExtras'
 
 // Shared product page layout; class strings stay literal so Tailwind keeps them.
@@ -35,8 +34,7 @@ export const themes = {
   },
 }
 
-export function ProductPage({ path, theme, icon: Icon, eyebrow, title, accent, intro, cta, sectionTitle, sectionAccent, sectionBody, features, mock }) {
-  const navigate = useNavigate()
+export function ProductPage({ path, theme, icon: Icon, eyebrow, title, accent, intro, sectionTitle, sectionAccent, sectionBody, features, mock }) {
   const c = themes[theme]
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
@@ -55,15 +53,7 @@ export function ProductPage({ path, theme, icon: Icon, eyebrow, title, accent, i
               <span className={`text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${c.gradient}`}>{accent}</span>
             </p>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">{intro}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => navigate('/contact')}
-                size="lg"
-                className={`text-white font-bold text-lg px-10 h-16 rounded-full hover:scale-105 transition-all duration-300 w-full sm:w-auto ${c.button}`}
-              >
-                {cta}
-              </Button>
-            </div>
+            <CtaPair location={`product_${path.split('/').pop()}`} className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

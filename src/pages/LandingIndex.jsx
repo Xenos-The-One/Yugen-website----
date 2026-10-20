@@ -52,7 +52,7 @@ export function IndustriesIndex() {
         />
       </Section>
       <PageExtras path="/industries" />
-      <ClosingCta title="Don't see your trade?" text="We work with most home service businesses. Book a call and tell us about yours." />
+      <ClosingCta title="Don't see your trade?" text="We work with most home service businesses. Start with a free audit of yours, or book a call and tell us about it." />
     </div>
   );
 }
@@ -84,7 +84,7 @@ export function AreasIndex() {
           }))}
         />
       </Section>
-      <ClosingCta title="Working somewhere else?" text="We work with contractors across Ontario. Book a call and tell us where you operate." />
+      <ClosingCta title="Working somewhere else?" text="We work with contractors across Ontario. Start with a free audit, or book a call and tell us where you operate." />
     </div>
   );
 }

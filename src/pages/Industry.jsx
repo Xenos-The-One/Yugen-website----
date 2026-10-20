@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Briefcase } from "lucide-react";
 import { Seo, breadcrumbJsonLd, faqJsonLd, providerRef } from "@/components/Seo";
-import { CardGrid, Chips, ClosingCta, Faqs, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
+import { CardGrid, Chips, ClosingCta, Faqs, FirstHand, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
 import { industryBySlug } from "@/content/industries";
 import { industrySeo } from "@/content/industrySeo";
 import { areas } from "@/content/areas";
 import { byline, testimonials } from "@/content/testimonials";
 import { site } from "@/content/site";
+import { CaseStudySection } from "@/components/CaseStudyCards";
 import NotFound from "./NotFound";
 
 export default function Industry() {
@@ -97,6 +98,15 @@ export default function Industry() {
         <CardGrid items={t.seasons.map((s) => ({ title: s.season, text: s.text }))} columns="sm:grid-cols-2 lg:grid-cols-4" />
       </Section>
 
+      <FirstHand notes={t.fieldNotes} photos={t.photos} example={t.clientExample} subject={t.business} alt />
+
+      <CaseStudySection
+        title="Our work for"
+        accent={t.business}
+        sub={`Projects for ${t.business} in the GTA: what was broken, and what we built.`}
+        filter={(c) => c.trade === t.slug}
+      />
+
       <Section alt>
         <SectionHeading title="What contractors" accent="say" />
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -124,7 +134,7 @@ export default function Industry() {
 
       <ClosingCta
         title="Let's find the leaks in your business"
-        text="Book a free strategy call. We'll look at how you handle leads today, how you show up on Google and AI search, and what would bring in the most booked jobs."
+        text="Start with a free visibility and lead audit. We'll look at how you handle leads today, how you show up on Google and AI search, and what would bring in the most booked jobs."
       />
     </div>
   );

@@ -7,14 +7,16 @@ import { testimonials } from "@/content/testimonials";
 import { industries } from "@/content/industries";
 import { Seo, orgJsonLd, websiteJsonLd } from "@/components/Seo";
 import { BookingDialog } from "@/components/BookingDialog";
+import { AuditCta, CtaPair, trackEvent } from "@/components/AuditCta";
 import { openChat } from "@/components/ChatWidget";
-import { site } from "@/content/site";
+import { auditCta, site } from "@/content/site";
 import { track } from "@vercel/analytics/react";
 import { Counter, FadeIn, Tilt } from "@/components/motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import {
+  ArrowRight,
   Calendar,
   ChevronDown,
   MessageSquare,
@@ -28,7 +30,6 @@ import {
   Wind,
   Zap,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 // Opens the live chat; if it hasn't loaded yet, send them to the contact form instead.
 function chatOrContact(location) {
@@ -60,8 +61,7 @@ const homeFaqs = [
 ];
 
 export default function Home() {
-  const e = useNavigate(),
-    t = useMotionValue(0),
+  const t = useMotionValue(0),
     n = useMotionValue(0);
   function r({ currentTarget: o, clientX: s, clientY: i }) {
     const { left: l, top: c } = o.getBoundingClientRect();
@@ -202,7 +202,7 @@ export default function Home() {
               delay: 0.6,
             }}
             className="text-base sm:text-xl md:text-2xl text-white/70 max-w-3xl mx-auto text-center mb-8 md:mb-12 leading-relaxed font-light px-4"
-          >{`Stop paying for "exposure" and "branding" that doesn't pay the bills. We build AI-powered marketing systems that get GTA contractors found on Google and in AI search, capture every lead, text them back instantly, and book them onto your calendar. You do the work, we handle the chase.`}</motion.p>
+          >{`Stop paying for "exposure" and "branding" that doesn't pay the bills. We get GTA contractors more calls and booked jobs: found on Google and in AI search, every lead captured and texted back instantly, and booked straight onto your calendar. Our AI-powered systems run it in the background. You do the work, we handle the chase.`}</motion.p>
           <motion.div
             initial={false}
             animate={{
@@ -215,26 +215,27 @@ export default function Home() {
             }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full px-4 sm:px-0 relative z-20"
           >
+            <a
+              href={auditCta.href}
+              onClick={() => trackEvent("audit_click", { location: "home_hero" })}
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-black hover:bg-white/90 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_80px_rgba(255,255,255,0.6)] transition-all duration-500 hover:scale-105 relative overflow-hidden group"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                {auditCta.label}
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </span>
+            </a>
             <BookingDialog location="home_hero">
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-white text-black hover:bg-white/90 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_80px_rgba(255,255,255,0.6)] transition-all duration-500 hover:scale-105 relative overflow-hidden group"
+                variant="outline"
+                className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
               >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  {"Book a Call Now "}
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-                </span>
+                {"Book a Strategy Call "}
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </BookingDialog>
-            <Button
-              onClick={() => e("/free-seo-audit")}
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold text-sm sm:text-lg px-6 sm:px-10 h-12 sm:h-16 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
-            >
-              Free AI Visibility Audit
-            </Button>
           </motion.div>
           <motion.div
             initial={false}
@@ -569,14 +570,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog location="home_missed_call">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(239,68,68,0.3)] hover:shadow-[0_0_50px_rgba(239,68,68,0.5)] transition-all hover:scale-105 border-none"
-                >
-                  Protect Your Leads
-                </Button>
-              </BookingDialog>
+              <AuditCta location="home_missed_call" />
               {site.demoPhone && (
                 <p className="mt-8 text-lg text-white/70">
                   {"Try it now: call "}
@@ -623,14 +617,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog location="home_reviews">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-yellow-500 to-amber-500 text-black hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(250,204,21,0.3)] hover:shadow-[0_0_50px_rgba(250,204,21,0.5)] transition-all hover:scale-105 border-none"
-                >
-                  Grow Your Reviews
-                </Button>
-              </BookingDialog>
+              <AuditCta location="home_reviews" />
             </FadeIn>
             <div className="order-1 lg:order-2 relative">
               <Tilt className="relative w-full h-[450px] md:h-auto md:aspect-square max-w-[500px] mx-auto">
@@ -854,14 +841,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <BookingDialog location="home_reactivation">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-black hover:opacity-90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_30px_rgba(74,222,128,0.3)] hover:shadow-[0_0_50px_rgba(74,222,128,0.5)] transition-all hover:scale-105 border-none"
-                >
-                  Reactivate Your List
-                </Button>
-              </BookingDialog>
+              <AuditCta location="home_reactivation" />
             </FadeIn>
           </section>
           <section className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -871,13 +851,13 @@ export default function Home() {
                 {" AI Search"}
               </div>
               <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight text-white">
-                {"Get Recommended "}
+                {"Be the Name "}
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-[#99f6e4]">By AI</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-[#99f6e4]">They Call</span>
               </h2>
               <p className="text-xl text-white/80 mb-10 leading-relaxed font-light">
-                Your customers are asking ChatGPT, Gemini and Perplexity who to hire. We optimize your brand, content
-                and schema so AI search engines understand your business and name you in the answer.
+                Homeowners now ask ChatGPT, Gemini and Perplexity who to hire, and the business named in the answer
+                gets the call. We optimize your brand, content and schema so AI search names you, not your competitor.
               </p>
               <ul className="space-y-5 mb-12">
                 {[
@@ -960,8 +940,8 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                Our AI systems adapt to your specific industry, handling the unique questions and booking flows of your
-                trade.
+                Every trade books jobs differently. We tune lead capture, follow-up and booking to the questions and jobs
+                that pay in yours, with AI handling the conversations.
               </p>
             </div>
           </FadeIn>
@@ -1072,14 +1052,7 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="text-xl text-white/80 leading-relaxed mb-8">{`We don't care about "impressions" or "reach". We care about your bank account. Our systems are built to do one thing: turn a stranger into a booked job as fast as humanly possible.`}</p>
-                <BookingDialog location="home_advantage">
-                  <Button
-                    size="lg"
-                    className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-8 h-14 text-lg shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all"
-                  >
-                    Book a Strategy Call
-                  </Button>
-                </BookingDialog>
+                <AuditCta location="home_advantage" />
               </FadeIn>
             </div>
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
@@ -1096,8 +1069,8 @@ export default function Home() {
                 },
                 {
                   icon: <Sparkles className="w-6 h-6" />,
-                  title: "Real AI Integration",
-                  desc: "We use AI to handle conversations and bookings — not just gimmicks that look cool.",
+                  title: "Booking Jobs While You Sleep",
+                  desc: "AI answers questions and books appointments nights and weekends, so after-hours leads become jobs instead of voicemails.",
                 },
                 {
                   icon: <Shield className="w-6 h-6" />,
@@ -1215,18 +1188,11 @@ export default function Home() {
                     </span>
                   </h2>
                   <p className="text-lg sm:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed">
-                    We'll walk you through what we build, how it helps businesses grow, and give you the space to
-                    decide if moving forward makes sense.
+                    Start with a free visibility and lead audit. We'll show you where you rank, where calls and form
+                    leads slip away, and the fixes that would win you the most jobs first. Prefer to talk it through?
+                    Book a strategy call instead.
                   </p>
-                  <BookingDialog location="home_closing">
-                    <Button
-                      size="lg"
-                      className="bg-white text-black hover:bg-white/90 px-8 sm:px-10 h-14 sm:h-16 text-lg sm:text-xl rounded-full w-full md:w-auto shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] hover:scale-105 transition-all duration-300 font-bold group overflow-hidden relative"
-                    >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
-                      <span className="relative z-10">Book Your Strategy Call</span>
-                    </Button>
-                  </BookingDialog>
+                  <CtaPair location="home_closing" className="justify-center md:justify-start" />
                 </div>
                 <div className="w-full md:w-auto flex justify-center relative">
                   <motion.div

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Label, Textarea } from "@/components/ui/form";
 import { auditOption, serviceOptions, site } from "@/content/site";
 import { submitForm } from "@/lib/submit";
-import { track } from "@vercel/analytics/react";
+import { trackEvent } from "@/components/AuditCta";
 
 const field = "field-dark";
 
@@ -37,7 +37,7 @@ export function ContactForm({ audit = false }) {
         Message: form.message,
         company_url: form.company_url,
       });
-      track("contact_submit", { interest: form.interests.join(", ") || "none" });
+      trackEvent(wantsAudit ? "audit_submit" : "contact_submit", { interest: form.interests.join(", ") || "none" });
       setSent(true);
     } catch {
       setError(`Something went wrong. Please email us at ${site.email}.`);
@@ -61,8 +61,12 @@ export function ContactForm({ audit = false }) {
   return (
     <form onSubmit={submit} className="relative p-6 sm:p-8 space-y-5">
       <div>
-        <h2 className="text-3xl md:text-4xl font-black text-white mb-2">Send Us a Message</h2>
-        <p className="text-white/50">Tell us a little about your business and what you need. We reply within one business day.</p>
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-2">{audit ? "Request your free audit" : "Send Us a Message"}</h2>
+        <p className="text-white/50">
+          {audit
+            ? "Tell us your business and website. We'll review your visibility and lead capture and send the findings within 2 business days."
+            : "Tell us a little about your business and what you need. We reply within one business day."}
+        </p>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
@@ -135,7 +139,7 @@ export function ContactForm({ audit = false }) {
         disabled={sending}
         className="w-full h-14 text-lg font-bold rounded-full bg-white text-black hover:bg-white/90 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-[1.02] transition-all"
       >
-        {sending ? "Sending..." : "Send Message"} <Send className="w-5 h-5" />
+        {sending ? "Sending..." : audit ? "Send My Free Audit Request" : "Send Message"} <Send className="w-5 h-5" />
       </Button>
       {error && <p className="text-sm text-red-400 text-center">{error}</p>}
     </form>

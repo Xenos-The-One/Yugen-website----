@@ -81,6 +81,14 @@ export const productExtras = {
         a: 'A basic website is $300 to $500 one-time. Bigger or custom builds with more pages, features and integrations are quoted separately.',
       },
       {
+        q: 'Why is your website so affordable?',
+        a: 'It is built on a proven contractor template, AI tools speed up the drafting, there are no account managers or office overhead in the price, and we earn our margin on the ongoing SEO, lead and review work some clients add later, so we do not need to make it all on the build.',
+      },
+      {
+        q: 'Is a $300 website any good?',
+        a: 'For most contractors, yes. It is fast, mobile-first, has click-to-call, quote forms and on-page SEO, and it is built around how homeowners actually hire a trade. What you skip is custom design rounds and agency overhead, not quality. If you need many service pages or custom features, we quote that separately.',
+      },
+      {
         q: 'How long does it take?',
         a: 'Most sites are live in 7 to 10 days after you fill out a short onboarding form.',
       },

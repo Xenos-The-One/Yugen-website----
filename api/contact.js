@@ -25,8 +25,9 @@ export default async function handler(req, res) {
   const email = get('Email')
   if (!get('Name') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Name and a valid email are required' })
 
+  const title = form === 'contact' && /audit/i.test(get('Interested in')) ? 'Free audit request' : FORMS[form]
   try {
-    await sendEmail({ subject: `${FORMS[form]} - ${get('Business') || get('Name')}`, heading: FORMS[form], rows: entries, replyTo: email })
+    await sendEmail({ subject: `${title} - ${get('Business') || get('Name')}`, heading: title, rows: entries, replyTo: email })
   } catch (err) {
     console.error('SMTP send failed', err)
     return res.status(502).json({ error: 'Could not send email' })

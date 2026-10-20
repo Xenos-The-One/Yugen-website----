@@ -10,11 +10,12 @@ const checks = [
   { title: "Google Business Profile", text: "Categories, services, service area, photos, reviews and the details that decide map pack rankings.", href: "/blog/google-business-profile-optimization" },
   { title: "Website and technical SEO", text: "Speed on phones, indexing, titles, headings, structured data and anything stopping Google from trusting your site.", href: "/blog/technical-seo-basics" },
   { title: "Reviews and reputation", text: "How your review count, rating and recency compare with the contractors you lose jobs to.", href: "/products/review-system" },
-  { title: "Lead capture", text: "What happens when someone calls after hours, fills in a form or tries to book, and where leads slip away.", href: "/products/missed-call-text-back" },
+  { title: "Lead capture and response", text: "What happens when someone calls after hours, fills in a form or tries to book, how fast they hear back, and where leads slip away.", href: "/products/missed-call-text-back" },
 ];
 
 const youGet = [
   "A short, plain-English summary of where you stand on Google and in AI search",
+  "Where calls, forms and messages are leaking leads, and what that is likely costing you in jobs",
   "The three to five fixes that would make the biggest difference first",
   "How you compare with the competitors showing up instead of you",
   "Honest advice on what you can do yourself, with no obligation to hire us",
@@ -55,7 +56,10 @@ export default function FreeAudit() {
         icon={Search}
         title="Free SEO & AI visibility audit"
         accent="for GTA contractors"
-        intro="Find out where you rank on Google, whether AI assistants recommend you, and exactly what is holding you back. No cost, no obligation, no jargon."
+        intro="Find out where you rank on Google, whether AI assistants recommend you, where calls and form leads slip away, and exactly what is holding you back from more booked jobs. No cost, no obligation, no jargon."
+        primaryHref="#audit-form"
+        primaryLabel="Request My Free Audit"
+        location="audit_hero"
         image="/landing/img/area-toronto.webp"
         imageAlt="A residential street in the Greater Toronto Area"
       />
@@ -68,8 +72,8 @@ export default function FreeAudit() {
         <CheckList items={youGet} />
       </Section>
       <Section>
-        <SectionHeading title="Request your" accent="free audit" sub={`Or call ${site.phone}.`} />
-        <div className="max-w-3xl mx-auto">
+        <SectionHeading title="Two minutes to" accent="request it" sub={`Or call ${site.phone}.`} />
+        <div id="audit-form" className="max-w-3xl mx-auto scroll-mt-28">
           <ContactForm audit />
         </div>
       </Section>

@@ -1,17 +1,15 @@
 import { useRef } from "react";
+import { CtaPair } from "@/components/AuditCta";
 import { site } from "@/content/site";
 import { Logo, LogoMark } from "@/components/Logo";
 import { Seo } from "@/components/Seo";
 import { PageExtras } from "@/components/PageExtras";
 import { SlideIn } from "@/components/motion";
-import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { User } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 export default function About() {
-  const e = useNavigate(),
-    t = useRef(null),
+  const t = useRef(null),
     { scrollYProgress: n } = useScroll({
       target: t,
       offset: ["start start", "end start"],
@@ -236,16 +234,10 @@ export default function About() {
                     </span>
                   </h2>
                   <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                    We'll walk you through what we build, how it helps businesses grow, and give you the space to
-                    decide if moving forward makes sense.
+                    Start with a free visibility and lead audit of your business, or book a call and we'll walk you
+                    through what we build and give you the space to decide if moving forward makes sense.
                   </p>
-                  <Button
-                    onClick={() => e("/contact")}
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-white px-10 h-16 text-xl rounded-full w-full md:w-auto shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] hover:scale-105 transition-all duration-300"
-                  >
-                    Book a Call
-                  </Button>
+                  <CtaPair location="about_closing" className="justify-center md:justify-start" />
                 </div>
                 <div className="w-full md:w-auto flex justify-center relative">
                   <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-full" />

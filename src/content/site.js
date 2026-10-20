@@ -2,8 +2,6 @@ export const site = {
   name: 'Raindrop Marketing',
   url: 'https://www.raindropmarketing.ca',
   email: 'thailer@raindropmarketingcom.com',
-  // Client portal (AI SEO dashboard). Swap for the custom domain once it's live.
-  loginUrl: 'https://ai-seo-main.vercel.app/',
   founder: {
     name: 'Thailer Somerville',
     // Drop a photo in public/ (e.g. /founder.jpg) and set it here; empty shows the brand visual.
@@ -36,7 +34,10 @@ export const site = {
 }
 
 // Free audit offer: /contact?interest=audit preselects it on the contact form.
-export const auditOption = 'Free AI visibility audit'
+export const auditOption = 'Free visibility & lead audit'
+
+// The site's primary call to action. Booking a strategy call is the secondary one.
+export const auditCta = { label: 'Free Visibility & Lead Audit', href: '/free-seo-audit' }
 
 // Options for "what do you need help with" on the contact and onboarding forms.
 export const serviceOptions = [

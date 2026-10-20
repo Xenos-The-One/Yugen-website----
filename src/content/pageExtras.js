@@ -31,7 +31,8 @@ export const pageExtras = {
       { q: 'What do I keep if I cancel?', a: 'Your domain, your website, your Google Business Profile, your reviews and all the content we wrote for you. Only the automation tools we run for you, like the inbox, missed call text back and AI chat, switch off.' },
       { q: 'Is ad spend included in paid ads management?', a: 'No. Ad spend is paid directly to Google and Meta. Management is quoted separately based on your budget and goals.' },
       { q: 'How fast is a Basic Website built?', a: 'A Basic Website is $300 to $500 one-time and is usually live in 7 to 10 days once we have your content and photos. Larger or custom builds are quoted separately.' },
-      { q: 'Is there a free way to start?', a: 'Yes. The free SEO and AI visibility audit and the free 30-minute strategy call both show you where your business stands before you spend anything.' },
+      { q: 'Why is the Basic Website so affordable?', a: 'The price is efficient, not cheap: it is built on a proven contractor template, AI tools speed up the drafting, there are no account managers or office overhead in the price, and we earn our margin on the ongoing SEO, lead and review work some clients add later, so we do not need to make it all on the build.' },
+      { q: 'Is there a free way to start?', a: 'Yes. Start with the free visibility and lead audit: it shows where you rank on Google and in AI search and where calls and form leads slip away, before you spend anything. If you would rather talk it through, the 30-minute strategy call is free too.' },
       { q: 'Can I start small and upgrade later?', a: 'Yes. Many clients start with the Lead & Review System and add an SEO package once their leads are being handled properly.' },
     ],
   },
@@ -74,7 +75,7 @@ export const pageExtras = {
       { q: 'Do you pay for reviews or testimonials?', a: 'No. We never offer anything in exchange for a review, and we teach clients the same rule, because incentivized reviews break Google’s policies.' },
       { q: 'Where can I find Raindrop on Google?', a: 'Use the “Find us on Google” link at the bottom of every page to see our Google Business Profile.' },
       { q: 'What results should I expect?', a: 'It depends on your market, your current reviews and website, and how consistently the system is used. Lead capture tools like missed call text back work from the first day. SEO and AI search visibility build over months. We report on progress every month so you can judge for yourself.' },
-      { q: 'Can you help a business like mine?', a: 'Most of our clients are trades and home service businesses in the Greater Toronto Area. Book a free strategy call and we’ll tell you honestly whether we’re a good fit.' },
+      { q: 'Can you help a business like mine?', a: 'Most of our clients are trades and home service businesses in the Greater Toronto Area. Start with a free visibility and lead audit and we’ll tell you honestly whether we’re a good fit.' },
     ],
     links: [
       { label: 'Lead & Review System', href: '/pricing' },

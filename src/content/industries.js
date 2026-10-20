@@ -1,5 +1,9 @@
 // Trade landing pages (/industries/:slug). Each one is written for that trade; keep them distinct.
 // `roles` matches testimonial roles in testimonials.js.
+// Optional first-hand fields, rendered only when filled (keep them real, never estimated):
+//   fieldNotes: [{ title, text }]  findings from audits of this trade
+//   photos: [{ src, alt, caption }]  our own job or project photos in public/
+//   clientExample: { text, caseStudy }  short real story; caseStudy is an optional case study slug
 export const industries = [
   {
     slug: 'hvac',

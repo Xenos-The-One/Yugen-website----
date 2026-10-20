@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { Seo, breadcrumbJsonLd, faqJsonLd, providerRef } from "@/components/Seo";
-import { CardGrid, CheckList, Chips, ClosingCta, Faqs, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
+import { CardGrid, CheckList, Chips, ClosingCta, Faqs, FirstHand, LandingHero, Section, SectionHeading } from "@/components/LandingParts";
 import { areaBySlug } from "@/content/areas";
 import { industries } from "@/content/industries";
 import { site } from "@/content/site";
+import { CaseStudySection } from "@/components/CaseStudyCards";
 import NotFound from "./NotFound";
 
 const services = [
@@ -82,6 +83,15 @@ export default function Area() {
         <Faqs faqs={a.faqs} />
       </Section>
 
+      <FirstHand notes={a.fieldNotes} photos={a.photos} subject={`contractors in ${a.name}`} alt />
+
+      <CaseStudySection
+        title="Our work in"
+        accent={a.name}
+        sub={`Projects for contractors in ${a.name}: what was broken, and what we built.`}
+        filter={(c) => c.city === a.slug}
+      />
+
       <Section alt>
         <SectionHeading title="Nearby" accent="areas" />
         <Chips items={nearby.map((n) => n.name)} hrefs={nearby.map((n) => `/areas/${n.slug}`)} />
@@ -89,7 +99,7 @@ export default function Area() {
 
       <ClosingCta
         title={`Get more booked jobs in ${a.name}`}
-        text="Book a free strategy call. We'll look at how you show up for homeowners in your area today and what would bring in the most work."
+        text="Start with a free visibility and lead audit. We'll look at how you show up for homeowners in your area today, where leads slip away, and what would bring in the most work."
       />
     </div>
   );

@@ -93,7 +93,8 @@ export function ProductExtras({ path }) {
       )}
       <ClosingCta
         title={`Put ${p.name} to work`}
-        text="Book a free strategy call. We'll look at how you handle leads today and show you exactly what we'd set up."
+        text="Start with a free visibility and lead audit. We'll look at how you get found and handle leads today, and show you exactly what we'd set up."
+        location="product_closing"
       />
     </>
   )

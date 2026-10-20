@@ -1,13 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, Star, ThumbsUp } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
 
 export default function ProductReviews() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Automated SMS & email review requests",
       "Direct links to your Google Business Profile",
       "Hear about problems early so you can make them right",
@@ -46,15 +44,7 @@ export default function ProductReviews() {
               Reviews are the #1 factor customers use to choose a business. Stop begging for them. We automate the
               entire process so you get 5-star reviews while you sleep.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Boost My Reviews
-              </Button>
-            </div>
+            <CtaPair location="product_reviews" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

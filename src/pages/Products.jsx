@@ -107,7 +107,7 @@ export default function Products() {
     ];
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 min-h-screen">
-      <Seo title="Contractor Marketing Services" description="AI SEO, local SEO, content, websites, Google Ads, missed call text back and review automation: every marketing service GTA contractors need to grow." path="/products" />
+      <Seo title="Contractor Marketing Services" description="Every marketing service GTA contractors need to win more jobs: AI SEO, local SEO, content, websites, Google Ads, missed call text back and review automation." path="/products" />
       <section className="pt-40 pb-20 px-4 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full pointer-events-none animate-pulse-glow" />
         <div className="container mx-auto max-w-5xl relative z-10">

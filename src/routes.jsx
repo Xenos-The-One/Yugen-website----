@@ -1,4 +1,5 @@
 import Layout from './Layout'
+import { caseStudies } from './content/caseStudies'
 
 // Each page is its own chunk so visitors only download the code for the page they land on.
 // The import() must sit inside each lazy function: vite-react-ssg reads it to preload the chunk.
@@ -43,6 +44,17 @@ export const routes = [
         lazy: () => import('./pages/Area').then(page),
         getStaticPaths: async () => (await import('./content/areas')).areas.map((a) => `areas/${a.slug}`),
       },
+      // Case study routes exist only once there is a published case study (drafts too on the dev server).
+      ...(caseStudies.length
+        ? [
+            { path: 'case-studies', lazy: () => import('./pages/CaseStudies').then(page) },
+            {
+              path: 'case-studies/:slug',
+              lazy: () => import('./pages/CaseStudy').then(page),
+              getStaticPaths: async () => (await import('./content/caseStudies')).caseStudies.map((c) => `case-studies/${c.slug}`),
+            },
+          ]
+        : []),
       { path: 'contact', lazy: () => import('./pages/Contact').then(page) },
       { path: 'free-seo-audit', lazy: () => import('./pages/FreeAudit').then(page) },
       { path: 'legal', lazy: () => import('./pages/Legal').then(page) },

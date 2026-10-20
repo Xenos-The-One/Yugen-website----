@@ -17,7 +17,7 @@ export default function Contact() {
   }
   return (
     <div className="bg-background text-foreground selection:bg-primary/30">
-      <Seo title="Contact Us | Free AI Visibility Audit" description={`Book a free strategy call or AI visibility audit with Raindrop Marketing, or call ${site.phone} about SEO, websites and lead systems for your business.`} path="/contact" />
+      <Seo title="Contact | Free Visibility & Lead Audit" description={`Get a free visibility and lead audit or book a strategy call with Raindrop Marketing, or call ${site.phone} about SEO, websites and lead systems.`} path="/contact" />
       <div onMouseMove={n} className="min-h-screen bg-[#030303] relative overflow-hidden pt-32 pb-20">
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-50 transition duration-300 z-0"

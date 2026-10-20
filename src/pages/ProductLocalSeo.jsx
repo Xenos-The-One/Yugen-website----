@@ -1,13 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, MapPin, Search, Star } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
 
 export default function ProductLocalSeo() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Google Business Profile optimization",
       "Local citation building and management",
       "Keyword-optimized service pages",
@@ -46,15 +44,7 @@ export default function ProductLocalSeo() {
               When a customer searches for your services, you need to be at the top of Google Maps. We optimize your
               profile to make sure you get the call, not your competitor.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-green-600 hover:bg-green-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(22,163,74,0.4)] hover:shadow-[0_0_50px_rgba(22,163,74,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Rank Higher Now
-              </Button>
-            </div>
+            <CtaPair location="product_local_seo" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

@@ -26,7 +26,6 @@ export default function ProductContent() {
         title="Publish Consistently"
         accent="Without Lifting a Finger"
         intro="Search engines and AI reward businesses that publish helpful content on a steady schedule. We plan, write and publish it for you every month."
-        cta="Start Publishing"
         sectionTitle="Your Content"
         sectionAccent="Engine"
         sectionBody="Every piece is planned around the keywords your customers search, written to answer their questions, and linked together so your whole site gains authority."

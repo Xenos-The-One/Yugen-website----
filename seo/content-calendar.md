@@ -27,3 +27,4 @@ Posts live in `src/content/posts/*.js` and need a publish date in `src/content/b
 2. Rewrite titles and descriptions for posts with high impressions and CTR under 2%.
 3. Expand posts sitting at positions 8–20: add a section that answers the queries they already show up for.
 4. Update facts, prices and the year.
+5. Add first-hand material to one or two industry or area pages (`fieldNotes`, `photos`, `clientExample` in `src/content/industries.js` / `areas.js`): patterns from audits you ran that quarter, your own project photos, and a short real client story. Publish any finished case studies in `src/content/caseStudies.js`. This is what keeps those pages from being copied.

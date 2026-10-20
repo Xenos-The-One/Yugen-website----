@@ -1,13 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, Globe, Mail, MessageSquare, Smartphone } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
 
 export default function ProductInbox() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Manage SMS, Email, and Webchat in one place",
       "Connect Facebook Messenger and Instagram DMs",
       "Assign conversations to team members",
@@ -46,15 +44,7 @@ export default function ProductInbox() {
               Stop switching between text messages, emails, and social media apps. Reply to every customer lead from one
               single dashboard.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(8,145,178,0.4)] hover:shadow-[0_0_50px_rgba(8,145,178,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Simplify Your Inbox
-              </Button>
-            </div>
+            <CtaPair location="product_inbox" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

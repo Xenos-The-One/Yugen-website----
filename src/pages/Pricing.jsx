@@ -1,4 +1,5 @@
 import { BookingDialog } from "@/components/BookingDialog";
+import { CtaPair } from "@/components/AuditCta";
 import { FadeIn, Tilt } from "@/components/motion";
 import { Seo } from "@/components/Seo";
 import { PageExtras } from "@/components/PageExtras";
@@ -38,6 +39,7 @@ const starterPlans = [
       "Live in 7–10 days",
     ],
     note: "Bigger or custom builds are quoted separately.",
+    why: { label: "Why so affordable?", href: "/products/functional-website#why-affordable" },
   },
 ];
 
@@ -130,6 +132,11 @@ function PlanCard({ plan: p, delay }) {
             ))}
           </div>
           {p.note && <p className="relative z-10 text-white/40 text-sm text-center -mt-4 mb-6">{p.note}</p>}
+          {p.why && (
+            <a href={p.why.href} className="relative z-10 block text-primary text-sm font-bold text-center -mt-3 mb-6 hover:underline">
+              {p.why.label}
+            </a>
+          )}
           <div className="relative z-10">
             <BookingDialog location="pricing">
               <Button className="w-full bg-white text-black hover:bg-white/90 font-bold h-14 text-lg rounded-xl shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-all">
@@ -227,6 +234,18 @@ export default function Pricing() {
             ))}
           </div>
         </div>
+      </section>
+      <section className="px-4 pt-24">
+        <FadeIn>
+          <div className="container mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-5">Not sure where to start?</h2>
+            <p className="text-lg text-white/70 mb-8">
+              Get a free visibility and lead audit first. We'll show you where you're losing calls and jobs today and
+              which plan, if any, would fix it fastest.
+            </p>
+            <CtaPair location="pricing_closing" className="justify-center" />
+          </div>
+        </FadeIn>
       </section>
       <PageExtras path="/pricing" />
     </div>

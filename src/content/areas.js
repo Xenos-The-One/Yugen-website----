@@ -1,4 +1,5 @@
 // City landing pages (/areas/:slug). Keep each one specific to that city; no swapped-name copies.
+// Optional first-hand fields, rendered only when filled: fieldNotes [{ title, text }], photos [{ src, alt, caption }].
 export const areas = [
   {
     slug: "toronto",

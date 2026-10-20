@@ -1,15 +1,13 @@
 import { useMemo, useState } from "react";
+import { CtaPair } from "@/components/AuditCta";
 import { Seo } from "@/components/Seo";
 import { FadeIn } from "@/components/motion";
-import { Button } from "@/components/ui/button";
 import { author, categories, posts } from "@/content/blog";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, Search } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 export default function Blog() {
-  const e = useNavigate(),
-    [t, n] = useState(""),
+  const [t, n] = useState(""),
     [r, o] = useState("All"),
     s = useMemo(
       () =>
@@ -223,17 +221,10 @@ export default function Blog() {
               </span>
             </h2>
             <p className="text-xl text-white/70 mb-8 leading-relaxed">
-              Book a free strategy call and see exactly how our AI systems can get you found and win more customers for
-              your business.
+              Get a free visibility and lead audit and see where you're losing calls and jobs today, and what would win
+              you more customers first.
             </p>
-            <Button
-              onClick={() => e("/contact")}
-              size="lg"
-              className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-10 h-16 text-lg shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:scale-105 transition-all"
-            >
-              {"Book Your Strategy Call "}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <CtaPair location="blog_index" className="justify-center" />
           </FadeIn>
         </div>
       </section>

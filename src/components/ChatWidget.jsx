@@ -10,7 +10,7 @@ const GREETING = {
   role: 'assistant',
   content: "Hi! I'm Raindrop's AI assistant. Ask me anything about getting more booked jobs, our pricing, or how the lead system works.",
 }
-const STARTERS = ['What does it cost?', 'How does missed call text back work?', 'Can I get a free AI visibility audit?']
+const STARTERS = ['What does it cost?', 'How does missed call text back work?', 'Can I get a free visibility & lead audit?']
 
 // Opens the chat from anywhere on the site; returns false when the chat is turned off.
 export function openChat() {

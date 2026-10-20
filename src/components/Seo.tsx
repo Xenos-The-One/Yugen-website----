@@ -86,7 +86,7 @@ export const orgJsonLd = {
   image: `${site.url}/og-image.png`,
   ...(sameAs.length && { sameAs }),
   description:
-    'Raindrop Marketing builds AI-driven growth systems: SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
+    'Raindrop Marketing helps contractors and home service businesses win more calls and booked jobs with SEO, AI search optimization, content, websites, ads and automated lead follow-up.',
   knowsAbout: ['AI SEO', 'Search Engine Optimization', 'Content Marketing', 'Lead Generation', 'Web Design', 'Paid Advertising'],
 }
 

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { CtaPair } from "@/components/AuditCta";
 import { ArticleBody } from "@/components/ArticleBody";
 import { FadeIn } from "@/components/motion";
 import { Seo, breadcrumbJsonLd, founderJsonLd, providerRef } from "@/components/Seo";
@@ -174,17 +175,10 @@ export default function BlogPost() {
                   </span>
                 </h2>
                 <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                  Book a free strategy call and see exactly how we can get you found and win more customers for your
-                  business.
+                  Get a free visibility and lead audit and see where you're losing calls and jobs today, and what would
+                  win you more customers first.
                 </p>
-                <Button
-                  onClick={() => t("/contact")}
-                  size="lg"
-                  className="bg-white text-black hover:bg-white/90 font-bold rounded-full px-10 h-14 text-lg shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transition-all"
-                >
-                  {"Book Your Strategy Call "}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                <CtaPair location="blog_post" className="justify-center md:justify-start" />
               </div>
             </div>
           </FadeIn>

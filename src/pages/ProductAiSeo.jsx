@@ -20,11 +20,10 @@ export default function ProductAiSeo() {
         eyebrow="AI SEO Agency in Toronto"
         title="Get Recommended When Customers"
         accent="Ask AI"
-        intro="Your customers are asking ChatGPT, Gemini and Perplexity who to hire. We optimize your brand, content and schema so AI search engines understand your business and recommend it."
-        cta="Get Found in AI Search"
+        intro="Your customers are asking ChatGPT, Gemini and Perplexity who to hire, and the business named in the answer gets the call. We optimize your brand, content and schema so AI search recommends you, bringing in calls and jobs your competitors never see."
         sectionTitle="The AI"
         sectionAccent="Visibility Engine"
-        sectionBody="Ranking on Google is no longer the whole game. AI answers now sit above the links, and they only name a few businesses. We make sure yours is one of them, and we track it every month."
+        sectionBody="Ranking on Google is no longer the whole game. AI answers now sit above the links, and they only name a few businesses. We make sure yours is one of them, so more of those homeowners call you, and we track it every month."
         features={[
           'ChatGPT, Gemini and Perplexity visibility tracking',
           'Schema and entity optimization',

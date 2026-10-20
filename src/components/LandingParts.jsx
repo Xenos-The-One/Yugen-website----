@@ -1,11 +1,10 @@
-import { ArrowRight, Calendar, CheckCircle2, MapPin } from "lucide-react";
-import { BookingDialog } from "@/components/BookingDialog";
+import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { CtaPair } from "@/components/AuditCta";
 import { FadeIn } from "@/components/motion";
-import { Button } from "@/components/ui/button";
 
 // Shared building blocks for the industry and area landing pages.
 
-export function LandingHero({ eyebrow, icon: Icon = MapPin, title, accent, intro, image, imageAlt }) {
+export function LandingHero({ eyebrow, icon: Icon = MapPin, title, accent, intro, image, imageAlt, primaryHref, primaryLabel, location = "landing_hero" }) {
   return (
     <section className="relative pt-32 sm:pt-40 pb-16 px-4 overflow-hidden bg-[#030303]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
@@ -20,19 +19,7 @@ export function LandingHero({ eyebrow, icon: Icon = MapPin, title, accent, intro
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#99f6e4]">{accent}</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8">{intro}</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <BookingDialog location="landing_hero">
-                <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bold h-14 px-8 rounded-full text-base">
-                  Book a Call <Calendar className="w-4 h-4 ml-2" />
-                </Button>
-              </BookingDialog>
-              <a
-                href="/free-seo-audit"
-                className="inline-flex items-center justify-center h-14 px-8 rounded-full border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 transition-colors"
-              >
-                Free AI Visibility Audit
-              </a>
-            </div>
+            <CtaPair location={location} primaryHref={primaryHref} primaryLabel={primaryLabel} />
           </div>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-[#06b6d4]/10 blur-3xl rounded-[3rem] pointer-events-none" />
@@ -144,19 +131,46 @@ export function Section({ children, alt = false }) {
   );
 }
 
-export function ClosingCta({ title, text }) {
+export function ClosingCta({ title, text, location = "landing_closing" }) {
   return (
     <section className="py-24 px-4 border-t border-white/5 bg-[#030303] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/15 blur-[140px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-3xl text-center relative z-10">
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-5">{title}</h2>
         <p className="text-lg text-white/70 mb-8">{text}</p>
-        <BookingDialog location="landing_closing">
-          <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bold h-14 px-10 rounded-full text-base">
-            Book Your Strategy Call
-          </Button>
-        </BookingDialog>
+        <CtaPair location={location} className="justify-center" />
       </div>
     </section>
+  );
+}
+
+// First-hand material for industry and area pages: audit findings, our own photos and a client example.
+// Each part renders only when filled in, so empty pages never ship thin sections.
+export function FirstHand({ notes = [], photos = [], example, subject, alt = false }) {
+  if (!notes.length && !photos.length && !example) return null;
+  return (
+    <Section alt={alt}>
+      <SectionHeading title="From our" accent="own work" sub={`What we've seen first-hand auditing and working with ${subject}.`} />
+      {notes.length > 0 && <CardGrid items={notes} />}
+      {photos.length > 0 && (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mt-6">
+          {photos.map((p) => (
+            <figure key={p.src}>
+              <img src={p.src} alt={p.alt} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-[2rem] border border-white/10" />
+              {p.caption && <figcaption className="text-sm text-white/50 mt-3 text-center">{p.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      )}
+      {example && (
+        <div className="max-w-3xl mx-auto mt-6 rounded-[2rem] border border-primary/30 bg-primary/[0.06] p-7">
+          <h3 className="text-xl font-bold text-white mb-3">A real example</h3>
+          <p className="text-white/75 leading-relaxed">{example.text}</p>
+          {example.caseStudy && (
+            <a href={`/case-studies/${example.caseStudy}`} className="inline-block mt-4 text-primary font-bold hover:underline">Read the case study</a>
+          )}
+        </div>
+      )}
+    </Section>
   );
 }

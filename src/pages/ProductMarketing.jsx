@@ -1,13 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { ProductExtras } from "@/components/ProductExtras";
 import { Seo } from "@/components/Seo";
 import { motion } from "framer-motion";
 import { CheckCircle2, Send, Users, Zap } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { CtaPair } from "@/components/AuditCta";
 
 export default function ProductMarketing() {
-  const e = useNavigate(),
-    t = [
+  const t = [
       "Pre-built email and SMS campaigns",
       "Seasonal offers and maintenance reminders",
       "Segment your list by job type or date",
@@ -46,15 +44,7 @@ export default function ProductMarketing() {
               Your biggest asset is your past customer list. Launch targeted email and SMS campaigns instantly to
               generate immediate bookings during slow seasons.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => e("/contact")}
-                size="lg"
-                className="bg-yellow-600 hover:bg-yellow-500 text-white font-bold text-lg px-10 h-16 rounded-full shadow-[0_0_30px_rgba(202,138,4,0.4)] hover:shadow-[0_0_50px_rgba(202,138,4,0.6)] hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Launch a Campaign
-              </Button>
-            </div>
+            <CtaPair location="product_marketing" className="items-center justify-center" />
           </motion.div>
         </div>
       </section>

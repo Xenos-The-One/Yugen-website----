@@ -25,7 +25,6 @@ export default function ProductAds() {
         title="Ads That Pay"
         accent="for Themselves"
         intro="We run Google and Meta campaigns built around one goal: booked calls. Every ad is tracked so you know exactly what you are getting back."
-        cta="Launch My Ads"
         sectionTitle="Spend Smarter,"
         sectionAccent="Not Bigger"
         sectionBody="Most ad accounts leak money on clicks that never call. We build tight campaigns, send them to pages that convert, and connect every lead to your follow-up system."

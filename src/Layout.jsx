@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BookingDialog } from "@/components/BookingDialog";
+import { AuditCta, BookCallButton } from "@/components/AuditCta";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -15,6 +16,7 @@ import { Analytics, track } from "@vercel/analytics/react";
 import { ChatWidget } from "@/components/ChatWidget";
 import { products, site } from "@/content/site";
 import { areaLinks, industryLinks } from "@/content/landingLinks";
+import { caseStudies } from "@/content/caseStudies";
 
 export default function Layout() {
   const [t, n] = useState(!1),
@@ -132,22 +134,15 @@ export default function Layout() {
                 </a>
               </div>
               <div className="hidden xl:flex items-center gap-4">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="text-white hover:text-white hover:bg-white/10 transition-all duration-300 font-bold rounded-full px-6 h-10"
-                >
-                  <a href={site.loginUrl}>Log In</a>
-                </Button>
                 <BookingDialog location="nav_desktop">
-                  <Button className="bg-white text-black hover:bg-white/90 font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 rounded-full px-6 h-10 group relative overflow-hidden">
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
-                    <span className="relative z-10 flex items-center gap-2">
-                      {"Book Appointment "}
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                  <Button
+                    variant="ghost"
+                    className="text-white hover:text-white hover:bg-white/10 transition-all duration-300 font-bold rounded-full px-5 h-10"
+                  >
+                    Book a Call
                   </Button>
                 </BookingDialog>
+                <AuditCta location="nav_desktop" size="sm" />
               </div>
               <button
                 aria-label={t ? "Close menu" : "Open menu"}
@@ -263,18 +258,8 @@ export default function Layout() {
                         <Phone className="w-5 h-5" /> Call {site.phone}
                       </a>
                     )}
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full text-white border-white/20 hover:bg-white/10 text-lg h-14 rounded-full font-bold"
-                    >
-                      <a href={site.loginUrl}>Log In</a>
-                    </Button>
-                    <BookingDialog location="nav_mobile_menu">
-                      <Button className="w-full bg-white text-black hover:bg-white/90 text-lg h-14 rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                        Book Appointment
-                      </Button>
-                    </BookingDialog>
+                    <AuditCta location="nav_mobile_menu" className="w-full text-lg" />
+                    <BookCallButton location="nav_mobile_menu" className="w-full text-lg" />
                   </div>
                 </div>
               </motion.div>
@@ -293,7 +278,7 @@ export default function Layout() {
               <div className="lg:col-span-4">
                 <Logo className="h-12 mb-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-300 origin-left" />
                 <p className="text-white/60 text-lg leading-relaxed mb-8">
-                  We build and manage AI-driven growth systems that get you found on Google and AI search, capture every lead, follow up automatically, and turn more inquiries into booked business.
+                  We help contractors win more calls and booked jobs: found on Google and in AI search, every lead captured and followed up automatically, and more inquiries turned into booked business.
                 </p>
                 {site.phone && (
                   <a href={site.phoneHref} onClick={() => track("phone_click", { location: "footer" })} className="block text-white text-lg font-bold mb-8 hover:text-primary transition-colors">
@@ -374,6 +359,14 @@ export default function Layout() {
                       label: "Testimonials",
                       path: "/testimonials",
                     },
+                    ...(caseStudies.length
+                      ? [
+                          {
+                            label: "Case Studies",
+                            path: "/case-studies",
+                          },
+                        ]
+                      : []),
                     {
                       label: "Industries",
                       path: "/industries",

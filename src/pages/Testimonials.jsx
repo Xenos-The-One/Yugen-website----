@@ -1,6 +1,8 @@
 import { FadeInEase, Tilt } from "@/components/motion";
+import { CtaPair } from "@/components/AuditCta";
 import { Seo } from "@/components/Seo";
 import { PageExtras } from "@/components/PageExtras";
+import { CaseStudySection } from "@/components/CaseStudyCards";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { IconSprite, SpriteIcon, Stars } from "@/components/Stars";
@@ -96,6 +98,7 @@ export default function Testimonials() {
         </div>
       </section>
       <IconSprite />
+      <CaseStudySection sub="The projects behind the reviews: what each business needed and what we built." alt />
       <PageExtras path="/testimonials" />
       <section className="py-32 px-4 relative border-t border-white/5 overflow-hidden bg-[#0a0a0c]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/20 via-[#06b6d4]/20 to-primary/20 blur-[100px] rounded-full pointer-events-none" />
@@ -112,16 +115,7 @@ export default function Testimonials() {
               Stop losing leads to missed calls. Let's build a system that captures traffic, responds instantly, and
               books more jobs.
             </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-black hover:bg-white/90 px-10 h-16 text-xl rounded-full shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] hover:scale-105 transition-all duration-300 font-bold group overflow-hidden relative"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />
-              <span className="relative z-10 flex items-center gap-2">
-                {"Book Your Strategy Call "}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
+            <CtaPair location="testimonials" className="justify-center" />
           </FadeInEase>
         </div>
       </section>
